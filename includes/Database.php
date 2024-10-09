@@ -1,12 +1,13 @@
 <?php
+
 class Database {
     private $host;
     private $user;
     private $pass;
     private $dbname;
-    private $pdo;
+    private $pdo = null;
 
-    public  function __construct($host = 'localhost', $user = 'root', $pass = 'root', $dbname) {
+    public  function __construct($dbname, $host = 'mysql-intraiut.alwaysdata.net', $user = 'intraiut', $pass = 'intraiutsae13100') {
         $this->host = $host;
         $this->user = $user;
         $this->pass = $pass;
@@ -14,14 +15,26 @@ class Database {
 
     }
     private function getPDO() {
-        $pdo = new PDO("mysql:host=mysql-intraiut.alwaysdata.net;dbname=intraiut_1", "intraiut", "intraiutsae13100");
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $this->pdo = $pdo;
-        return $pdo;
+        //voir si cette condition est exécutée
+        if ($this->pdo === null) {
+            echo "Création de la connexion PDO<br>";
+            try {
+                $this->pdo = new PDO("mysql:host={$this->host};dbname={$this->dbname}", $this->user, $this->pass);
+                $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                echo "Connexion établie avec succès<br>";
+            } catch (PDOException $e) {
+                die("Erreur de connexion à la base de données : " . $e->getMessage());
+            }
+        } else {
+            // voir si la connexion existe déjà
+            echo "Connexion PDO déjà établie<br>";
+        }
+        return $this->pdo;
     }
-    public function test($statement) {
-        $req = $this->getPDO()->prepare($statement );
-        return $datas = $req->fetchAll(PDO::FETCH_ASSOC);
+    public function query($statement) {
+        $req = $this->getPDO()->query($statement);
+        $datas = $req->fetchAll(PDO::FETCH_OBJ);
+        return $datas;
     }
 }
 

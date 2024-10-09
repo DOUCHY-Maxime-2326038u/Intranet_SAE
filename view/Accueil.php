@@ -1,5 +1,6 @@
 <?php
 require 'includes/Database.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -26,6 +27,13 @@ require 'includes/Database.php';
 </header>
 
 <main>
+
+        <ul>
+            <?php foreach($db->query('SELECT * FROM test') as $row):?>
+                <li><?= $row->id_test; ?></li>
+            <?php endforeach; ?>
+
+        </ul>
 
 
 </main>
