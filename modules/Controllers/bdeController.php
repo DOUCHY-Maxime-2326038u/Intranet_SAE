@@ -1,6 +1,6 @@
 <?php
 
-namespace controller;
+namespace modules\Controllers;
 
 class bdeController
 {
