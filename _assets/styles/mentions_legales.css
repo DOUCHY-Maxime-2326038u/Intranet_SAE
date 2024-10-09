@@ -1,0 +1,56 @@
+/* Style général pour le corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F2F2F2; /* Gris clair pour le fond */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #000000; /* Texte en noir */
+}
+
+/* Style pour l'en-tête principal */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #0066CC; /* Bleu foncé AMU */
+    font-size: 2.5em;
+}
+
+/* Style pour les titres des sections */
+h2 {
+    color: #00CCFF; /* Bleu clair AMU */
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+/* Style pour les paragraphes */
+p {
+    margin: 10px 20px;
+    font-size: 1.1em;
+    color: #000000; /* Texte en noir */
+}
+
+/* Style pour centrer le contenu de la page */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #FFFFFF; /* Fond blanc */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Style pour les liens */
+a {
+    color: #0066CC; /* Bleu foncé AMU */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Couleurs supplémentaires */
+.highlight {
+    color: #FFCC00; /* Jaune AMU pour les éléments mis en avant */
+}

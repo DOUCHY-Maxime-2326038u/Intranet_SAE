@@ -16,6 +16,7 @@ $hebergeur_tel = "+33 (0)9 72 10 10 07";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentions Légales</title>
+    <link rel="stylesheet" href="../_assets/styles/mentions_legales.css">
 </head>
 <body>
 <h1>Mentions légales</h1>
