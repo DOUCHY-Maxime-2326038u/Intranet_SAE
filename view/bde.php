@@ -21,6 +21,10 @@ session_start();
         Dans ce bureau, vous trouverez un espace proposant de la <b>nourriture</b>, des <b>boissons</b> et deux consoles de <b>jeux-vidéo</b> ! Avec une Nintendo Switch et une Playstation 4, vous ne
         manquerez pas de vous amuser pendant vos pauses !
     </div>
+    <div class="carte_bde">
+        <img src="../_assets/img/carte_bde.png">
+        <img src="../_assets/img/photo_bde.jpg">
+    </div>
 
 
     </body>
