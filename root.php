@@ -30,16 +30,16 @@ $C_controller = new ControllerHandler($S_controller, $S_action);
 $C_controller->execute();
 
 // Récupère le contenu tamponné
-$contenuPourAffichage = ViewHandler::bufferCollect();
+$displayContent = ViewHandler::bufferCollect();
+$A_params = $C_controller->getParams();
+$A_params['body'] = $displayContent;
 
 // Si c'est une requête AJAX, renvoyer seulement le contenu partiel au format JSON
 if (isAjaxRequest()) {
-    echo $contenuPourAffichage;
+    echo $displayContent;
 } else {
     // Sinon, on affiche le gabarit complet avec le contenu
-    ViewHandler::show('pattern', [
-        'body' => $contenuPourAffichage
-    ]);
+    ViewHandler::show('pattern', $A_params);
 }
 
 
