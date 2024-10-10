@@ -1,13 +1,16 @@
+
 <?php
-namespace modules\Controllers;
-
-class MentionsLegalesController
+final class MentionsLegalesController
 {
+    private string $titre  = "mentions_legales";
 
-    public function afficherPage()
+    public function defaultAction()
     {
-        include_once 'view/mentions_legales.php';
+        ViewHandler::show("mentions_legales");
+    }
+
+    public function getTitre(): string
+    {
+        return $this -> titre;
     }
 }
-
-?>

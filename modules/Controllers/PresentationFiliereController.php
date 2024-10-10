@@ -1,12 +1,16 @@
-<?php
-namespace modules\Controllers;
 
-class PresentationFiliereController
+<?php
+final class PresentationFiliereController
 {
-    public function afficherPage()
+    private string $titre  = "presentation_filiere";
+
+    public function defaultAction()
     {
-        include_once 'view/presentation_filiere.php';
+        ViewHandler::show("presentation_filiere");
+    }
+
+    public function getTitre(): string
+    {
+        return $this -> titre;
     }
 }
-
-?>

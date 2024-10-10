@@ -1,12 +1,12 @@
 
 <?php
-final class AccueilController
+final class BdeController
 {
-    private string $titre  = "accueil";
-    
+    private string $titre  = "bde";
+
     public function defaultAction()
     {
-        ViewHandler::show("accueil");
+        ViewHandler::show("bde");
     }
 
     public function getTitre(): string
