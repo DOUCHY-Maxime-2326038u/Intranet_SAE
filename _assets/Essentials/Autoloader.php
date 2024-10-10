@@ -1,6 +1,6 @@
 <?php
 
-require 'essentials/Constants.php';
+require 'Constants.php';
 
 final class Autoloader
 {

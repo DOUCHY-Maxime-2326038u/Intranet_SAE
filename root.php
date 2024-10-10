@@ -1,5 +1,5 @@
 <?php
-require '_assets//Autoloader.php';
+require '_assets/Essentials/Autoloader.php';
 
 header_remove("Server");
 header_remove("Via");
@@ -41,5 +41,6 @@ if (isAjaxRequest()) {
         'body' => $contenuPourAffichage
     ]);
 }
+
 
 

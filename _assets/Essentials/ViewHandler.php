@@ -12,7 +12,7 @@ final class ViewHandler
         return ob_get_clean();
     }
 
-    public static function show(string $S_loc, array $A_params = []): void
+    public static function show(string $S_loc): void
     {
         $S_file = Constants::viewsDir() . $S_loc . '.php';
 
