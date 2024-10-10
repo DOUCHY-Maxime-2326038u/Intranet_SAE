@@ -3,14 +3,20 @@
 final class AccueilController
 {
     private string $titre  = "Accueil";
-    
-    public function defaultAction()
+    private array $params = [];
+
+    public function __construct()
     {
-        ViewHandler::show("Accueil");
+        $this->params['titre'] = $this->titre;
     }
 
-    public function getTitre(): string
+    public function getParams(): array
     {
-        return $this -> titre;
+        return $this->params;
+    }
+
+    public function defaultAction()
+    {
+        ViewHandler::show("Accueil", $this->params);
     }
 }
