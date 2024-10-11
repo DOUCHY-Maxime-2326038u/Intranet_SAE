@@ -35,7 +35,7 @@
         Retrouvez facilement notre département grâce au plan interactif ci-dessous. Nous sommes situés au bâtiment B, juste à côté de l'entrée principale.
     </p>
 
-    <!-- Section de l'image avec le plan de l'IUT -->
+
     <div class="plan-container">
         <img src="../_assets/images/plan_iut.png" alt="Plan de l'IUT Aix-en-Provence" style="width:100%; height:auto;">
     </div>
