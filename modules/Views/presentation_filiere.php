@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Présentation des parcours du BUT Informatique</title>
-    <link rel="stylesheet" href="../_assets/styles/presentation_filiere.css">
+    <link rel="stylesheet" href="/_assets/styles/presentation_filiere.css">
 </head>
 <body>
 <header>
