@@ -1,0 +1,16 @@
+
+<?php
+final class MentionsLegalesController
+{
+    private string $titre  = "mentions_legales";
+
+    public function defaultAction()
+    {
+        ViewHandler::show("mentions_legales");
+    }
+
+    public function getTitre(): string
+    {
+        return $this -> titre;
+    }
+}
