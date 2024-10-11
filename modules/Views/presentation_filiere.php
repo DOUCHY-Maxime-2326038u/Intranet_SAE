@@ -10,6 +10,19 @@
     <link rel="stylesheet" href="../_assets/styles/presentation_filiere.css">
 </head>
 <body>
+<header>
+    <nav class="secondHeader">
+        <ul>
+            <li><a href="/root.php?ctrl=Accueil">Accueil</a></li>
+            <li><a href="/root.php?ctrl=Connexion">Connexion</a></li>
+            <li><a href="/root.php?ctrl=Bde">Bde</a></li>
+            <li><a href="/root.php?ctrl=MentionsLegales">Mentions Légales</a></li>
+            <li><a href="/root.php?ctrl=PresentationFiliere">Présentation des filières</a></li>
+
+        </ul>
+    </nav>
+</header>
+
 <h1>Présentation des parcours du BUT Informatique</h1>
 
 <p>Le BUT Informatique est un diplôme national dont l'objectif est de former des informaticiens généralistes. Ces derniers participent à la conception, la réalisation et la mise en œuvre de solutions informatiques. Le département informatique d’Aix-en-Provence propose des parcours permettant aux étudiants d'acquérir des compétences théoriques et pratiques, nécessaires pour une insertion professionnelle rapide ou une poursuite d'études.</p>

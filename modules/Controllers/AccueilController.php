@@ -17,6 +17,6 @@ final class AccueilController
 
     public function defaultAction()
     {
-        ViewHandler::show("Accueil", $this->params);
+        ViewHandler::show("accueil", $this->params);
     }
 }
