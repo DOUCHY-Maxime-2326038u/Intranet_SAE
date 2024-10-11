@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bureau des Étudiants - Informatique</title>
-    <link rel="stylesheet" href="../_assets/styles/bde.css">
+    <link rel="stylesheet" href="/_assets/styles/bde.css">
 </head>
 <body>
 <section class="intro">
@@ -47,12 +47,12 @@
 <section class="image-cards">
     <div class="container">
         <div class="image-card">
-            <img src="../_assets/img/photo_bde.jpg" alt="Image 1">
+            <img src="/_assets/img/photo_bde.jpg" alt="Image 1">
             <h3>Image Frigo</h3>
             <p>Description de l'image ou du contenu associé.</p>
         </div>
         <div class="image-card">
-            <img src="../_assets/img/carte_bde.png" alt="Image 2">
+            <img src="/_assets/img/carte_bde.png" alt="Image 2">
             <h3>Carte boisson & snacks</h3>
             <p>Description de l'image ou du contenu associé.</p>
         </div>
