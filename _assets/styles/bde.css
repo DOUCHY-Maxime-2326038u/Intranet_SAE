@@ -1,52 +1,167 @@
-*{
+* {
     margin: 0;
     padding: 0;
-font-family: Lexend, sans-serif;
-transition: 300ms ease-in-out;
+    box-sizing: border-box;
 }
 
-.entete{
-    background-image: url('../img/bde.jpg');
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6fc;
+    min-height: 100vh; /* Utilisation de min-height pour permettre à la page de s'étendre */
     display: flex;
     flex-direction: column;
+}
+
+.intro h2 {
+    font-size: 2.8rem;
+    color: #292ccf;
+    text-align: center; /* Pour que le titre reste centré */
+    margin-bottom: 1rem;
+    line-height: 1.2; /* Ajustement de l'espacement entre les lignes */
+}
+
+/* Conteneur plein écran réutilisé pour l'intro et le texte du BDE */
+.full-width-container {
+    width: 100%; /* Prendre toute la largeur */
+    padding: 2rem; /* Ajouter un espacement autour du contenu */
+    box-sizing: border-box; /* Inclure le padding dans la largeur totale */
+}
+
+.features {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    background-size: cover;
-    color: #fff;
-    padding: 5vw 0;
-    height: 15vw;
-}
-
-h1{
-    display: block;
-    text-align: center;
-    font-family: Times, Times New Roman, serif;
-    font-size: 4vw;
     width: 100%;
-    height: 20vw;
-    padding: 5vw 0;
-    font-weight: 500;
-    color: white;
+    margin-top: 2rem;
 }
 
-.intro_bde{
-    background : #fff;
-    box-shadow: 0 0 2px black, -5px 5px 0 #1F63DE;
-    border-radius: 5px;
-    margin: 3vw auto 1vw auto;
-    margin-left: 20vw;
-    margin-right: 20vw;
-    margin-top: 3vw;
-    margin-bottom: 1vw;
-    padding: 5px;
-    text-align: center;
-    font-size: 110%;
-    padding : 1.5%
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 cartes côte à côte */
+    gap: 2rem; /* Espace entre les cartes */
+    max-width: 1200px; /* Limiter la largeur du conteneur */
+    width: 100%; /* Prendre toute la largeur possible */
+    padding: 2rem;
+    margin: 0 auto; /* Centrer le conteneur */
 }
 
-.carte_bde img{
-    display: block;
-    margin: 2vw auto;
-    height: 40vw;
-    text-align: center;
+.feature-card {
+    background-color: white;
     border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    text-align: center;
+    transition: transform 0.3s, background-color 0.3s;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    background-color: #e8ebf2;
+}
+
+.icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+}
+
+h3 {
+    font-size: 2rem;
+    color: #0a0b45;
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.bde-info p {
+    font-size: 1.5rem;
+    color: #333;
+    text-align: justify; /* Justifie le texte sur toute la largeur */
+    line-height: 1.6; /* Espacement entre les lignes */
+    padding: 0 2rem; /* Espacement latéral */
+}
+
+.image-cards .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Deux cartes par ligne */
+    gap: 2rem; /* Espace entre les cartes */
+    max-width: 1200px; /* Limiter la largeur du conteneur */
+    width: 100%; /* Prendre toute la largeur possible */
+    margin: 2rem auto; /* Centrer le conteneur */
+    padding: 2rem 0;
+}
+
+.image-card {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s, background-color 0.3s;
+    overflow: hidden; /* Cache les débordements éventuels des images */
+}
+
+.image-card img {
+    width: 100%; /* L'image prend toute la largeur de la carte */
+    height: 200px; /* Hauteur fixe pour toutes les images */
+    object-fit: cover; /* Remplir le conteneur sans déformer l'image */
+    border-radius: 15px; /* Coins arrondis */
+    transition: transform 0.3s ease; /* Transition pour l'effet de zoom */
+}
+
+.image-card:hover img {
+    transform: scale(1.1); /* Effet de zoom sur l'image au survol */
+}
+
+.image-card h3 {
+    font-size: 1.8rem;
+    color: #0a0b45;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.image-card p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.image-card:hover {
+    transform: translateY(-10px);
+    background-color: #e8ebf2;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
