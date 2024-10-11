@@ -10,7 +10,7 @@ class Connexion {
 
     public function authenticate($identifiant, $mot_de_passe) {
         // Requête pour vérifier si l'utilisateur est un étudiant
-        $queryEtudiant = "SELECT ID_ETUDIANT AS ID_USER, NOM_ET AS NOM_UT, EMAIL_ET AS EMAIL_USER 
+        $queryEtudiant = "SELECT ID_ETUDIANT AS ID_USER, EMAIL_ET AS EMAIL_USER 
                           FROM ETUDIANTS 
                           WHERE (EMAIL_ET = :identifiant)";
         // AND mot_de_passe = :mot_de_passe
@@ -26,7 +26,7 @@ class Connexion {
         }
 
         // Sinon, on vérifie dans la table des professeurs
-        $queryProfesseur = "SELECT ID_PROFESSEUR AS ID_USER, NOM_PROF AS NOM_UT, EMAIL_PROF AS EMAIL_USER, PROFESSEUR_ADMIN 
+        $queryProfesseur = "SELECT ID_PROFESSEUR AS ID_USER, EMAIL_PROF AS EMAIL_USER, PROFESSEUR_ADMIN 
                             FROM PROFESSEURS 
                             WHERE (EMAIL_PROF = :identifiant)";
         // AND mot_de_passe = :mot_de_passe
