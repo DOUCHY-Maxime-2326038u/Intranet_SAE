@@ -1,9 +1,9 @@
 <?php
 require '_assets/Essentials/Autoloader.php';
-
-header_remove("Server");
-header_remove("Via");
-header_remove("Host");
+// Ajout des en-têtes de sécurité
+header("X-Content-Type-Options: nosniff");
+header("X-XSS-Protection: 1; mode=block");
+header("Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';");
 
 session_start();
 
@@ -12,15 +12,14 @@ if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
-
 // Fonction pour déterminer si une requête est de type AJAX
 function isAjaxRequest(): bool
 {
     return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
 }
 
-$S_controller = $_GET['ctrl'] ?? null;
-$S_action = $_GET['action'] ?? null;
+$S_controller = isset($_GET['ctrl']) ? $_GET['ctrl'] : null;
+$S_action = isset($_GET['action']) ? $_GET['action'] : null;
 
 // Ouvre le tampon d'affichage pour stocker la sortie
 ViewHandler::bufferStart();
@@ -32,13 +31,13 @@ $C_controller->execute();
 // Récupère le contenu tamponné
 $displayContent = ViewHandler::bufferCollect();
 $A_params = $C_controller->getParams();
-$A_params['body'] = $displayContent;
+
 
 // Si c'est une requête AJAX, renvoyer seulement le contenu partiel au format JSON
 if (isAjaxRequest()) {
     echo $displayContent;
 } else {
-    // Sinon, on affiche le gabarit complet avec le contenu
+    $A_params['body'] = $displayContent;
     ViewHandler::show('pattern', $A_params);
 }
 

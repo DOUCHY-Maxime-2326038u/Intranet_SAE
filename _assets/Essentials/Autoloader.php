@@ -4,7 +4,6 @@ require 'Constants.php';
 
 final class Autoloader
 {
-    
     private static function _load(string $S_toLoadFile): bool
     {
         if (is_readable($S_toLoadFile)) {
@@ -13,38 +12,26 @@ final class Autoloader
         }
         return false;
     }
-    public static function classLoading(string $S_className, string $S_directory): bool
-    {
-        $S_fichier = Constants::rootDir() . $S_directory. "$S_className.php";
-        return static::_load($S_fichier);
-    }
 
-    public static function essentialsLoading(string $S_className): bool
+    public static function loadClass(string $S_className): bool
     {
-        return self::classLoading($S_className, Constants::ESSENTIALS_DIR);
-    }
+        $directories = [
+            Constants::ESSENTIALS_DIR,
+            Constants::MODELS_DIR,
+            Constants::VIEWS_DIR,
+            Constants::CONTROLLERS_DIR
+        ];
 
-    public static function modelsLoading(string $S_className): bool
-    {
-        return self::classLoading($S_className, Constants::MODELS_DIR);
-    }
+        foreach ($directories as $directory) {
+            $S_fichier = Constants::rootDir() . $directory . "$S_className.php";
+            if (self::_load($S_fichier)) {
+                return true;
+            }
+        }
 
-    public static function viewsLoading(string $S_className): bool
-    {
-        return self::classLoading($S_className, Constants::VIEWS_DIR);
+        return false;
     }
-
-    public static function controllersLoading(string $S_className): bool
-    {
-        return self::classLoading($S_className, Constants::CONTROLLERS_DIR);
-    }
-
-    
 }
 
-// Enregistrement des autoloaders
-spl_autoload_register('Autoloader::essentialsLoading');
-spl_autoload_register('Autoloader::modelsLoading');
-spl_autoload_register('Autoloader::viewsLoading');
-spl_autoload_register('Autoloader::controllersLoading');
-
+// Enregistrement de l'autoloader
+spl_autoload_register('Autoloader::loadClass');
