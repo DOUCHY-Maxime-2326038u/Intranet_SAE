@@ -5,7 +5,11 @@ final class AproposController
 
     public function defaultAction()
     {
-        ViewHandler::show("APropos");
+        $params = [
+            'page_title' => 'À propos de notre IUT',
+            'description' => 'Le département informatique de l\'IUT d\'Aix-en-Provence forme des informaticiens généralistes...',
+        ];
+        ViewHandler::show("aPropos");
     }
 
     public function getTitre(): string
