@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="/_assets/styles/bde.css">
 </head>
 <body>
+<header>
+    <nav class="secondHeader">
+        <ul>
+            <li><a href="/root.php?ctrl=Accueil">Accueil</a></li>
+            <li><a href="/root.php?ctrl=Bde">Bde</a></li>
+            <li><a href="/root.php?ctrl=MentionsLegales">Mentions Légales</a></li>
+            <li><a href="/root.php?ctrl=PresentationFiliere">Présentation des filières</a></li>
+            <li><a href="/root.php?ctrl=Connexion">Connexion</a></li>
+
+        </ul>
+    </nav>
+</header>
 <section class="intro">
     <div class="full-width-container">
         <h2>Découvrez le BDE</h2>
@@ -47,12 +59,12 @@
 <section class="image-cards">
     <div class="container">
         <div class="image-card">
-            <img src="/_assets/img/photo_bde.jpg" alt="Image 1">
+            <img src="//_assets/img/photo_bde.jpg" alt="Image 1">
             <h3>Image Frigo</h3>
             <p>Description de l'image ou du contenu associé.</p>
         </div>
         <div class="image-card">
-            <img src="/_assets/img/carte_bde.png" alt="Image 2">
+            <img src="//_assets/img/carte_bde.png" alt="Image 2">
             <h3>Carte boisson & snacks</h3>
             <p>Description de l'image ou du contenu associé.</p>
         </div>
