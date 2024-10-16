@@ -29,8 +29,8 @@ final class ConnexionController
                 $_SESSION['nom_ut'] = $utilisateur['NOM_UT'];
                 $_SESSION['email_user'] = $utilisateur['EMAIL_USER'];
 
-                // Rediriger vers la page d'accueil
-                header("Location: root.php?ctrl=Accueil");
+                // Rediriger vers l'intranet
+                header("Location: root.php?ctrl=Intranet");
                 exit();
             } else {
                 // Si erreur, renvoyer à la vue avec un message

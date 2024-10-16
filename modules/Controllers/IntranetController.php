@@ -1,11 +1,12 @@
+
 <?php
-final class AproposController
+final class IntranetController
 {
-    private string $titre  = "apropos";
+    private string $titre  = "intranet";
 
     public function defaultAction()
     {
-        ViewHandler::show("APropos");
+        ViewHandler::show("intranet");
     }
 
     public function getTitre(): string
