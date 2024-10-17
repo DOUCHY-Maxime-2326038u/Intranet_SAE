@@ -1,0 +1,82 @@
+body{
+    margin: 0;
+}
+
+header{
+    background-color: #00558b;
+    color: white;
+}
+
+@keyframes moveAndRotate {
+    0% {
+        transform: translateX(0px) rotate(0deg);
+    }
+    100% {
+        transform: translateX(-190px) rotate(360deg);
+    }
+}
+@keyframes moveAndRotateReversed {
+    0% {
+        transform: translateX(-190px) rotate(0deg);
+    }
+    100% {
+        transform: translateX(0px) rotate(360deg);
+    }
+}
+
+#iut {
+    transform-origin: center;
+}
+
+#amu {
+    z-index: 1;
+}
+
+#amu1 {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+#amu2 {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+#barre {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+#logoAmu_iut {
+    z-index: 2;
+    transform-origin: center;
+}
+
+#logoAmu.animate #logoAmu_iut {
+    animation: moveAndRotate 2s linear forwards;
+}
+
+#logoAmu.animate #amu1,
+#logoAmu.animate #amu2,
+#logoAmu.animate #barre {
+    opacity: 0;
+}
+#logoAmu.animate #amu1{
+    transition-delay: 0.7s;
+}
+#logoAmu.animate #amu2{
+    transition-delay: 0.3s;
+}
+
+#logoAmu.animate-done #logoAmu_iut {
+    animation: moveAndRotateReversed 2s linear forwards;
+}
+#logoAmu.animate-done #amu1{
+    transition-delay: 1s;
+}
+#logoAmu.animate-done #amu2{
+    transition-delay: 1.3s;
+}
+#logoAmu.animate-done #barre{
+    transition-delay: 1.6s;
+}
