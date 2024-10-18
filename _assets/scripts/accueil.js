@@ -1,7 +1,3 @@
-alert('JavaScript est bien chargé');
-const points = document.querySelectorAll('.event-point');
-const tooltip = document.getElementById('tooltip');
-
 points.forEach(point => {
     point.addEventListener('mouseenter', function() {
         // Utilise "aucune info disponnible" comme texte par défaut si `data-event` est vide.
