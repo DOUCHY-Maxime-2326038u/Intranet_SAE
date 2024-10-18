@@ -26,13 +26,13 @@
         <img src="image1.jpg" alt="Image">
         <h3>Titre ...</h3>
         <p>Début de l'actu...</p>
-        <a href="#">Voir plus...</a>
+        <a href="#">Voir plus</a>
     </div>
     <div class="news-card">
         <img src="image2.jpg" alt="Image">
         <h3>Titre ...</h3>
         <p>Début de l'actu...</p>
-        <a href="#">Voir plus...</a>
+        <a href="#">Voir plus</a>
     </div>
     <div class="news-card">
         <img src="image3.jpg" alt="Image">
@@ -44,7 +44,7 @@
         <img src="image4.jpg" alt="Image">
         <h3>Titre ...</h3>
         <p>Début de l'actu...</p>
-        <a href="#">Voir plus...</a>
+        <a href="#">Voir plus</a>
     </div>
 </div>
 
