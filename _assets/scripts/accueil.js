@@ -4,8 +4,8 @@ const tooltip = document.getElementById('tooltip');
 
 points.forEach(point => {
     point.addEventListener('mouseenter', function() {
-        // Utilise "info en cours" comme texte par défaut si `data-event` est vide.
-        const eventText = this.dataset.event || 'info en cours';
+        // Utilise "aucune info disponnible" comme texte par défaut si `data-event` est vide.
+        const eventText = this.dataset.event || 'aucune info disponnible';
         tooltip.textContent = eventText;
 
         const pointRect = this.getBoundingClientRect();
@@ -21,12 +21,5 @@ points.forEach(point => {
     point.addEventListener('mouseleave', function() {
         tooltip.style.opacity = '0';
         tooltip.style.transform = 'translateY(-10px)';
-    });
-
-    //Tester si la bulle fonctionne
-    point.addEventListener('mouseenter', function() {
-        console.log('Point survolé');
-        const eventText = this.dataset.event || 'info en cours';
-        tooltip.textContent = eventText;
     });
 });
