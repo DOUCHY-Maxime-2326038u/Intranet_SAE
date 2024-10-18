@@ -38,7 +38,7 @@
         <img src="image3.jpg" alt="Image">
         <h3>Titre ...</h3>
         <p>Début de l'actu...</p>
-        <a href="#">Voir plus...</a>
+        <a href="#">Voir plus</a>
     </div>
     <div class="news-card">
         <img src="image4.jpg" alt="Image">
@@ -49,11 +49,15 @@
 </div>
 
 <div class="events">
-    <h2>Évènements</h2>
+    <h2>Événements</h2>
     <div class="timeline">
-        <div class="past-event">IUT</div>
-        <div class="current-event">Actu en cours</div>
-        <!-- Ajouter plus de points pour les événements ici -->
+        <div class="timeline-arrow"></div>
+        <div class="event-point past-event" data-event="Événement passé"></div>
+        <div class="event-point past-event" data-event="Événement passé 2"></div>
+        <div class="event-point current-event" data-event="Actu en cours"></div>
+        <div class="event-point future-event" data-event="Événement futur"></div>
+        <div class="event-point future-event" data-event="Événement futur 2"></div>
+        <div class="event-point future-event" data-event="Événement futur 3"></div>
     </div>
 </div>
 
@@ -65,3 +69,6 @@
 </div>
 </body>
 </html>
+
+
+
