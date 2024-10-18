@@ -160,5 +160,7 @@
             id="iut"
             style="display:inline" />
         </svg>
+        <span id="dep">Dept. Informatique</span>
     </section>
+    <img class="menuBtn" src="/_assets/img/menu.svg">
 </header>

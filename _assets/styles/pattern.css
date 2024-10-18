@@ -1,10 +1,35 @@
 body{
     margin: 0;
+    font-family: Arial;
+    height: 1500px;
 }
 
 header{
     background-color: #00558b;
     color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#logoAmu{
+    width: 380px;
+    height: 48px;
+}
+
+#dep{
+    position: absolute;
+    top: 24px;
+    left: 50px;
+    transition: opacity 1s ease;
+    opacity: 0;
+}
+
+.menuBtn{
+    position: fixed;
+    top: 20px;
+    right: 15px;
+    cursor: pointer;
+    filter: invert(1);
 }
 
 @keyframes moveAndRotate {
@@ -12,12 +37,12 @@ header{
         transform: translateX(0px) rotate(0deg);
     }
     100% {
-        transform: translateX(-190px) rotate(360deg);
+        transform: translateX(-185px) rotate(-360deg);
     }
 }
 @keyframes moveAndRotateReversed {
     0% {
-        transform: translateX(-190px) rotate(0deg);
+        transform: translateX(-185px) rotate(0deg);
     }
     100% {
         transform: translateX(0px) rotate(360deg);
@@ -61,9 +86,16 @@ header{
 #logoAmu.animate #barre {
     opacity: 0;
 }
+
+#logoAmu.animate #dep{
+    opacity: 1;
+    transition-delay: 2s;
+}
+
 #logoAmu.animate #amu1{
     transition-delay: 0.7s;
 }
+
 #logoAmu.animate #amu2{
     transition-delay: 0.3s;
 }
@@ -71,12 +103,15 @@ header{
 #logoAmu.animate-done #logoAmu_iut {
     animation: moveAndRotateReversed 2s linear forwards;
 }
+
 #logoAmu.animate-done #amu1{
     transition-delay: 1s;
 }
+
 #logoAmu.animate-done #amu2{
     transition-delay: 1.3s;
 }
+
 #logoAmu.animate-done #barre{
     transition-delay: 1.6s;
 }

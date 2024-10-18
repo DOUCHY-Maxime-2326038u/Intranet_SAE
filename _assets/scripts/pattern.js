@@ -1,33 +1,24 @@
 const logoAmu = document.getElementById('logoAmu');
+const departement = document.getElementById('dep');
 let isAnimating = false;
-let isDone = false
-const startAnimation = () => {
-    if (isAnimating) return;
-    if (isDone){
-        isAnimating = true;
-        logoAmu.classList.replace('animate', 'animate-done');
-        setTimeout(() => {
-        
-            isAnimating = false;
-        }, 1500);
-        
-    }
-    else{
-        isAnimating = true;
-        logoAmu.classList.remove('animate-done');
-        logoAmu.classList.add('animate');
-        setTimeout(() => {
-        
-            isAnimating = false;
-        }, 1500);
-    }
-    isDone = !isDone;
-    
+let isDone = false;
+
+const toggleAnimation = (addClass, removeClass) => {
+    logoAmu.classList.add(addClass);
+    logoAmu.classList.remove(removeClass);
 };
 
-const resetAnimation = () => {
-    if (!isAnimating) logoAmu.classList.remove('animate-done');
+const startAnimation = () => {
+    if (isAnimating) return;
+
+    isAnimating = true;
+    toggleAnimation(isDone ? 'animate-done' : 'animate', isDone ? 'animate' : 'animate-done');
+
+    setTimeout(() => {
+        isAnimating = false;
+    }, 3000);
+
+    isDone = !isDone;
 };
 
 logoAmu.addEventListener('mouseenter', startAnimation);
-logoAmu.addEventListener('mouseleave', resetAnimation);
