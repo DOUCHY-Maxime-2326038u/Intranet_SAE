@@ -59,6 +59,7 @@
         <div class="event-point future-event" data-event="Événement futur 2"></div>
         <div class="event-point future-event" data-event="Événement futur 3"></div>
     </div>
+    <div><a class="news-card" href="#">Voir tout les événnements</a></div>
 </div>
 
 <div class="moreInfo">
@@ -67,6 +68,8 @@
     <div class="info-section"><a href="/root.php?ctrl=Bde">BDE</a></div>
     <div class="info-section"><a href="/root.php?ctrl=PresentationFiliere">Présentation des filières</a></div>
 </div>
+
+<script src="/_assets/scripts/accueil.js"></script>
 </body>
 </html>
 
