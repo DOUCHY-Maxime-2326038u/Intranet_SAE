@@ -4,6 +4,9 @@ body{
     height: 1500px;
 }
 
+body.active {
+    overflow-y: hidden;
+  }
 header{
     background-color: #00558b;
     color: white;
@@ -12,7 +15,7 @@ header{
 }
 
 #logoAmu{
-    width: 380px;
+    width: 240px;
     height: 48px;
 }
 
@@ -24,14 +27,63 @@ header{
     opacity: 0;
 }
 
-.menuBtn{
+.menuBtn {
     position: fixed;
     top: 20px;
     right: 15px;
     cursor: pointer;
-    filter: invert(1);
+    mix-blend-mode: difference;
+    z-index: 6;
+    transition: transform 0.4s ease;
 }
 
+#menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    backdrop-filter: blur(10px) grayscale(0.7);
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    z-index: 5;
+}
+
+#menu.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+#menu ul {
+    list-style: none;
+}
+
+#menu ul li {
+    margin: 20px 0;
+}
+
+#menu ul li a {
+    color: #ffffff;
+    font-size: 2rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+#menu ul li a:hover {
+    color: #ff6347; /* Couleur de survol */
+}
+
+#test{
+    background-color: rgb(250, 122, 122);
+    height: 100px;
+}
 @keyframes moveAndRotate {
     0% {
         transform: translateX(0px) rotate(0deg);

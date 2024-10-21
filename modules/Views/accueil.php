@@ -18,9 +18,9 @@
         </ul>
     </nav>
 </header>
-<main>
+<section id="test">
 
-</main>
+</section>
 <footer>
 
 </footer>
