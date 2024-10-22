@@ -159,7 +159,7 @@
 <nav id="menu">
          <ul>
              <li><a href="?ctrl=accueil">Accueil</a></li>
-             <li><a href="?ctrl=aPropos">Ordre</a></li>
+             <li><a href="?ctrl=aPropos">A Propos</a></li>
              <li><a href="?ctrl=presentation_filiere">Filieres</a></li>
              <li><a href="?ctrl=bde">BDE</a></li>
          </ul>
