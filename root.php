@@ -32,14 +32,9 @@ $C_controller->execute();
 $displayContent = ViewHandler::bufferCollect();
 $A_params = $C_controller->getParams();
 
+$A_params['body'] = $displayContent;
+ViewHandler::show('pattern', $A_params);
 
-// Si c'est une requête AJAX, renvoyer seulement le contenu partiel au format JSON
-if (isAjaxRequest()) {
-    echo $displayContent;
-} else {
-    $A_params['body'] = $displayContent;
-    ViewHandler::show('pattern', $A_params);
-}
 
 
 

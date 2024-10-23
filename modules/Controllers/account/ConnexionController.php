@@ -10,7 +10,7 @@ final class ConnexionController
     }
 
     public function defaultAction(){
-        ViewHandler::show("connexion");
+        ViewHandler::show("account/connexion");
     }
 
     public function loginAction() {

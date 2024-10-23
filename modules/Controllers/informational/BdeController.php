@@ -6,7 +6,7 @@ final class BdeController
 
     public function defaultAction()
     {
-        ViewHandler::show("bde");
+        ViewHandler::show("informational/bde");
     }
 
     public function getTitre(): string

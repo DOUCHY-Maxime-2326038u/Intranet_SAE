@@ -9,8 +9,8 @@
 <body>
 <div class="container">
     <div id="sidebar">
-      <div class="tab" onclick="loadContent('dashboard')">Tableau de bord</div>
-      <div class="tab" onclick="loadContent('annonce')">Les Annonces</div>
+      <div class="tab" onclick="loadContent('MentionsLegales')">Tableau de bord</div>
+      <div class="tab" onclick="loadContent('connexion')">Les Annonces</div>
       <div class="tab" onclick="loadContent('professeur')">Mon équipe pédagogique</div>
       <div class="tab" onclick="loadContent('reservation')">Réservation de salle</div>
     </div>
@@ -24,7 +24,8 @@
     // Fonction pour charger dynamiquement le contenu
     function loadContent(tab) {
         const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'root.php?ctrl=intranet&action=getContent&tab=' + tab, true);
+        xhr.open('GET', 'root.php?ctrl=' + tab, true);
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         xhr.onload = function() {
             if (xhr.status === 200) {
                 document.getElementById('content').innerHTML = xhr.responseText;
