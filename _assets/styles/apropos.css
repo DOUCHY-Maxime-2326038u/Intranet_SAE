@@ -122,7 +122,6 @@ section p {
 
 .container .item {
     background-color: #33CCFF;
-    background: linear-gradient(87deg, rgba(51,204,255,1) 0%, rgba(51,204,255,1) 51%, rgba(205,234,252,1) 100%);
     flex: 0 0 100%;
     padding: 24px;
    /* border-radius: 10px; */
@@ -131,17 +130,14 @@ section p {
 
 .container .item:nth-child(2) {
     background-color: #33CCFF;
-    background: linear-gradient(87deg, rgba(31,99,222,1) 0%, rgba(31,99,222,1) 51%, rgba(153,102,255,1) 100%);
 }
 
 .container .item:nth-child(3) {
     background-color: #009A74;
-    background: linear-gradient(87deg, rgba(0,154,116,1) 0%, rgba(83,222,148,1) 51%, rgba(0,154,116,1) 100%);
 }
 
 .container .item:nth-child(4) {
     background-color: #faab08;
-    background: linear-gradient(87deg, rgba(250,171,8,1) 0%, rgba(255,255,133,1) 51%, rgba(250,171,8,1) 100%);
 }
 
 .container .item span {
@@ -152,7 +148,6 @@ section p {
 
 .container .item p {
     padding-top: 15px;
-    color: white;
 }
 
 .container .item button {
@@ -161,4 +156,9 @@ section p {
     border-radius: 10px;
     border: none;
     background-color: white;
+}
+
+.bloc-text{
+    font-size: 13px;
+    color: black;
 }
