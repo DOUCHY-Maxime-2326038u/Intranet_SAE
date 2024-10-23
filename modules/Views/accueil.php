@@ -100,8 +100,58 @@
         </div>
     </div>
 </section>
-
-<!-- Section Contact -->
+<div class="containerprof">
+    <div class="cardprof">
+        <img src="https://iut.univ-amu.fr/sites/default/files/styles/contacts/public/media-image/girl%402x.png?itok=jKpRn9j8" alt="Elodie Pico">
+        <div class="card-contentprof">
+            <div class="card-textprof">
+                <h2>Christine Makssoud</h2>
+                <p>Chef du département Informatique & Responsable alternance</p>
+            </div>
+            <span class="arrowprof">→</span>
+        </div>
+    </div>
+    <div class="cardprof">
+        <img src="https://iut.univ-amu.fr/sites/default/files/styles/contacts/public/media-image/user%402x.png?itok=tMpqXyTU" alt="Emilien Rousset">
+        <div class="card-contentprof">
+            <div class="card-textprof">
+                <h2>Samuele ANNI</h2>
+                <p>Directeur des études BUT1</p>
+            </div>
+            <span class="arrowprof">→</span>
+        </div>
+    </div>
+    <div class="cardprof">
+        <img src="https://iut.univ-amu.fr/sites/default/files/styles/contacts/public/media-image/user%402x.png?itok=tMpqXyTU" alt="Emilien Rousset">
+        <div class="card-contentprof">
+            <div class="card-textprof">
+                <h2>Frédéric FLOUVAT</h2>
+                <p>Responsable de Parcours A : Réalisation d'applications : conception, développement, validation</p>
+            </div>
+            <span class="arrowprof">→</span>
+        </div>
+    </div>
+    <div class="cardprof">
+        <img src="https://iut.univ-amu.fr/sites/default/files/styles/contacts/public/media-image/girl%402x.png?itok=jKpRn9j8" alt="Emilien Rousset">
+        <div class="card-contentprof">
+            <div class="card-textprof">
+                <h2>Safa YAHI</h2>
+                <p>Responsable de Parcours B : Déploiement et d'application communicantes et sécurisées</p>
+            </div>
+            <span class="arrowprof">→</span>
+        </div>
+    </div>
+    <div class="cardprof">
+        <img src="https://iut.univ-amu.fr/sites/default/files/styles/contacts/public/media-image/user%402x.png?itok=tMpqXyTU" alt="Florence Chaspoul">
+        <div class="card-contentprof">
+            <div class="card-textprof">
+                <h2>Michaël MARTIN-NEVOT</h2>
+                <p>Responsable Parcoursup</p>
+            </div>
+            <span class="arrow">→</span>
+        </div>
+    </div>
+</div>
 <section id="contact" class="contact">
     <div class="container">
         <h2>Contactez-nous</h2>
@@ -114,6 +164,5 @@
         </form>
     </div>
 </section>
-
 </body>
 </html>

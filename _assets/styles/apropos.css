@@ -1,4 +1,3 @@
-/* Réinitialisation des marges et padding */
 * {
     box-sizing: border-box;
     padding: 0;
@@ -6,110 +5,108 @@
     scroll-behavior: smooth;
 }
 
-/* Apparence globale */
 body {
-    font-family: 'Lato', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
     margin: 0;
+    padding: 0;
+    background-color: #eaeaea; /* Couleur de fond plus claire */
+    color: #333;
+}
+
+main {
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
+    border-radius: 12px; /* Coins plus arrondis */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #005f8c; /* Couleur du titre principal plus sombre */
+    font-size: 2.5em; /* Taille de police plus grande */
+}
+
+nav {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+nav ul {
+    list-style: none;
     padding: 0;
 }
 
-/* Conteneur principal */
-main {
-    margin: 20px auto;
-    padding: 40px;
-    background: white;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    max-width: 1200px;
+nav ul li {
+    display: inline;
+    margin: 0 15px;
 }
 
-/* Titres et effet de soulignement */
+nav ul li a {
+    color: #005f8c;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px; /* Espacement autour des liens */
+    border-radius: 5px; /* Coins arrondis */
+    transition: background 0.3s; /* Transition pour l'effet au survol */
+}
+
+section {
+    margin-bottom: 60px;
+    padding: 20px;
+    border: 1px solid #ddd; /* Bordure plus légère */
+    border-radius: 8px;
+    background-color: #f9f9f9; /* Fond légèrement gris */
+}
+
 section h2 {
     color: #005f8c;
-    font-size: 2em;
-    font-weight: bold;
     border-bottom: 2px solid #005f8c;
+    padding-bottom: 10px;
     margin-bottom: 20px;
-    position: relative;
-    display: inline-block;
 }
 
-section h2::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #0076a8;
-    bottom: 0;
-    left: 0;
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-}
-
-section h2:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-}
-
-/* Paragraphe */
 section p {
-    margin-bottom: 20px;
-    line-height: 1.8;
+    margin-bottom: 15px;
 }
 
-section p strong {
-    font-weight: bold;
-    color: #005f8c;
-}
-
-section p em {
-    font-style: italic;
-    color: #0076a8;
-}
-
-/* Boutons */
 .btn {
     display: inline-block;
     background: #0076a8;
     color: white;
     padding: 10px 20px;
     border: none;
-    border-radius: 50px;
+    border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
     margin-top: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background-color: white;
-    bottom: 0;
-    left: 0;
-    transform: scaleX(0);
-    transition: transform 0.3s ease-in-out;
-}
-
-.btn:hover::before {
-    transform: scaleX(1);
 }
 
 .btn:hover {
     background: #005f8c;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Conteneur flexible pour les items */
+
+
+
+
+
+
+
+
+
+
+
+
+
+* {
+    font-family: "Poppins", sans-serif;
+    padding: 0; margin: 0;
+    box-sizing: border-box;
+}
+
 .container {
     display: flex;
     overflow-x: scroll;
@@ -119,68 +116,49 @@ section p em {
     scroll-snap-type: x mandatory;
     scroll-padding: 24px;
     border-radius: 8px;
-    gap: 16px;
+    gap: 12px;
     margin: 2rem auto;
-    transition: transform 0.3s ease;
 }
 
-.container:hover {
-    transform: scale(1.02);
-}
-
-/* Items dans le conteneur */
 .container .item {
-    background-color: #cce7ff;
-    background: linear-gradient(87deg, rgba(204,231,255,1) 0%, rgba(178,222,255,1) 100%);
+    background-color: #33CCFF;
+    flex: 0 0 100%;
     padding: 24px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+   /* border-radius: 10px; */
+    scroll-snap-align: start;
 }
 
-.container .item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Items colorés avec des dégradés */
 .container .item:nth-child(2) {
-    background: linear-gradient(87deg, rgba(31,99,222,0.9) 0%, rgba(153,102,255,0.9) 100%);
+    background-color: #33CCFF;
 }
 
 .container .item:nth-child(3) {
-    background: linear-gradient(87deg, rgba(0,154,116,0.9) 0%, rgba(83,222,148,0.9) 100%);
+    background-color: #009A74;
 }
 
 .container .item:nth-child(4) {
-    background: linear-gradient(87deg, rgba(250,171,8,0.9) 0%, rgba(255,255,133,0.9) 100%);
+    background-color: #faab08;
 }
 
-/* Texte des items */
 .container .item span {
     font-weight: 600;
     font-size: 24px;
     color: white;
-    position: relative;
 }
 
-.container .item span::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
+.container .item p {
+    padding-top: 15px;
+}
+
+.container .item button {
+    margin-top: 20px;
+    padding: 6px 20px;
+    border-radius: 10px;
+    border: none;
     background-color: white;
-    bottom: -5px;
-    left: 0;
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
 }
 
-.container .item:hover span::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+.bloc-text{
+    font-size: 13px;
+    color: black;
 }
-
-/* Texte dans les items */
-.container .it
