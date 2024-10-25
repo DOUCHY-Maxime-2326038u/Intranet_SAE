@@ -4,8 +4,7 @@ class Connexion {
     private $db;
 
     public function __construct() {
-        // Utiliser le Singleton directement
-        $this->db = Database::getInstance('intraiut_1');  // Connexion unique
+        $this->db = Database::getInstance('intraiut_1');
     }
 
     public function authenticate($identifiant, $mot_de_passe) {
