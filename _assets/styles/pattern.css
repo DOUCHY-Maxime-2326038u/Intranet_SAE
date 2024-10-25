@@ -1,22 +1,23 @@
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     margin: 0;
     font-family: Arial;
     height: 1500px;
+    background-color: #00558b;
 }
 
 body.active {
     overflow-y: hidden;
-  }
+}
+
 header{
     background-color: #00558b;
     color: white;
     padding-top: 10px;
     padding-bottom: 10px;
-}
-
-#logoAmu{
-    width: 240px;
-    height: 48px;
 }
 
 #dep{
@@ -107,6 +108,10 @@ header{
 
 #amu {
     z-index: 1;
+}
+
+#logoAmu{
+    width: 250px;
 }
 
 #amu1 {

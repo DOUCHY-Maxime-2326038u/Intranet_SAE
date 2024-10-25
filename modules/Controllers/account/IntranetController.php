@@ -1,12 +1,12 @@
 
 <?php
-final class MentionsLegalesController
+final class IntranetController
 {
-    private string $titre  = "mentions_legales";
+    private string $titre  = "intranet";
 
     public function defaultAction()
     {
-        ViewHandler::show("mentions_legales");
+        ViewHandler::show("account/intranet");
     }
 
     public function getTitre(): string

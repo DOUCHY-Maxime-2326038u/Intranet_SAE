@@ -9,7 +9,7 @@ final class AproposController
             'page_title' => 'À propos de notre IUT',
             'description' => 'Le département informatique de l\'IUT d\'Aix-en-Provence forme des informaticiens généralistes...',
         ];
-        ViewHandler::show("aPropos");
+        ViewHandler::show("informational/aPropos");
     }
 
     public function getTitre(): string

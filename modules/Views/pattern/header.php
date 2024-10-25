@@ -159,8 +159,10 @@
 <nav id="menu">
          <ul>
              <li><a href="?ctrl=accueil">Accueil</a></li>
-             <li><a href="?ctrl=aPropos">Ordre</a></li>
-             <li><a href="?ctrl=presentation_filiere">Filieres</a></li>
-             <li><a href="?ctrl=bde">BDE</a></li>
+             <li><a href="?ctrl=Apropos">A Propos</a></li>
+             <li><a href="?ctrl=PresentationFiliere">Filieres</a></li>
+             <li><a href="?ctrl=Bde">BDE</a></li>
+             <li><a href="?ctrl=connexion">Connexion</a></li>
+             <li><a href="?ctrl=intranet">Intra</a></li>
          </ul>
 </nav>

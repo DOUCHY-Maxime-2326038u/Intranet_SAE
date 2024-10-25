@@ -17,6 +17,6 @@ final class TestController
 
     public function defaultAction()
     {
-        ViewHandler::show("Test", $this->params);
+        ViewHandler::show("tests/test", $this->params);
     }
 }

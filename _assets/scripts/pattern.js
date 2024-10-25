@@ -31,4 +31,3 @@ const startAnimation = () => {
 };
 
 logoAmu.addEventListener('mouseenter', startAnimation);
-

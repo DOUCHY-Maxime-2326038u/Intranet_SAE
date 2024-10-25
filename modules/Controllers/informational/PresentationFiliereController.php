@@ -6,7 +6,7 @@ final class PresentationFiliereController
 
     public function defaultAction()
     {
-        ViewHandler::show("presentation_filiere");
+        ViewHandler::show("informational/presentation_filiere");
     }
 
     public function getTitre(): string
