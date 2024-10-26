@@ -5,10 +5,12 @@ final class IntranetController
     private string $titre  = "intranet";
     private string $css = "/_assets/styles/intranet.css";
     private array $params = [];
+    private Intranet $intranetModel;
     public function __construct()
     {
         $this->params['titre'] = $this->titre;
         $this->params['css'] = $this->css;
+        $this->intranetModel = new Intranet();
     }
     public function getParams(): array
     {
@@ -27,8 +29,12 @@ final class IntranetController
 
     public function annoncesAction()
     {
-        ViewHandler::show('intranet/annonces');
+        $annonces = $this->intranetModel->getAllAnnonces();
         $this->params['css'] = "/_assets/styles/intranet/annonces.css";
+        $this->params['annonces'] = $annonces;
+
+        ViewHandler::show('intranet/annonces', $this->params);
+
     }
     public function professeurAction()
     {
