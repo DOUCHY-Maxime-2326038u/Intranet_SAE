@@ -1,16 +1,4 @@
-<?php
-// Page de présentation des filières du BUT Informatique
-?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Présentation des parcours du BUT Informatique</title>
-    <link rel="stylesheet" href="/_assets/styles/presentation_filiere.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
-</head>
 <body>
 <header>
     <nav class="secondHeader">

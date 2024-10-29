@@ -3,13 +3,21 @@ final class AproposController
 {
     private string $titre  = "apropos";
 
+    private string $css = "/_assets/styles/apropos.css";
+    private array $params = [];
+    public function __construct()
+    {
+        $this->params['titre'] = $this->titre;
+        $this->params['css'] = $this->css;
+    }
+
+    public function getParams(): array
+    {
+        return $this->params;
+    }
     public function defaultAction()
     {
-        $params = [
-            'page_title' => 'À propos de notre IUT',
-            'description' => 'Le département informatique de l\'IUT d\'Aix-en-Provence forme des informaticiens généralistes...',
-        ];
-        ViewHandler::show("informational/aPropos");
+        ViewHandler::show("informational/aPropos",  $this->params);
     }
 
     public function getTitre(): string
