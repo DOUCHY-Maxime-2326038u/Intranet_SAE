@@ -1,5 +1,6 @@
 
 <body>
+<!--
 <header>
     <nav class="secondHeader">
         <ul>
@@ -12,7 +13,7 @@
         </ul>
     </nav>
 </header>
-
+-->
 <div class="container">
     <h1>Présentation des parcours du BUT Informatique</h1>
 
