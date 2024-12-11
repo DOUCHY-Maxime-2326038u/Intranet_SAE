@@ -11,6 +11,7 @@
         <?php if (!isAjaxRequest())ViewHandler::show('pattern/header');?>
         <?php echo $A_params['body'] ?>
         <?php if (!isAjaxRequest())ViewHandler::show('pattern/footer'); ?>
+        <script src="_assets/scripts/pattern.js"></script>
         <script src=<?php echo $A_params['js']?>></script>
     </body>
 </html>
