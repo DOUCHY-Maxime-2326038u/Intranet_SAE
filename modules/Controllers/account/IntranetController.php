@@ -3,7 +3,7 @@
 final class IntranetController
 {
     private string $titre  = "intranet";
-    private string $css = "/_assets/styles/intranet.css";
+    private string $css = "/_assets/styles/account/intranet.css";
     private array $params = [];
     private Intranet $intranetModel;
     public function __construct()
@@ -44,10 +44,5 @@ final class IntranetController
     public function errorAction()
     {
         ViewHandler::show('views/intranet/404');
-    }
-
-    public function getTitre(): string
-    {
-        return $this -> titre;
     }
 }

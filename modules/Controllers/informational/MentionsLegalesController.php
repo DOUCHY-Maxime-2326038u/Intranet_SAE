@@ -3,7 +3,7 @@
 final class MentionsLegalesController
 {
     private string $titre  = "mentions_legales";
-    private string $css = "/_assets/styles/mentions_legales.css";
+    private string $css = "_assets/styles/informational/mentions_legales.css";
     private array $params = [];
 
     public function __construct()
@@ -19,7 +19,7 @@ final class MentionsLegalesController
 
     public function defaultAction()
     {
-        ViewHandler::show("informational/mentions_legales",  $this->params);
+        ViewHandler::show("informational/mentions_legales");
     }
 
     public function getTitre(): string

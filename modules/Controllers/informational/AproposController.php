@@ -2,9 +2,9 @@
 final class AproposController
 {
     private string $titre  = "apropos";
-
-    private string $css = "/_assets/styles/apropos.css";
+    private string $css = "_assets/styles/informational/apropos.css";
     private array $params = [];
+
     public function __construct()
     {
         $this->params['titre'] = $this->titre;
@@ -15,13 +15,9 @@ final class AproposController
     {
         return $this->params;
     }
+
     public function defaultAction()
     {
-        ViewHandler::show("informational/aPropos",  $this->params);
-    }
-
-    public function getTitre(): string
-    {
-        return $this -> titre;
+        ViewHandler::show("informational/aPropos", $this->params);
     }
 }

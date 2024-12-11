@@ -3,7 +3,7 @@
 final class PresentationFiliereController
 {
     private string $titre  = "presentation_filiere";
-    private string $css = "/_assets/styles/presentation_filiere.css";
+    private string $css = "_assets/styles/informational/presentation_filiere.css";
     private array $params = [];
 
     public function __construct()
@@ -19,11 +19,6 @@ final class PresentationFiliereController
 
     public function defaultAction()
     {
-        ViewHandler::show("informational/presentation_filiere",  $this->params);
-    }
-
-    public function getTitre(): string
-    {
-        return $this -> titre;
+        ViewHandler::show("informational/presentation_filiere", $this->params);
     }
 }
