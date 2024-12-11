@@ -19,6 +19,11 @@ final class MentionsLegalesController
 
     public function defaultAction()
     {
-        ViewHandler::show("informational/mentions_legales", $this->params);
+        ViewHandler::show("informational/mentions_legales");
+    }
+
+    public function getTitre(): string
+    {
+        return $this -> titre;
     }
 }

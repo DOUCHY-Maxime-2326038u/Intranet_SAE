@@ -18,8 +18,6 @@ final class AproposController
 
     public function defaultAction()
     {
-
         ViewHandler::show("informational/aPropos", $this->params);
     }
-
 }
