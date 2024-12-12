@@ -1,5 +1,4 @@
 
-<body>
 <section class="intro">
     <div class="full-width-container">
         <h2>Découvrez le BDE</h2>
@@ -51,5 +50,4 @@
         </div>
     </div>
 </section>
-</body>
 </html>

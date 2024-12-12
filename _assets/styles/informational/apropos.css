@@ -53,13 +53,7 @@ nav ul li a {
     transition: background 0.3s; /* Transition pour l'effet au survol */
 }
 
-section {
-    margin-bottom: 60px;
-    padding: 20px;
-    border: 1px solid #ddd; /* Bordure plus légère */
-    border-radius: 8px;
-    background-color: #f9f9f9; /* Fond légèrement gris */
-}
+
 
 section h2 {
     color: #005f8c;

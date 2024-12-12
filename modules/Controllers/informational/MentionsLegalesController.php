@@ -3,7 +3,7 @@
 final class MentionsLegalesController
 {
     private string $titre  = "mentions_legales";
-    private string $css = "_assets/styles/informational/mentions_legales.css";
+    private string $css = "/_assets/styles/informational/mentions_legales.css";
     private array $params = [];
 
     public function __construct()

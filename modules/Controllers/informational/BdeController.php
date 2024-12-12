@@ -3,7 +3,7 @@
 final class BdeController
 {
     private string $titre  = "bde";
-    private string $css = "_assets/styles/informational/bde.css";
+    private string $css = "/_assets/styles/informational/bde.css";
     private array $params = [];
 
     public function __construct()

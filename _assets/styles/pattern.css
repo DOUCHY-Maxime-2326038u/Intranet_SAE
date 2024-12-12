@@ -15,13 +15,11 @@ body.active {
 }
 
 header{
-    position: absolute;
     background-color: #00558b;
     color: white;
     padding-top: 10px;
     padding-bottom: 10px;
     width: 100%;
-    height: 75.11px;
 }
 
 #dep{
@@ -116,9 +114,7 @@ header{
 }
 
 #logoAmu{
-    position: absolute;
     width: 250px;
-    z-index: 5;
 }
 
 #amu1 {

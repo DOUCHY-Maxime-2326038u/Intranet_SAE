@@ -1,5 +1,4 @@
 
-<body>
 
 <div class="container">
     <h1>Présentation des parcours du BUT Informatique</h1>
@@ -54,5 +53,4 @@
     <a href="https://iut.univ-amu.fr/fr/candidature-inscription/candidature#tab-3547" target="_blank" class="btn-candidater">Candidater</a>
 </div>
 
-</body>
 </html>
