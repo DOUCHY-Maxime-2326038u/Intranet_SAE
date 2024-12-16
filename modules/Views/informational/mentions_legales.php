@@ -10,7 +10,6 @@ $hebergeur_adresse = "2 rue Kellermann, 59100 Roubaix, France";
 $hebergeur_tel = "+33 (0)9 72 10 10 07";
 ?>
 
-<body>
 <h1>Mentions légales</h1>
 
 <h2>Panneau de gestion des cookies</h2>
@@ -67,5 +66,4 @@ $hebergeur_tel = "+33 (0)9 72 10 10 07";
     En cas d'activité commerciale ou artisanale, veuillez inclure ici le numéro RCS/RNE, le numéro de TVA intracommunautaire si applicable, ainsi que les conditions générales de vente (CGV) si le site est marchand.
 </p>
 
-</body>
 </html>

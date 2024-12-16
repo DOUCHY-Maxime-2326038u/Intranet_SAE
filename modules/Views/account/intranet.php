@@ -1,4 +1,3 @@
-
 <body>
 <div class="container">
     <div id="sidebar">
@@ -31,5 +30,3 @@
     }
 </script>
 
-</body>
-</html>

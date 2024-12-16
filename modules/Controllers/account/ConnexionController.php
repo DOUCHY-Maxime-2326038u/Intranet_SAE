@@ -2,15 +2,20 @@
 final class ConnexionController
 {
     private string $titre  = "connexion";
-    private string $css = "_assets/styles/account/connexion.css";
+    private string $css = "/_assets/styles/account/connexion.css";
     private array $params = [];
-    private $userModel;
+    private Connexion $userModel;
 
-    public function __construct() {
-        // Instancie la base de données une seule fois pour ce contrôleur
-        $this->userModel = new Connexion();  // Passe l'instance de la base de données au modèle
+    public function __construct()
+    {
         $this->params['titre'] = $this->titre;
         $this->params['css'] = $this->css;
+        $this->userModel = new Connexion();
+    }
+
+    public function getParams(): array
+    {
+        return $this->params;
     }
 
     public function defaultAction(){
@@ -44,8 +49,4 @@ final class ConnexionController
         }
     }
 
-    public function getTitre(): string
-    {
-        return $this -> titre;
-    }
 }

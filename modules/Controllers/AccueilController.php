@@ -4,8 +4,8 @@
 final class AccueilController
 {
     private string $titre  = "Accueil";
-    private string $css = "_assets/styles/accueil.css";
-    private string $js = "_assets/scripts/accueil.js";
+    private string $css = "/_assets/styles/accueil.css";
+    private string $js = "/_assets/scripts/accueil.js";
     private array $params = [];
 
     public function __construct()

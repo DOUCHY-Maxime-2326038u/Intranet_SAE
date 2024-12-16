@@ -2,7 +2,7 @@
 final class AproposController
 {
     private string $titre  = "apropos";
-    private string $css = "_assets/styles/informational/apropos.css";
+    private string $css = "/_assets/styles/informational/apropos.css";
     private array $params = [];
 
     public function __construct()

@@ -53,6 +53,8 @@ nav ul li a {
     transition: background 0.3s; /* Transition pour l'effet au survol */
 }
 
+
+
 section h2 {
     color: #005f8c;
     border-bottom: 2px solid #005f8c;
@@ -79,6 +81,18 @@ section p {
 .btn:hover {
     background: #005f8c;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 * {

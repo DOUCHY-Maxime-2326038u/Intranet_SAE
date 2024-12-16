@@ -3,7 +3,7 @@
 final class PresentationFiliereController
 {
     private string $titre  = "presentation_filiere";
-    private string $css = "_assets/styles/informational/presentation_filiere.css";
+    private string $css = "/_assets/styles/informational/presentation_filiere.css";
     private array $params = [];
 
     public function __construct()

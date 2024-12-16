@@ -12,6 +12,19 @@ body {
 
 }
 
+header {
+    height: 75.11px;
+}
+
+#logoAmu {
+    position: absolute;
+    z-index: 5;
+}
+
+#dep {
+    top: 12px;
+}
+
 #presentation{
     position: relative;
     top: -100px;
