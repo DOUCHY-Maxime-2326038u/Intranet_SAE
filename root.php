@@ -30,10 +30,10 @@ $C_controller->execute();
 
 // Récupère le contenu tamponné
 $displayContent = ViewHandler::bufferCollect();
-$A_params = $C_controller->getParams();
+$params = $C_controller->getParams();
 
-$A_params['body'] = $displayContent;
-ViewHandler::show('pattern', $A_params);
+$params->set('body', $displayContent);
+ViewHandler::show('pattern', $params);
 
 
 

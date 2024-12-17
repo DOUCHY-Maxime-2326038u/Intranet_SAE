@@ -3,25 +3,22 @@
 
 final class AccueilController
 {
-    private string $titre  = "Accueil";
-    private string $css = "/_assets/styles/accueil.css";
-    private string $js = "/_assets/scripts/accueil.js";
-    private array $params = [];
+    private ViewParams $params;
 
-    public function __construct()
+    public function setParams(ViewParams $params): void
     {
-        $this->params['titre'] = $this->titre;
-        $this->params['css'] = $this->css;
-        $this->params['js'] = $this->js;
+        $this->params = $params;
     }
-
-    public function getParams(): array
+    public function getParams(): ViewParams
     {
         return $this->params;
     }
 
     public function defaultAction()
     {
+        $this->params->set('titre', "Accueil");
+        $this->params->set('css', "/_assets/styles/accueil.css");
+        $this->params->set('js', "/_assets/scripts/accueil.js");
         ViewHandler::show("accueil", $this->params);
     }
 }

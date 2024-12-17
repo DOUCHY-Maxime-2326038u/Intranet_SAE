@@ -4,14 +4,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/_assets/styles/pattern.css">
-        <link rel="stylesheet" href=<?php echo $A_params['css'] ?? '/_assets/styles/pattern.css' ?>>
-        <title><?php echo $A_params['titre'] ?? 'Titre par défaut'; ?></title>
+        <link rel="stylesheet" href=<?php echo $css ?? '/_assets/styles/pattern.css' ?>>
+        <title><?php echo $titre ?? 'Titre par défaut'; ?></title>
     </head>
     <body>
-        <?php if (!isAjaxRequest())ViewHandler::show('pattern/header');?>
-        <?php echo $A_params['body'] ?>
-        <?php if (!isAjaxRequest())ViewHandler::show('pattern/footer'); ?>
+        <?php if (!Request::isAjax()) ViewHandler::show('pattern/header');?>
+        <?php echo $body ?? 'Aucun contenu disponible.' ?>
+        <?php if (!Request::isAjax()) ViewHandler::show('pattern/footer'); ?>
         <script src="/_assets/scripts/pattern.js"></script>
-        <script src=<?php echo $A_params['js']?>></script>
+        <script src=<?php echo $js ?? '/_assets/scripts/pattern.js'?>></script>
     </body>
 </html>

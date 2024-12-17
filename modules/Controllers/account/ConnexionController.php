@@ -1,24 +1,26 @@
 <?php
 final class ConnexionController
 {
-    private string $titre  = "connexion";
-    private string $css = "/_assets/styles/account/connexion.css";
-    private array $params = [];
+    private ViewParams $params;
     private Connexion $userModel;
 
     public function __construct()
     {
-        $this->params['titre'] = $this->titre;
-        $this->params['css'] = $this->css;
         $this->userModel = new Connexion();
     }
 
-    public function getParams(): array
+    public function setParams(ViewParams $params): void
+    {
+        $this->params = $params;
+    }
+    public function getParams(): ViewParams
     {
         return $this->params;
     }
 
     public function defaultAction(){
+        $this->params->set('titre', "connexion");
+        $this->params->set('css', "/_assets/styles/account/connexion.css");
         ViewHandler::show("account/connexion", $this->params);
     }
 
