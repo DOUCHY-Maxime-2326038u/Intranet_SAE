@@ -4,9 +4,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/_assets/styles/pattern.css">
-        <link rel="stylesheet" href=<?php echo $A_params['css']?>>
-        
-        <title><?php echo isset($A_params['titre']) ? $A_params['titre'] : 'Titre par défaut'; ?></title>
+        <link rel="stylesheet" href=<?php echo $A_params['css'] ?? '/_assets/styles/pattern.css' ?>>
+        <title><?php echo $A_params['titre'] ?? 'Titre par défaut'; ?></title>
     </head>
     <body>
         <?php if (!isAjaxRequest())ViewHandler::show('pattern/header');?>
