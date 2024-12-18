@@ -9,6 +9,7 @@
         <title><?php echo isset($A_params['titre']) ? $A_params['titre'] : 'Titre par défaut'; ?></title>
     </head>
     <body>
+    <?php var_dump($A_params); ?>
         <?php if (!isAjaxRequest())ViewHandler::show('pattern/header');?>
         <?php echo $A_params['body'] ?>
         <?php if (!isAjaxRequest())ViewHandler::show('pattern/footer'); ?>

@@ -1,13 +1,4 @@
-/* Style général */
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background-color: #eef3f8; /* Fond moderne et doux */
-}
+
 
 
 /* Conteneur principal */
@@ -20,7 +11,7 @@ body {
 
 /* Barre latérale */
 #sidebar {
-    background-color: #2c3e50; /* Bleu foncé moderne */
+    background-color: #64B5F6;
     color: white;
     padding: 20px;
     display: flex;
@@ -29,14 +20,13 @@ body {
     box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Style des onglets */
 .tab {
     margin-bottom: 20px;
     padding: 12px 15px;
     width: 100%;
     text-align: left;
-    background-color: #34495e; /* Bleu plus clair */
-    border-radius: 8px;
+    background-color: #5da8e4;
+    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.2s;
     font-size: 1em;
@@ -45,27 +35,27 @@ body {
 }
 
 .tab:hover {
-    background-color: #1abc9c; /* Vert turquoise */
+    background-color: #9575CD; /* Vert turquoise */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .tab:active {
-    background-color: #16a085; /* Vert foncé */
+    background-color: #a884e6; /* Vert foncé */
 }
 
 /* Zone de contenu */
 #content {
-    background-color: #ffffff; /* Fond blanc pour contraste */
+    background-color: #ffffff;
     padding: 30px;
     overflow-y: auto;
-    border-radius: 8px;
+    border-radius: 4px;
     margin: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 /* Titres */
 h1, h2, h3 {
-    color: #2c3e50; /* Texte principal sombre */
+    color: #000000; /* Texte principal sombre */
     margin: 0 0 15px;
 }
 

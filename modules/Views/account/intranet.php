@@ -1,4 +1,4 @@
-<body>
+
 <div class="container">
     <div id="sidebar">
       <div class="tab" onclick="loadContent('dashboard')">Tableau de bord</div>
