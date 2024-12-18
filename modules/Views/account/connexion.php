@@ -17,6 +17,6 @@
         <input type="password" id="mot_de_passe" name="mot_de_passe" required><br>
 
         <!-- Bouton de connexion -->
-        <button type="submit" name="connexion">Se connecter</button>
+        <button class="button" type="submit">Se connecter</button>
     </form>
 </div>

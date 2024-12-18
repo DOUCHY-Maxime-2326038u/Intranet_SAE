@@ -1,41 +1,135 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
-    .connexion-box {
-        position: absolute;
-        top: 30%;
-        left: 35%;
-        margin: 0 auto;
-        text-align: center;
-        box-shadow: 0 0 4px rgb(0 0 0);
-        width: 30%;
-    }
+/* Espacement des éléments dans connexion-box */
+.connexion-box label,
+.connexion-box input,
+.connexion-box button {
+    margin-bottom: 15px; /* Ajustez la valeur pour obtenir l'espacement souhaité */
+}
 
-    form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-    }
+/* Supprimez la marge pour le dernier élément si besoin */
+.connexion-box button:last-child {
+    margin-bottom: 0;
+}
 
-    form label {
-        margin-bottom: 10px;
-    }
+/* Style de base pour la boîte de connexion */
+.connexion-box {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #EAEAEA;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
 
-    form input {
-        margin-bottom: 15px;
-        padding: 5px;
-        width: 200px;
-    }
+/* Style pour le titre */
+.connexion-box h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
 
-    form input[type="submit"] {
-        width: auto;
-    }
+/* Style des labels */
+.connexion-box label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
 
-    form a {
-        margin-top: 10px;
-    }
+.connexion-box input {
+    max-width: 190px;
+    background-color: #f5f5f5;
+    color: #242424;
+    padding: .15rem .5rem;
+    min-height: 40px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    line-height: 1.15;
+    box-shadow: 0px 10px 20px -18px;
+}
+
+.connexion-box input:focus{
+    border-bottom: 2px solid #5b5fc7;
+    border-radius: 4px 4px 2px 2px;
+}
+
+.connexion-box input:hover {
+    outline: 1px solid lightgrey;
+}
+
+
+
+
+
+
+
+
+
+
+
+.connexion-box button {
+    padding: 12.5px 30px;
+    border: 0;
+    border-radius: 100px;
+    background-color: #2ba8fb;
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+.connexion-box button:hover {
+    background-color: #6fc5ff;
+    box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.05);
+}
+
+.connexion-box button:active {
+    background-color: #3d94cf;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
+}
+.footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.footer span {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.footer .social-field {
+    padding: 0.4rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.footer .social-field a i {
+    margin: 0 0.5rem;
+    width: 15px;
+}
+
+.footer .social-field a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer .social-field.twitter {
+    background: linear-gradient(to right, #56a7f2, #468aca);
+}
+
+.footer .social-field.facebook {
+    background: linear-gradient(to right, #1e3c72, #2a5298);
 }
