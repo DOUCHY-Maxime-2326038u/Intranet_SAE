@@ -48,8 +48,7 @@
     background-color: #ffffff;
     padding: 30px;
     overflow-y: auto;
-    border-radius: 4px;
-    margin: 20px;
+
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
 }
 
@@ -101,7 +100,7 @@ small {
 /* Animation subtile */
 .tab:hover,
 ul li:hover {
-    animation: subtle-move 0.3s ease-in-out;
+    animation: subtle-move 0.8s ease-in-out infinite; /* Animation infinie tant que hover */
 }
 
 @keyframes subtle-move {

@@ -32,7 +32,6 @@ final class IntranetController
     public function annoncesAction()
     {
         $annonces = $this->intranetModel->getAllAnnonces();
-        $this->params->set('css', "/_assets/styles/intranet/annonces.css");
         $this->params->set('annonces', $annonces);
 
         ViewHandler::show('intranet/annonces', $this->params);
