@@ -65,7 +65,7 @@ ul {
     margin: 0;
 }
 
-ul li {
+#tab ul li {
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -77,7 +77,7 @@ ul li {
     gap: 10px;
 }
 
-ul li:hover {
+#tab ul li:hover {
     background-color: #eef3f7; /* Fond légèrement plus sombre */
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
@@ -99,7 +99,7 @@ small {
 
 /* Animation subtile */
 .tab:hover,
-ul li:hover {
+#tab ul li:hover {
     animation: subtle-move 0.8s ease-in-out infinite; /* Animation infinie tant que hover */
 }
 
