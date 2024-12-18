@@ -12,17 +12,16 @@ final class ViewHandler
         return ob_get_clean();
     }
 
-    public static function show(string $loc, $parametres = array()): void
+    public static function show(string $loc, ViewParams $params = null): void
     {
-
         $S_file = Constants::viewsDir() . $loc . '.php';
-
-        $A_params = $parametres;
 
         if (!is_readable($S_file)) {
             throw new Exception("Fichier de vue non trouvé : " . $S_file);
         }
-
+        if ($params !== null) {
+            extract($params->getAll());
+        }
         ob_start();
         include $S_file;
         ob_end_flush();

@@ -2,36 +2,38 @@
 <?php
 final class IntranetController
 {
-    private string $titre  = "intranet";
-    private string $css = "/_assets/styles/account/intranet.css";
-    private array $params = [];
+    private ViewParams $params;
     private Intranet $intranetModel;
     public function __construct()
     {
-        $this->params['titre'] = $this->titre;
-        $this->params['css'] = $this->css;
         $this->intranetModel = new Intranet();
     }
-    public function getParams(): array
+    public function setParams(ViewParams $params): void
+    {
+        $this->params = $params;
+    }
+    public function getParams(): ViewParams
     {
         return $this->params;
     }
     public function defaultAction()
     {
+        $this->params->set('titre', "Intranet");
+        $this->params->set('css', "/_assets/styles/account/intranet.css");
         ViewHandler::show("account/intranet",  $this->params);
 
     }
 
     public function dashboardAction()
     {
-        ViewHandler::show('intranet/dashboard');
+        ViewHandler::show('intranet/dashboard', );
     }
 
     public function annoncesAction()
     {
         $annonces = $this->intranetModel->getAllAnnonces();
-        $this->params['css'] = "/_assets/styles/intranet/annonces.css";
-        $this->params['annonces'] = $annonces;
+        $this->params->set('css', "/_assets/styles/intranet/annonces.css");
+        $this->params->set('annonces', $annonces);
 
         ViewHandler::show('intranet/annonces', $this->params);
 

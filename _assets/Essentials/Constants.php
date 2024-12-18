@@ -7,6 +7,8 @@ final class Constants
     const CONTROLLERS_DIR = '/modules/Controllers/';
     const ESSENTIALS_DIR = '/_assets/Essentials/';
 
+    const UTILS_DIR = '/_assets/Utils/';
+
     public static function rootDir(): string
     {
         return realpath(__DIR__ . '/../../');
@@ -30,6 +32,11 @@ final class Constants
     public static function controllersDir(): string
     {
         return self::rootDir() . self::CONTROLLERS_DIR;
+    }
+
+    public static function utilsDir(): string
+    {
+        return self::rootDir() . self::UTILS_DIR;
     }
 
 }

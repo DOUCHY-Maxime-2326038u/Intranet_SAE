@@ -2,23 +2,20 @@
 <?php
 final class BdeController
 {
-    private string $titre  = "bde";
-    private string $css = "/_assets/styles/informational/bde.css";
-    private array $params = [];
+    private ViewParams $params;
 
-    public function __construct()
+    public function setParams(ViewParams $params): void
     {
-        $this->params['titre'] = $this->titre;
-        $this->params['css'] = $this->css;
+        $this->params = $params;
     }
-
-    public function getParams(): array
+    public function getParams(): ViewParams
     {
         return $this->params;
     }
-
     public function defaultAction()
     {
+        $this->params->set('titre', "Bde");
+        $this->params->set('css', "/_assets/styles/informational/bde.css");
         ViewHandler::show("informational/bde", $this->params);
     }
 

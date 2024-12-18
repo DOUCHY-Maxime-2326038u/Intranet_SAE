@@ -1,42 +1,41 @@
 
 <section id = "presentation">
-<svg
-   id="leftBlock" width="903" height="751" viewBox="0 0 903 751" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs1" />
-  <g
-     id="g1">
-    <path
-       style="fill:#53dd93;stroke:none"
-       d="M 0.00286935,0.00129788 V 751.00131 H 903.00286 v -244 h -261 v -181 -89 h -202 -62 l -31,1 c -5.64944,-23.7287 -1,-53.59467 -1,-78 V 0.00129788 H 0.00286935 M 346.00286,238.00131 l -1,1 1,-1 m 302,271 -1,1 1,-1 m -2,2 -1,1 1,-1 m 2,0 -1,1 z"
-       id="path1" />
-  </g>
-</svg>
-<svg
-   id="rightBlock" width="1224" height="700" viewBox="0 0 1224 700" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs1" />
-  <g
-     id="g1">
-    <path
-       style="fill:#9965ff;stroke:none"
-       d="M 0.00519025,0.00565699 V 270.00564 H 261.00519 v 243 h -50 v 187 H 1224.0052 V 0.00565699 H 0.00519025 M 212.00518,2.33897 212.33851,2.672344 C 211.84498,2.8368949 211.23182,2.33897 212.00518,2.33897 m 193,257.66667 -2,2 2,-2 m -1,8 -1,1 1,-1 m 2,2 -1,1 1,-1 m 0,2 -1,1 1,-1 m -2,34 -1,1 z"
-       id="path1" />
-  </g>
-</svg>
-<svg
-   id="playBtn" width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs1" />
-  <g
-     id="g1">
-    <path
-       style="fill:#010101;stroke:none"
-       d="m 235.81042,33.592589 c -38.69766,5.143189 -74.53302,16.223542 -107,38.601075 -23.63486,16.290069 -43.761306,37.114196 -59.666663,60.974546 -14.633358,21.95218 -25.621571,47.16864 -31.122688,73 -7.432082,34.8985 -7.413533,71.29614 1.264659,106 C 66.8279,422.30859 176.69059,492.85464 287.81042,477.8858 c 31.30408,-4.21695 61.25504,-15.64374 88,-32.29398 22.14987,-13.78955 41.55585,-31.87088 57.57562,-52.42361 66.51831,-85.34042 59.8436,-211.0816 -13.66513,-290 -28.0394,-30.102873 -64.54852,-51.201383 -103.91049,-62.421293 -24.94025,-7.10907 -54.13657,-10.591736 -80,-7.154328 M 180.81428,157.60571 c 10.4885,-2.76523 27.29469,11.8934 35.99614,16.84335 32.45163,18.46061 64.54938,37.53995 97,56 8.548,4.86267 34.37714,14.33374 34.59723,25.71915 0.22974,11.88379 -26.93613,21.64124 -35.59723,26.79938 -28.76523,17.13116 -58.13086,33.25601 -87,50.21142 -11.54153,6.77857 -27.66858,20.4303 -41,22.36573 -16.30905,2.36773 -11,-30.00122 -11,-39.37653 v -121 c 0,-9.13367 -4.60826,-34.50101 7.00386,-37.5625 z"
-       id="path1" />
-  </g>
-</svg>
+
+    <div id="line1" class="greenBlock">
+    </div>
+    <div id="line2" class="greenBlock">
+        <span id="bvn" class="title">Bienvenue</span>
+    </div>
+    <div id="line3" class="greenBlock">
+        <span id="bvnText" class="title">sur notre site</span>
+    </div>
+    <div id="line4" class="purpleBlock">
+        <span id="bvnText2" class="title">Département</span>
+    </div>
+    <div id="line5" class="purpleBlock">
+        <span id="bvnText3" class="title">Informatique</span>
+    </div>
+    <div id="line6" class="purpleBlock">
+        <span id="bvnText4" class="title">Aix-en Provence</span>
+    </div>
+    <img id="playBtn" src="/_assets/img/playBtn.svg" alt="bouton qui lance la vidéo de présentation">
+
+
 </section>
+
+<section id="videoPres">
+    <div class="videoContainer">
+        <iframe
+                width="1352"
+                height="761"
+                src="https://www.youtube.com/embed/sVoBk3g-ZmA"
+                title="Présentation du BUT Informatique"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+        </iframe>
+    </div>
+</section>
+
 <section class="hero">
     <div class="hero-text">
         <h1>Bienvenue au Département Informatique de l'IUT d'Aix-en-Provence</h1>

@@ -19,7 +19,8 @@ final class Autoloader
             Constants::essentialsDir(),
             Constants::modelsDir(),
             Constants::viewsDir(),
-            Constants::controllersDir()
+            Constants::controllersDir(),
+            Constants::utilsDir()
         ];
 
         foreach ($ST_directories as $directory) {

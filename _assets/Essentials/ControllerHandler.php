@@ -3,10 +3,11 @@
 final class ControllerHandler
 {
     private array $url;
-    private array $params = [];
+    private ViewParams $params;
 
     public function __construct(?string $S_controller, ?string $S_action)
     {
+        $this->params = new ViewParams();
         $this->url['controller'] = $this->cleanControllerName($S_controller);
         $this->url['action'] = $this->cleanActionName($S_action);
     }
@@ -60,17 +61,14 @@ final class ControllerHandler
         }
 
         try {
-            call_user_func_array([$controllerInstance, $action], []);
+            $controllerInstance->setParams($this->params);
+            call_user_func([$controllerInstance, $action]);
         } catch (Exception $e) {
             throw new RuntimeException("Erreur lors de l'exécution de l'action '$action' : " . $e->getMessage());
         }
-
-        if (method_exists($controllerInstance, 'getParams')) {
-            $this->params = $controllerInstance->getParams();
-        }
     }
 
-    public function getParams(): array
+    public function getParams(): ViewParams
     {
         return $this->params;
     }
