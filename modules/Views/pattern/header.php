@@ -166,6 +166,5 @@
         <li><a href="?ctrl=PresentationFiliere">Filieres</a></li>
         <li><a href="?ctrl=Bde">BDE</a></li>
         <li><a href="?ctrl=Connexion">Connexion</a></li>
-        <li><a href="?ctrl=Intranet">Intra</a></li>
     </ul>
 </nav>
