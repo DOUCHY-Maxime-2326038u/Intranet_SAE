@@ -4,6 +4,7 @@ final class IntranetController
 {
     private ViewParams $params;
     private Intranet $intranetModel;
+    private IntranetStrategy $intranetStrategy;
     public function __construct()
     {
         $this->intranetModel = new Intranet();
@@ -16,6 +17,16 @@ final class IntranetController
     {
         return $this->params;
     }
+
+    public function getIntranetStrategy(): IntranetStrategy
+    {
+        return $this->intranetStrategy;
+    }
+
+    public function setIntranetStrategy(IntranetStrategy $intranetStrategy): void
+    {
+        $this->intranetStrategy = $intranetStrategy;
+    }
     public function defaultAction()
     {
         $this->params->set('titre', "Intranet");
@@ -26,7 +37,7 @@ final class IntranetController
 
     public function dashboardAction()
     {
-        ViewHandler::show('intranet/dashboard', );
+        ViewHandler::show('intranet/dashboard', $this->params);
     }
 
     public function annoncesAction()

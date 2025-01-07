@@ -11,7 +11,7 @@
 
 /* Barre latérale */
 #sidebar {
-    background-color: #64B5F6;
+    background-color: #1F63DE;
     color: white;
     padding: 20px;
     display: flex;
@@ -25,7 +25,7 @@
     padding: 12px 15px;
     width: 100%;
     text-align: left;
-    background-color: #5da8e4;
+    background-color: #1b57c3;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.2s;
@@ -35,12 +35,13 @@
 }
 
 .tab:hover {
-    background-color: #9575CD; /* Vert turquoise */
+    background-color: #FFFF85; /* Vert turquoise */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color : black;
 }
 
 .tab:active {
-    background-color: #a884e6; /* Vert foncé */
+    background-color: #ffffd6; /* Vert foncé */
 }
 
 /* Zone de contenu */
