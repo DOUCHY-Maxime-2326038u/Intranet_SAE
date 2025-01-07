@@ -26,7 +26,7 @@ final class IntranetController
 
     public function dashboardAction()
     {
-        ViewHandler::show('intranet/dashboard', );
+        ViewHandler::show('intranet/dashboard', $this->params);
     }
 
     public function annoncesAction()

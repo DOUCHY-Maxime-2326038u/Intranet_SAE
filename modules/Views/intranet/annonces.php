@@ -1,10 +1,10 @@
 <h1>Les annonces</h1>
 
-<?php if (empty($A_params["annonces"])): ?>
+<?php if (empty($params["annonces"])): ?>
     <p>Aucune annonce disponible pour le moment.</p>
 <?php else: ?>
     <ul>
-        <?php foreach ($A_params["annonces"] as $annonce): ?>
+        <?php foreach ($params["annonces"] as $annonce): ?>
             <li>
                 <h2><?php echo htmlspecialchars($annonce->professeur_prenom); ?> <?php echo htmlspecialchars($annonce->professeur_nom); ?></h2>
                 <h3><?php echo htmlspecialchars($annonce->titre ?? 'Sans titre', ); ?></h3>

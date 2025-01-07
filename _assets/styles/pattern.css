@@ -7,7 +7,7 @@ body{
     min-height: 100%;
     font-family: Arial, sans-serif;
     height: 1500px;
-    background-color: #00558b;
+    background-color: #1F63DE;
 }
 
 body.active {
@@ -15,7 +15,7 @@ body.active {
 }
 
 header{
-    background-color: #00558b;
+    background-color: #1F63DE;
     color: white;
     padding-top: 10px;
     padding-bottom: 10px;
