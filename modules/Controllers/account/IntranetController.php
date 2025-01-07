@@ -4,6 +4,7 @@ final class IntranetController
 {
     private ViewParams $params;
     private Intranet $intranetModel;
+    private IntranetStrategy $intranetStrategy;
     public function __construct()
     {
         $this->intranetModel = new Intranet();
@@ -15,6 +16,16 @@ final class IntranetController
     public function getParams(): ViewParams
     {
         return $this->params;
+    }
+
+    public function getIntranetStrategy(): IntranetStrategy
+    {
+        return $this->intranetStrategy;
+    }
+
+    public function setIntranetStrategy(IntranetStrategy $intranetStrategy): void
+    {
+        $this->intranetStrategy = $intranetStrategy;
     }
     public function defaultAction()
     {

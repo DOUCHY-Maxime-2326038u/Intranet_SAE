@@ -45,8 +45,8 @@ final class ConnexionController
                 exit();
             } else {
                 // Si erreur, renvoyer à la vue avec un message
-                $erreur = "Identifiant ou mot de passe incorrect.";
-                ViewHandler::show("connexion", ['erreur' => $erreur]);
+                $this->params->set('erreur', "Identifiant ou mot de passe incorrect.");
+                ViewHandler::show("connexion", $this->params);
             }
         }
     }
