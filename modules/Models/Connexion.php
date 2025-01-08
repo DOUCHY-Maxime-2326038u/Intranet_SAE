@@ -11,11 +11,11 @@ class Connexion {
     {
         // Requête pour vérifier dans toutes les tables (ETUDIANTS, PROFESSEURS, STAFF)
         $query = "
-        SELECT ID_ETUDIANT AS ID_USER, EMAIL_ET AS EMAIL_USER
+        SELECT ID_ETUDIANT AS ID_USER, EMAIL_ET AS EMAIL_USER, DEFAUT_MDP_ET, MDP_ET
         FROM ETUDIANTS
         WHERE EMAIL_ET = :identifiant
         UNION
-        SELECT ID_PROFESSEUR AS ID_USER, EMAIL_PROF AS EMAIL_USER 
+        SELECT ID_PROFESSEUR AS ID_USER, EMAIL_PROF AS EMAIL_USER, DEFAUT_MDP_PROF, MDP_PROF
         FROM PROFESSEURS
         WHERE EMAIL_PROF = :identifiant
         ";
@@ -31,9 +31,12 @@ class Connexion {
 
         // Si un utilisateur est trouvé, le retourner avec son rôle
         if ($utilisateur) {
-            return $utilisateur;
+            if (password_verify($mot_de_passe, $utilisateur['MDP_ET']) || $utilisateur['MDP_PROF']|| $utilisateur['DEFAUT_MDP_ET']  || $utilisateur['DEFAUT_MDP_PROF']) {
+                //$etudiant['ROLE'] = 'etudiant'; // Ajouter un rôle pour l'utilisateur
+                return $utilisateur;
+            }
+            //return $utilisateur;
         }
-
         // Si aucun utilisateur trouvé, renvoie false
         return false;
     }

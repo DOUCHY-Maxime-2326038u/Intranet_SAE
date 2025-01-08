@@ -35,7 +35,7 @@ final class ConnexionController
             $utilisateur = $this->userModel->authenticate($identifiant, $mot_de_passe);
 
             if ($utilisateur) {
-                // Si c'est le mot de passe par défaut, redirige vers la page de changement de mot de passe
+                // Si c'est le mdp par défaut : redirige vers la page de changement de mdp
                 if ($mot_de_passe === $utilisateur['DEFAUT_MDP_ET'] || $mot_de_passe === $utilisateur['DEFAUT_MDP_PROF']) {
                     echo "oui default";
                     $_SESSION['id_user'] = $utilisateur['ID_USER'];
@@ -58,6 +58,10 @@ final class ConnexionController
                 ViewHandler::show("connexion", $this->params);
             }
         }
+        else{
+            var_dump($_POST);
+        }
+
     }
     public function changePasswordAction() {
         if (isset($_POST['changer_mot_de_passe'])) {

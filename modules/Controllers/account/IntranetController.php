@@ -44,6 +44,7 @@ final class IntranetController
     }
     public function defaultAction()
     {
+        echo "test";
         $this->initStrategy();
         $this->params->set('titre', "Intranet");
         $this->params->set('css', "/_assets/styles/account/intranet.css");
