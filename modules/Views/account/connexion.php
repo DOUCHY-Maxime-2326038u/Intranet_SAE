@@ -1,5 +1,4 @@
 <div class="body">
-    <div class="box-deco2">caca</div>
     <div class="connexion-box">
         <h2>Connexion</h2>
 
@@ -22,7 +21,6 @@
             <button class="button" type="submit">Se connecter</button>
         </form>
     </div>
-    <div class="box-deco1">caca</div>
 </div>
 
 
