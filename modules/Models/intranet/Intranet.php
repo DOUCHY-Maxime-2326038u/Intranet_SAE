@@ -3,11 +3,17 @@
 class Intranet
 {
     private $db;
+
+    private array $allowedTables = [
+        'ETUDIANTS' => 'ID_ETUDIANT',
+        'PROFESSEURS' => 'ID_PROFESSEUR',
+        'STAFF' => 'ID_STAFF',
+    ];
     public function __construct() {
         $this->db = Database::getInstance('intraiut_1');  // Connexion unique
     }
 
-    public function getUserRole(int $userId): string
+    public function getUserRole(int $userId, string $userEmail): string
     {
         // Validation stricte de l'ID utilisateur
         if ($userId <= 0) {
@@ -15,11 +21,11 @@ class Intranet
         }
 
         // Vérifier dans chaque table autorisée
-        if ($this->existsInTable('ETUDIANTS', 'ID_ETUDIANT', $userId)) {
+        if ($this->existsInTable('ETUDIANTS', 'ID_ETUDIANT', 'EMAIL_ET', $userId, $userEmail)) {
             return 'eleve';
         }
 
-        if ($this->existsInTable('PROFESSEURS', 'ID_PROFESSEUR', $userId)) {
+        if ($this->existsInTable('PROFESSEURS', 'ID_PROFESSEUR', 'EMAIL_PROF', $userId, $userEmail)) {
             return 'professeur';
         }
 
@@ -31,24 +37,18 @@ class Intranet
         throw new RuntimeException("Utilisateur introuvable.");
     }
 
-    private function existsInTable(string $tableName, string $columnName, int $userId): bool
+    private function existsInTable(string $tableName, string $column1, string $column2, int $value1, string $value2): bool
     {
-        // Liste blanche des tables et colonnes autorisées
-        $allowedTables = [
-            'ETUDIANTS' => 'ID_ETUDIANT',
-            'PROFESSEURS' => 'ID_PROFESSEUR',
-            'STAFF' => 'ID_STAFF',
-        ];
 
         // Vérifier si la table et la colonne sont autorisées
-        if (!isset($allowedTables[$tableName]) || $allowedTables[$tableName] !== $columnName) {
+        if (!isset($this->allowedTables[$tableName]) || $this->allowedTables[$tableName] !== $column1) {
             throw new InvalidArgumentException("Table ou colonne non autorisée.");
         }
 
         // Requête préparée pour vérifier l'existence de l'utilisateur
-        $query = "SELECT 1 FROM $tableName WHERE $columnName = :id LIMIT 1";
+        $query = "SELECT 1 FROM $tableName WHERE $column1 = :id AND $column2 = :email LIMIT 1";
         $stmt = $this->db->getPDO()->prepare($query);
-        $stmt->execute(['id' => $userId]);
+        $stmt->execute(['id' => $value1, 'email' => $value2]);
 
         return (bool) $stmt->fetchColumn();
     }

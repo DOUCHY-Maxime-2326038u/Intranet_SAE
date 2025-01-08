@@ -34,7 +34,7 @@ final class IntranetController
             exit();
         }
 
-        $role = $this->intranetModel->getUserRole($_SESSION['id_user']);
+        $role = $this->intranetModel->getUserRole($_SESSION['id_user'], $_SESSION['email_user']);
         $this->intranetStrategy = match ($role) {
             'eleve' => new IntranetEleve(),
             'professeur' => new IntranetProfesseur(),
