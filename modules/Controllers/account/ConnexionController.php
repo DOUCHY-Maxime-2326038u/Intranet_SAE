@@ -28,7 +28,7 @@ final class ConnexionController
         if (isset($_POST['connexion'])) {
             $identifiant = $_POST['identifiant'];
             $mot_de_passe = $_POST['mot_de_passe'];
-            echo $identifiant;
+            var_dump($identifiant);
             echo $mot_de_passe;
 
             // Authentifie l'utilisateur via le modèle
