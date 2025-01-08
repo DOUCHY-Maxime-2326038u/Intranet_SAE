@@ -1,6 +1,4 @@
-
 <?php
-
 final class AccueilController
 {
     private ViewParams $params;

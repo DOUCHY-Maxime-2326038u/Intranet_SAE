@@ -27,17 +27,36 @@ final class IntranetController
     {
         $this->intranetStrategy = $intranetStrategy;
     }
+    private function initStrategy(): void
+    {
+        if (!isset($_SESSION['id_user'], $_SESSION['email_user'])) {
+            header("Location: root.php?ctrl=Connexion");
+            exit();
+        }
+
+        $role = $this->intranetModel->getUserRole($_SESSION['id_user'], $_SESSION['email_user']);
+        $this->intranetStrategy = match ($role) {
+            'eleve' => new IntranetEleve(),
+            'professeur' => new IntranetProfesseur(),
+            'staff' => new IntranetStaff(),
+            default => throw new Exception("Rôle utilisateur inconnu : $role"),
+        };
+    }
     public function defaultAction()
     {
+        $this->initStrategy();
         $this->params->set('titre', "Intranet");
         $this->params->set('css', "/_assets/styles/account/intranet.css");
-        ViewHandler::show("account/intranet",  $this->params);
+        ViewHandler::show("account/intranet/intranet",  $this->params);
 
     }
 
     public function dashboardAction()
     {
-        ViewHandler::show('intranet/dashboard', $this->params);
+        if (!isset($this->intranetStrategy)) {
+            $this->initStrategy();
+        }
+        ViewHandler::show($this->intranetStrategy->getDashboard());
     }
 
     public function annoncesAction()

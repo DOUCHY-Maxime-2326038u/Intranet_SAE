@@ -19,7 +19,7 @@ function isAjaxRequest(): bool
 }
 
 $S_controller = isset($_GET['ctrl']) ? $_GET['ctrl'] : null;
-$S_action = isset($_GET['action']) ? $_GET['action'] : null;
+$S_action = isset($_GET['action']) ? $_GET['action'] : null ;
 
 // Ouvre le tampon d'affichage pour stocker la sortie
 ViewHandler::bufferStart();
