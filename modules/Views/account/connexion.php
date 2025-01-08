@@ -1,4 +1,5 @@
 <div class="body">
+    <div class="box-deco2">caca</div>
     <div class="connexion-box">
         <h2>Connexion</h2>
 
@@ -10,7 +11,7 @@
         <!-- Formulaire pour la connexion -->
         <form action="/root.php?ctrl=Connexion&action=login" method="post">
             <!-- Champ pour entrer email ou nom d'utilisateur -->
-            <label for="identifiant">Email ou Nom d'utilisateur</label>
+            <label for="identifiant">Identifiant</label>
             <input type="text" id="identifiant" name="identifiant" required><br>
 
             <!-- Champ pour entrer le mot de passe -->
