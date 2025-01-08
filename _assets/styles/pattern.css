@@ -1,20 +1,23 @@
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
+    height: 100%; /* modif */
 }
 
-body{
+body {
     margin: 0;
-    min-height: 100%;
+    min-height: 100%; /* modif */
     font-family: Arial, sans-serif;
-    height: 1500px;
-    background-color: #1F63DE;
+    background-color: white;
+    height: auto; /* modif */
+    display: flex; /* modif */
+    flex-direction: column; /* modif */
 }
 
 body.active {
     overflow-y: hidden;
 }
 
-header{
+header {
     background-color: #1F63DE;
     color: white;
     padding-top: 10px;
@@ -29,6 +32,7 @@ footer {
     padding: 20px 10px;
     font-family: Arial, sans-serif;
     font-size: 14px;
+    margin-top: auto; /* modif */
 }
 
 .footer-logo {
@@ -77,8 +81,7 @@ footer {
     text-decoration: underline;
 }
 
-
-#dep{
+#dep {
     position: absolute;
     top: 24px;
     left: 50px;
@@ -140,10 +143,11 @@ footer {
     color: #ff6347;
 }
 
-#test{
+#test {
     background-color: rgb(250, 122, 122);
     height: 100px;
 }
+
 @keyframes moveAndRotate {
     0% {
         transform: translateX(0px) rotate(0deg);
@@ -152,6 +156,7 @@ footer {
         transform: translateX(-185px) rotate(-360deg);
     }
 }
+
 @keyframes moveAndRotateReversed {
     0% {
         transform: translateX(-185px) rotate(0deg);
@@ -169,7 +174,7 @@ footer {
     z-index: 1;
 }
 
-#logoAmu{
+#logoAmu {
     width: 250px;
 }
 
@@ -203,16 +208,16 @@ footer {
     opacity: 0;
 }
 
-#logoAmu.animate #dep{
+#logoAmu.animate #dep {
     opacity: 1;
     transition-delay: 2s;
 }
 
-#logoAmu.animate #amu1{
+#logoAmu.animate #amu1 {
     transition-delay: 0.7s;
 }
 
-#logoAmu.animate #amu2{
+#logoAmu.animate #amu2 {
     transition-delay: 0.3s;
 }
 
@@ -220,14 +225,14 @@ footer {
     animation: moveAndRotateReversed 2s linear forwards;
 }
 
-#logoAmu.animate-done #amu1{
+#logoAmu.animate-done #amu1 {
     transition-delay: 1s;
 }
 
-#logoAmu.animate-done #amu2{
+#logoAmu.animate-done #amu2 {
     transition-delay: 1.3s;
 }
 
-#logoAmu.animate-done #barre{
+#logoAmu.animate-done #barre {
     transition-delay: 1.6s;
 }
