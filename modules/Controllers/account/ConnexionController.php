@@ -67,9 +67,10 @@ final class ConnexionController
         if (isset($_POST['changer_mot_de_passe'])) {
             $nouveauMotDePasse = $_POST['nouveau_mot_de_passe'];
             $idUser = $_SESSION['id_user'];
+            $emailUser = $_SESSION['email_user'];
 
             // Mettre à jour le mot de passe dans la base de données
-            if ($this->userModel->updatePassword($idUser, $nouveauMotDePasse)) {
+            if ($this->userModel->updatePassword($idUser, $emailUser, $nouveauMotDePasse)) {
                 header("Location: root.php?ctrl=Intranet");
                 exit();
             } else {

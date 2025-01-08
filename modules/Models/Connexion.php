@@ -40,12 +40,12 @@ class Connexion {
         // Si aucun utilisateur trouvé, renvoie false
         return false;
     }
-    public function updatePassword($idUser, $nouveauMotDePasse) {
+    public function updatePassword($idUser, $emailUser, $nouveauMotDePasse) {
         // Hacher le nouveau mot de passe
         $motDePasseHache = password_hash($nouveauMotDePasse, PASSWORD_BCRYPT);
 
         // Vérifier le rôle de l'utilisateur dans la session
-        $role = $_SESSION['role'] ?? null;
+        $role = Intranet::getUserRole($idUser, $emailUser);
 
         if ($role === 'etudiant') {
             // Mise à jour dans la table ETUDIANTS
