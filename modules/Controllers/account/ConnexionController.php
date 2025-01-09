@@ -25,22 +25,20 @@ final class ConnexionController
     }
 
     public function loginAction() {
-        if (isset($_POST['connexion'])) {
-            $identifiant = $_POST['identifiant'];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['connexion'])) {
+            $identifiant = trim($_POST['identifiant']);
             $mot_de_passe = $_POST['mot_de_passe'];
-            var_dump($identifiant);
-            echo $mot_de_passe;
 
             // Authentifie l'utilisateur via le modèle
             $utilisateur = $this->userModel->authenticate($identifiant, $mot_de_passe);
 
             if ($utilisateur) {
                 // Si c'est le mdp par défaut : redirige vers la page de changement de mdp
-                if ($mot_de_passe === $utilisateur['DEFAUT_MDP_ET'] || $mot_de_passe === $utilisateur['DEFAUT_MDP_PROF']) {
+                if ($utilisateur['CHANGER_MDP'] === 1) {
                     echo "oui default";
                     $_SESSION['id_user'] = $utilisateur['ID_USER'];
                     $_SESSION['email_user'] = $utilisateur['EMAIL_USER'];
-                    header("Location: root.php?ctrl=Connexion&action=changePassword");
+                    header("Location: /Intranet_SAE/root.php?ctrl=Connexion&action=changePassword");
                     exit();
                 }
                 // Initialiser la session
@@ -49,13 +47,13 @@ final class ConnexionController
                 $_SESSION['email_user'] = $utilisateur['EMAIL_USER'];
 
                 // Rediriger vers l'intranet
-                header("Location: root.php?ctrl=Intranet");
+                header("Location: /Intranet_SAE/root.php?ctrl=Intranet");
                 exit();
             }
             else {
                 // Si erreur, renvoyer à la vue avec un message
                 $this->params->set('erreur', "Identifiant ou mot de passe incorrect.");
-                ViewHandler::show("connexion", $this->params);
+                ViewHandler::show("account/connexion", $this->params);
             }
         }
         else{
@@ -63,18 +61,27 @@ final class ConnexionController
         }
 
     }
+
+    private function validatePassword(string $password): bool {
+        return true;
+        return preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $password);
+    }
     public function changePasswordAction() {
         if (isset($_POST['changer_mot_de_passe'])) {
             $nouveauMotDePasse = $_POST['nouveau_mot_de_passe'];
             $idUser = $_SESSION['id_user'];
             $emailUser = $_SESSION['email_user'];
 
-            // Mettre à jour le mot de passe dans la base de données
-            if ($this->userModel->updatePassword($idUser, $emailUser, $nouveauMotDePasse)) {
-                header("Location: root.php?ctrl=Intranet");
-                exit();
-            } else {
-                $this->params->set('erreur', "Erreur lors de la mise à jour du mot de passe.");
+            if ($this->validatePassword($nouveauMotDePasse)) {
+                // Mettre à jour le mot de passe dans la base de données
+                if ($this->userModel->updatePassword($idUser, $emailUser, $nouveauMotDePasse)) {
+                    header("Location: /Intranet_SAE/root.php?ctrl=Intranet");
+                    exit();
+                } else {
+                    $this->params->set('erreur', "Erreur lors de la mise à jour du mot de passe.");
+                }
+            }else{
+                $this->params->set('erreur', "Le mdp doit contenir au minimum 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécialà.");
             }
         }
 

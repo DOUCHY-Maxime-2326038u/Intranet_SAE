@@ -11,11 +11,11 @@ class Connexion {
     {
         // Requête pour vérifier dans toutes les tables (ETUDIANTS, PROFESSEURS, STAFF)
         $query = "
-        SELECT ID_ETUDIANT AS ID_USER, EMAIL_ET AS EMAIL_USER, DEFAUT_MDP_ET, MDP_ET
+        SELECT ID_ETUDIANT AS ID_USER, EMAIL_ET AS EMAIL_USER, MDP_ET AS MDP_USER, CHANGER_MDP
         FROM ETUDIANTS
         WHERE EMAIL_ET = :identifiant
         UNION
-        SELECT ID_PROFESSEUR AS ID_USER, EMAIL_PROF AS EMAIL_USER, DEFAUT_MDP_PROF, MDP_PROF
+        SELECT ID_PROFESSEUR AS ID_USER, EMAIL_PROF AS EMAIL_USER, MDP_PROF AS MDP_USER, CHANGER_MDP
         FROM PROFESSEURS
         WHERE EMAIL_PROF = :identifiant
         ";
@@ -31,7 +31,7 @@ class Connexion {
 
         // Si un utilisateur est trouvé, le retourner avec son rôle
         if ($utilisateur) {
-            if (password_verify($mot_de_passe, $utilisateur['MDP_ET']) || $utilisateur['MDP_PROF']|| $utilisateur['DEFAUT_MDP_ET']  || $utilisateur['DEFAUT_MDP_PROF']) {
+            if (password_verify($mot_de_passe, $utilisateur['MDP_USER'])) {
                 //$etudiant['ROLE'] = 'etudiant'; // Ajouter un rôle pour l'utilisateur
                 return $utilisateur;
             }
@@ -42,17 +42,17 @@ class Connexion {
     }
     public function updatePassword($idUser, $emailUser, $nouveauMotDePasse) {
         // Hacher le nouveau mot de passe
-        $motDePasseHache = password_hash($nouveauMotDePasse, PASSWORD_BCRYPT);
+        $motDePasseHache = password_hash($nouveauMotDePasse, PASSWORD_DEFAULT);
 
         // Vérifier le rôle de l'utilisateur dans la session
-        $role = Intranet::getUserRole($idUser, $emailUser);
+        $role = (new Intranet)->getUserRole($idUser, $emailUser);
 
         if ($role === 'etudiant') {
             // Mise à jour dans la table ETUDIANTS
-            $query = "UPDATE ETUDIANTS SET MDP_ET = :mdp, DEFAUT_MDP_ET = NULL WHERE ID_ETUDIANT = :id";
+            $query = "UPDATE ETUDIANTS SET MDP_ET = :mdp, CHANGER_MDP = 0 WHERE ID_ETUDIANT = :id";
         } elseif ($role === 'professeur') {
             // Mise à jour dans la table PROFESSEURS
-            $query = "UPDATE PROFESSEURS SET MDP_PROF = :mdp, DEFAUT_MDP_PROF = NULL WHERE ID_PROFESSEUR = :id";
+            $query = "UPDATE PROFESSEURS SET MDP_PROF = :mdp, CHANGER_MDP = 0 WHERE ID_PROFESSEUR = :id";
         } else {
             // Si aucun rôle valide, retour false
             echo "trouvé";
