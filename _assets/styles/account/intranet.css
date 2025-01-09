@@ -104,6 +104,44 @@ small {
     animation: subtle-move 0.8s ease-in-out infinite; /* Animation infinie tant que hover */
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #fff;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+    background-color: #007BFF;
+    color: white;
+}
+
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
 @keyframes subtle-move {
     0% {
         transform: translateY(0px);

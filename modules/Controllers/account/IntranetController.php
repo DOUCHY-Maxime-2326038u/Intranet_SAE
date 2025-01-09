@@ -73,6 +73,12 @@ final class IntranetController
         ViewHandler::show('intranet/professeur');
     }
 
+    public function reservationAction(){
+        $salleModel = new Salle();
+        $salles = $salleModel->getSalles();
+        $this->params->set('salles', $salles);
+        ViewHandler::show('account/intranet/salle', $this->params);
+    }
     public function errorAction()
     {
         ViewHandler::show('views/intranet/404');
