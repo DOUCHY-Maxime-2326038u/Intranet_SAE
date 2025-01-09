@@ -25,14 +25,10 @@
 
 /* Style de base pour la boîte de connexion */
 .connexion-box {
-
-    grid-column: 2/3;
-    grid-row: 1/1;
-
     width: 300px;
     margin: 50px auto;
     padding: 20px;
-    background-color: white;
+    background-color: #bababa;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -75,16 +71,6 @@
 .connexion-box input:hover {
     outline: 1px solid lightgrey;
 }
-
-
-
-
-
-
-
-
-
-
 
 .connexion-box button {
     padding: 12.5px 30px;

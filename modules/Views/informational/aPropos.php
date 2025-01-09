@@ -6,8 +6,8 @@
         <img src="/Intranet_SAE/_assets/img/bde.jpg" alt="Présentation BUT Informatique" style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
     </section>
 
-    <section id="parcoursA">
-        <h2>Parcours A : Développement</h2>
+    <h1>Parcours A : Développement</h1>
+    <section id="parcours">
         <p>Le parcours A est orienté vers le développement de logiciels et d'applications. Les étudiants y apprendront à :</p>
         <div class="container">
             <div class="item">
@@ -33,10 +33,9 @@
             </div>
         </div>
         <p>Ce parcours est idéal pour ceux qui souhaitent se diriger vers des métiers tels que développeur, ingénieur en logiciel ou architecte de systèmes.</p>
-        <img src="test.jpg" alt="Développement" style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
     </section>
-    <section id="parcoursB">
-        <h2>Parcours B : Systèmes et Réseaux</h2>
+    <h1>Parcours B : Systèmes et Réseaux</h1>
+    <section id="parcours">
         <p>Le parcours B se concentre sur les infrastructures, les réseaux et la sécurité des systèmes informatiques. Les étudiants développeront des compétences dans :</p>
             <div class="container">
                 <div class="item">
@@ -61,5 +60,4 @@
                 </div>
             </div>
         <p>Ce parcours convient à ceux qui s'intéressent aux métiers tels qu'administrateur systèmes et réseaux, ingénieur en cybersécurité ou consultant en systèmes d'information.</p>
-        <img src="test.jpg" alt="Systèmes et Réseaux" style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
     </section>

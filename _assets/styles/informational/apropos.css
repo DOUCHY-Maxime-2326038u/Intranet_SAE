@@ -1,73 +1,76 @@
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #eaeaea; /* Couleur de fond plus claire */
-    color: #333;
-}
-
-main {
-    margin: 20px auto;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
-    border-radius: 12px; /* Coins plus arrondis */
+#presentation {
+    display: block;
+    margin: 2em auto;
+    width: 80%;
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #005f8c; /* Couleur du titre principal plus sombre */
-    font-size: 2.5em; /* Taille de police plus grande */
-}
-
-
-
-section h2 {
-    color: #005f8c;
-    border-bottom: 2px solid #005f8c;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-section p {
-    margin-bottom: 15px;
-}
-
-.btn {
-    display: inline-block;
-    background: #0076a8;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
+    display: block;
+    margin: 2em auto;
+    width: 80%;
+    font-size: 2em;
+    color: #1F63DE;
     font-weight: bold;
-    margin-top: 10px;
 }
 
-.btn:hover {
-    background: #005f8c;
+#presentation h1 {
+    text-align: center;
+    font-size: 4em;
+    color: #1F63DE;
+    font-weight: bold;
 }
 
+#presentation h2 {
+font-size: 1.2em;
+    color: #1F63DE;
+    text-align: center;
+    font-weight: bold;
+}
 
-* {
-    font-family: "Poppins", sans-serif;
-    padding: 0; margin: 0;
-    box-sizing: border-box;
+#presentation p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    color: #000000;
+    font-weight: bold;
+}
+
+#presentation img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    border-radius: 10px;
+}
+
+#parcours {
+
+}
+
+#parcours h1 {
+    text-align: center;
+    font-size: 4em;
+    color: #1F63DE;
+    font-weight: bold;
+}
+
+#parcours h2 {
+    font-size: 1.2em;
+    color: #1F63DE;
+    text-align: center;
+    font-weight: bold;
+}
+
+#parcours p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    color: #000000;
 }
 
 .container {
     display: flex;
-    overflow-x: scroll;
+    overflow-x : scroll;
     padding: 24px;
     width: 70%;
     height: 360px;
@@ -118,5 +121,5 @@ section p {
 
 .bloc-text{
     font-size: 13px;
-    color: black;
+    color: #000000;
 }
