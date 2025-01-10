@@ -47,19 +47,7 @@
 <section id="about" class="about">
     <div class="container">
         <h2>À propos du Bâtiment Informatique</h2>
-        <p>Situé au cœur du campus de l'IUT d'Aix-en-Provence, le bâtiment informatique est un centre moderne d'enseignement, de recherche et de pratique. Il accueille des étudiants des filières informatiques dans des salles équipées des dernières technologies.</p>
-        <div class="about-grid">
-            <div class="about-item">
-                <img src="_assets/img/bde.jpg" alt="Vue extérieure du bâtiment">
-                <h3>Vue extérieure</h3>
-                <p>Le bâtiment se distingue par son architecture contemporaine et ses espaces verts environnants.</p>
-            </div>
-            <div class="about-item">
-                <img src="_assets/img/hockey_bde.jpg" alt="Laboratoires d'informatique">
-                <h3>Laboratoires modernes</h3>
-                <p>Nos laboratoires sont équipés des dernières technologies pour vous permettre de pratiquer l'informatique dans les meilleures conditions.</p>
-            </div>
-        </div>
+        <p>Situé au cœur du campus de l'IUT d'Aix-en-Provence, le bâtiment informatique est un centre moderne d'enseignement, de recherche et de pratique. Il accueille des étudiants des filières informatiques</p>
     </div>
 </section>
 
@@ -83,108 +71,81 @@
         </div>
     </div>
 </section>
-
-<section id="infrastructures" class="infrastructures">
-    <div class="container">
-        <h2>Infrastructures et Équipements</h2>
-        <p>Notre bâtiment est équipé pour offrir aux étudiants des conditions d'apprentissage optimales, en mettant à leur disposition des technologies de pointe.</p>
-        <div class="infrastructures-grid">
-            <div class="infrastructure-item">
-                <h3>Salles de cours interactives</h3>
-                <p>Nos salles de cours sont équipées de tableaux interactifs et d'ordinateurs modernes pour des cours interactifs et dynamiques.</p>
-            </div>
-            <div class="infrastructure-item">
-                <h3>Laboratoires de projets</h3>
-                <p>Des laboratoires dédiés aux projets de groupe, avec des postes de travail performants et des logiciels professionnels.</p>
-            </div>
-            <div class="infrastructure-item">
-                <h3>Salles de serveurs</h3>
-                <p>Une salle de serveurs pour l’hébergement de projets des étudiants, avec un accès sécurisé et un environnement adapté.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="services" class="services">
-    <div class="container">
-        <h2>Nos Services</h2>
-        <div class="services-grid">
-            <div class="service-item">
-                <h3>Enseignement Informatique</h3>
-                <p>Des cours théoriques et pratiques pour maîtriser les langages de programmation, les algorithmes et le développement logiciel.</p>
-            </div>
-            <div class="service-item">
-                <h3>Espaces de Co-Working</h3>
-                <p>Des espaces dédiés aux travaux de groupe, équipés de postes de travail et d'un accès internet haut débit.</p>
-            </div>
-            <div class="service-item">
-                <h3>Support Technique</h3>
-                <p>Un service technique disponible pour accompagner les étudiants dans leurs projets et résoudre les problèmes techniques.</p>
-            </div>
-        </div>
-    </div>
-</section>
 <div class="containerprof">
     <div class="cardprof">
-        <img src="https://iut.univ-amu.fr/sites/default/files/styles/contacts/public/media-image/girl%402x.png?itok=jKpRn9j8" alt="Elodie Pico">
+        <img src="_assets/img/girl.png" alt="Elodie Pico">
         <div class="card-contentprof">
             <div class="card-textprof">
                 <h2>Christine Makssoud</h2>
                 <p>Chef du département Informatique & Responsable alternance</p>
+                <a href="mailto:Christine.MAKSSOUD@univ-amu.fr"> Mail : Christine.MAKSSOUD@univ-amu.fr</a>
             </div>
             <span class="arrowprof">→</span>
         </div>
     </div>
     <div class="cardprof">
-        <img src="https://iut.univ-amu.fr/sites/default/files/styles/contacts/public/media-image/user%402x.png?itok=tMpqXyTU" alt="Emilien Rousset">
+        <img src="_assets/img/man.png" alt="Samuele ANNI">
         <div class="card-contentprof">
             <div class="card-textprof">
                 <h2>Samuele ANNI</h2>
                 <p>Directeur des études BUT1</p>
+                <a href="mailto:samuele.ANNI@univ-amu.fr"> Mail : samuele.ANNI@univ-amu.fr</a>
             </div>
             <span class="arrowprof">→</span>
         </div>
     </div>
     <div class="cardprof">
-        <img src="https://iut.univ-amu.fr/sites/default/files/styles/contacts/public/media-image/user%402x.png?itok=tMpqXyTU" alt="Emilien Rousset">
+        <img src="_assets/img/man.png" alt="Emilien Rousset">
         <div class="card-contentprof">
             <div class="card-textprof">
                 <h2>Frédéric FLOUVAT</h2>
                 <p>Responsable de Parcours A : Réalisation d'applications : conception, développement, validation</p>
+                <a href="mailto:frederic.FLOUVAT@univ-amu.fr"> Mail : frederic.FLOUVAT@univ-amu.fr</a>
             </div>
             <span class="arrowprof">→</span>
         </div>
     </div>
     <div class="cardprof">
-        <img src="https://iut.univ-amu.fr/sites/default/files/styles/contacts/public/media-image/girl%402x.png?itok=jKpRn9j8" alt="Emilien Rousset">
+        <img src="_assets/img/girl.png" alt="Emilien Rousset">
         <div class="card-contentprof">
             <div class="card-textprof">
                 <h2>Safa YAHI</h2>
                 <p>Responsable de Parcours B : Déploiement et d'application communicantes et sécurisées</p>
+                <a href="mailto:safa.YAHI@univ-amu.fr"> Mail :safa.YAHI@univ-amu.fr</a>
             </div>
             <span class="arrowprof">→</span>
         </div>
     </div>
     <div class="cardprof">
-        <img src="https://iut.univ-amu.fr/sites/default/files/styles/contacts/public/media-image/user%402x.png?itok=tMpqXyTU" alt="Florence Chaspoul">
+        <img src="_assets/img/man.png" alt="Florence Chaspoul">
         <div class="card-contentprof">
             <div class="card-textprof">
                 <h2>Michaël MARTIN-NEVOT</h2>
                 <p>Responsable Parcoursup</p>
+                <a href="mailto:Mickael.MARTIN-NEVOT@univ-amu.fr"> Mail : Mickael.MARTIN-NEVOT@univ-amu.fr</a>
             </div>
             <span class="arrow">→</span>
         </div>
-    </div>
+    </div>f
 </div>
 <section id="contact" class="contact">
     <div class="container">
-        <h2>Contactez-nous</h2>
-        <p>Vous avez des questions ? N'hésitez pas à nous contacter pour en savoir plus sur nos formations ou visiter le bâtiment informatique.</p>
-        <form action="#" method="post">
-            <input type="text" name="name" placeholder="Votre nom" required>
-            <input type="email" name="email" placeholder="Votre email" required>
-            <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
-            <button type="submit">Envoyer</button>
-        </form>
+        <label for="toggle-contact" class="toggle-label">
+            <h2>
+                Contactez-nous
+                <span class="arrow">&#x25BC;</span>
+            </h2>
+        </label>
+        <input type="checkbox" id="toggle-contact" class="toggle-checkbox" />
+        <div class="hidden-content">
+            <p>Vous avez des questions ? N'hésitez pas à nous contacter pour en savoir plus sur nos formations ou visiter le bâtiment informatique.</p>
+            <form action="#" method="post">
+                <input type="text" name="name" placeholder="Votre nom" required>
+                <input type="email" name="email" placeholder="Votre email" required>
+                <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
     </div>
 </section>
+
