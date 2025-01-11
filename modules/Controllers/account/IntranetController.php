@@ -44,11 +44,12 @@ final class IntranetController
     }
     public function defaultAction()
     {
-        echo "test";
         $this->initStrategy();
         $this->params->set('titre', "Intranet");
         $this->params->set('css', "/_assets/styles/account/intranet.css");
         ViewHandler::show("account/intranet/intranet",  $this->params);
+        var_dump(ICS::extractGroup(ICS::parseICS('modules/Controllers/account/AN2.ics')));
+        $this->intranetModel->insertIntoDatabase(ICS::extractGroup(ICS::parseICS('modules/Controllers/account/AN2.ics')));
 
     }
 

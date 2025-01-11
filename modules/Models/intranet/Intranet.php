@@ -62,4 +62,83 @@ class Intranet
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ); // Récupère les résultats en objets
     }
+
+//    public function insertCoursesByYear($events, $year) {
+//        $insertCoursQuery = "INSERT INTO COUR (NOM_COUR, DEBUT, FIN, SALLE)
+//                         VALUES (:titre, :debut, :fin, :salle)";
+//        $insertGroupQuery = "INSERT INTO GROUPE_COUR (ID_COUR, ID_GROUPE)
+//                         VALUES (:cours_id, :groupe)";
+//
+//        $stmtCours = $this->db->getPDO()->prepare($insertCoursQuery);
+//        $stmtGroup = $this->db->getPDO()->prepare($insertGroupQuery);
+//
+//        foreach ($events as $event) {
+//            $groups = ICS::extractGroupsByYear($event['SUMMARY'], $event['DESCRIPTION'] ?? '', $year);
+//
+//            // Insérer le cours principal
+//            $stmtCours->execute([
+//                ':titre' => $event['SUMMARY'],
+//                ':debut' => date('Y-m-d H:i:s', strtotime($event['DTSTART'])),
+//                ':fin' => date('Y-m-d H:i:s', strtotime($event['DTEND'])),
+//                ':salle' => $event['LOCATION'] ?? null,
+//            ]);
+//            $coursId = $this->db->getPDO()->lastInsertId();
+//
+//            // Insérer les groupes associés
+//            foreach ($groups as $group) {
+//                $stmtGroup->execute([
+//                    ':cours_id' => $coursId,
+//                    ':groupe' => $group,
+//                ]);
+//            }
+//        }
+//    }
+
+    public function insertIntoDatabase($assignments): void
+    {
+        // Récupérer l'objet PDO une seule fois
+        $pdo = $this->db->getPDO();
+
+        // Préparation des requêtes
+        $getCourseIdStmt = $pdo->prepare('SELECT ID FROM COUR WHERE NOM_COUR = ? AND DEBUT = ? AND FIN = ?');
+        $insertCourseStmt = $pdo->prepare('INSERT INTO COUR (NOM_COUR, SALLE, DEBUT, FIN) VALUES (?, ?, ?, ?)');
+        $getGroupIdStmt = $pdo->prepare('SELECT ID_GROUPE FROM GROUPE WHERE NOM_GROUPE = ?');
+        $insertGroupCourseStmt = $pdo->prepare('INSERT INTO GROUPE_COUR (ID_COUR, ID_GROUPE, ID_SOUSGROUPE) VALUES (?, ?, ?)');
+
+        foreach ($assignments as $assignment) {
+            try {
+                // Vérifier si le cours existe déjà
+                $getCourseIdStmt->execute([$assignment['course_name'], $assignment['start'], $assignment['end']]);
+                $courseId = $getCourseIdStmt->fetchColumn();
+
+                // Si le cours n'existe pas, l'insérer
+                if (!$courseId) {
+                    $insertCourseStmt->execute([$assignment['course_name'], $assignment['salle'], $assignment['start'], $assignment['end']]);
+                    $courseId = $pdo->lastInsertId();
+                }
+
+                // Récupérer l'ID du groupe principal
+                $getGroupIdStmt->execute([$assignment['group']]);
+                $groupId = $getGroupIdStmt->fetchColumn();
+
+                // Récupérer l'ID du sous-groupe (si présent)
+                $subGroupId = null;
+                if (!empty($assignment['subgroup'])) {
+                    $getGroupIdStmt->execute([$assignment['subgroup']]);
+                    $subGroupId = $getGroupIdStmt->fetchColumn();
+                }
+
+                // Si le groupe principal existe, insérer dans GROUPE_COUR
+                if ($groupId) {
+                    $insertGroupCourseStmt->execute([$courseId, $groupId, $subGroupId]);
+                }
+            } catch (PDOException $e) {
+                // Gérer les erreurs, par exemple, journaliser le message d'erreur
+                error_log("Erreur lors de l'insertion : " . $e->getMessage());
+            }
+        }
+    }
+
+
+
 }
