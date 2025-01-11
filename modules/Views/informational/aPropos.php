@@ -1,9 +1,9 @@
 
     <section id="presentation">
-        <h2>Présentation de la filière</h2>
+        <h1>Présentation de la filière</h1>
         <p>Le Bachelor Universitaire de Technologie (BUT) en informatique forme des professionnels capables de concevoir, développer, déployer et maintenir des systèmes informatiques. Il répond aux besoins croissants des entreprises en matière de digitalisation et d'innovation technologique.</p>
         <p>Le BUT informatique propose un enseignement théorique et pratique, permettant aux étudiants d'acquérir des compétences techniques solides dans différents domaines de l'informatique.</p>
-        <img src="/Intranet_SAE/_assets/img/bde.jpg" alt="Présentation BUT Informatique" style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
+        <img src="/_assets/img/competences.jpg" alt="Présentation BUT Informatique" style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
     </section>
 
     <h1>Parcours A : Développement</h1>
