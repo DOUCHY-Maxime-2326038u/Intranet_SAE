@@ -149,11 +149,11 @@
         <input type="checkbox" id="toggle-contact" class="toggle-checkbox" />
         <div class="hidden-content">
             <p>Vous avez des questions ? N'hésitez pas à nous contacter pour en savoir plus sur nos formations ou visiter le bâtiment informatique.</p>
-            <form action="#" method="post">
+            <form method="POST" action="mailto:lucile.boix@univ-amu.fr" enctype="text/plain">
                 <input type="text" name="name" placeholder="Votre nom" required>
                 <input type="email" name="email" placeholder="Votre email" required>
-                <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
-                <button type="submit">Envoyer</button>
+                <textarea name="message" rows="5" cols="30" placeholder="Votre message" required></textarea>
+                <button type="submit" value="Send">Envoyer</button>
             </form>
         </div>
     </div>
