@@ -8,6 +8,11 @@
     </div>
 
     <div id="content">
+        <?php if (isset($reservation_success) && $reservation_success): ?>
+            <p class="success">Réservation effectuée avec succès !</p>
+        <?php elseif (isset($reservation_success)): ?>
+            <p class="error">Échec de la réservation. Veuillez réessayer.</p>
+        <?php endif; ?>
         <h1>Bienvenue sur l'intranet</h1>
         <p>Sélectionnez un onglet pour voir le contenu correspondant.</p>
     </div>

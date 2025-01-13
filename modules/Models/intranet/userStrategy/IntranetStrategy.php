@@ -2,6 +2,6 @@
 
 interface IntranetStrategy
 {
-    public function getDashboard();
+    public function getDashboardData(): array;
 
 }

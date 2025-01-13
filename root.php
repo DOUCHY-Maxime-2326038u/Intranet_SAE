@@ -11,8 +11,8 @@ if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
-$S_controller = isset($_GET['ctrl']) ? $_GET['ctrl'] : null;
-$S_action = isset($_GET['action']) ? $_GET['action'] : null ;
+$S_controller = $_GET['ctrl'] ?? null;
+$S_action = $_GET['action'] ?? null;
 
 // Ouvre le tampon d'affichage pour stocker la sortie
 ViewHandler::bufferStart();

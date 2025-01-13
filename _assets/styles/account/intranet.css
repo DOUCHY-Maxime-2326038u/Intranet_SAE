@@ -153,3 +153,62 @@ button:hover {
         transform: translateY(0px);
     }
 }
+
+.dashboard-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.card h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #007BFF;
+}
+
+.timetable {
+    overflow-x: auto;
+}
+
+.timetable table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.timetable th, .timetable td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 10px;
+}
+
+.timetable th {
+    background-color: #007BFF;
+    color: white;
+    font-weight: bold;
+}
+
+.timetable .time {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #555;
+}
+
+.timetable td {
+    min-height: 50px;
+}
+
+.timetable td[rowspan] {
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 0.9em;
+}

@@ -1,4 +1,5 @@
 
+£¨%++£?.
 <section id = "presentation">
 
     <div id="line1" class="greenBlock">
@@ -38,7 +39,6 @@
 
 <section class="hero">
     <div class="hero-text">
-        <h1>Bienvenue au Département Informatique de l'IUT d'Aix-en-Provence</h1>
         <p>Découvrez nos infrastructures, notre personnel et notre environnement dédié à l'innovation et à l'apprentissage des nouvelles technologies.</p>
         <a href="#about" class="btn-hero">Découvrir plus</a>
     </div>

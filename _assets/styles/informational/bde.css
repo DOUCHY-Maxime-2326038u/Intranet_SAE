@@ -162,3 +162,76 @@ h3 {
         transform: translateY(-10px);
     }
 }
+
+@media (max-width: 1024px) {
+    .intro h2 {
+        font-size: 2.5rem; /* Ajustement pour tablettes */
+    }
+
+    .feature-card, .image-card {
+        padding: 1.5rem; /* Réduction de l'espace interne */
+    }
+
+    h3 {
+        font-size: 1.8rem; /* Ajustement des titres */
+    }
+
+    .feature-card p, .image-card p {
+        font-size: 1.1rem; /* Texte légèrement réduit */
+    }
+}
+
+@media (max-width: 768px) {
+    .intro h2 {
+        font-size: 2rem; /* Plus petit pour tablettes et smartphones */
+    }
+
+    .feature-card, .image-card {
+        padding: 1rem;
+    }
+
+    h3 {
+        font-size: 1.5rem; /* Réduction des titres */
+    }
+
+    .feature-card p, .image-card p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro h2 {
+        font-size: 1.8rem; /* Pour smartphones */
+    }
+
+    .container{
+        display: block;
+        gap: 2rem;
+        max-width: 1200px;
+        width: 100%;
+        padding: 2rem;
+        margin: 0 auto;
+    }
+
+    .feature-card {
+        width: 100%; /* S'assurer que chaque carte occupe toute la largeur */
+        max-width: 600px; /* Limite de largeur pour éviter les débordements */
+    }
+
+    .feature-card, .image-card {
+        padding: 0.8rem;
+    }
+
+    h3 {
+        font-size: 1.2rem; /* Titres plus petits */
+    }
+
+    .feature-card p, .image-card p {
+        font-size: 0.9rem; /* Texte compact mais lisible */
+    }
+
+    .bde-info p {
+        font-size: 1rem; /* Ajustement pour paragraphes informatifs */
+        padding: 0 1rem;
+    }
+}

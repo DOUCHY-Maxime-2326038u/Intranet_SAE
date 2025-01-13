@@ -8,20 +8,20 @@ h1 {
     display: block;
     margin: 2em auto;
     width: 80%;
-    font-size: 2em;
+    font-size: 2rem;
     color: #660099;
     font-weight: bold;
 }
 
 #presentation h1 {
     text-align: center;
-    font-size: 6em;
+    font-size: 2.5rem; /* Taille augmentée pour une meilleure lisibilité */
     color: #660099;
     font-weight: bold;
 }
 
 #presentation h2 {
-font-size: 1.2em;
+font-size: 1.5em;
     color: #660099;
     text-align: center;
     font-weight: bold;
@@ -32,6 +32,7 @@ font-size: 1.2em;
     max-width: 800px;
     margin: 0 auto 4rem;
     color: #000000;
+    font-size: 1.2rem; /* Taille augmentée pour lisibilité */
     font-weight: bold;
 }
 
@@ -49,7 +50,7 @@ font-size: 1.2em;
 
 #parcours h1 {
     text-align: center;
-    font-size: 4em;
+    font-size: 2.8rem;
     color: #660099;
     font-weight: bold;
 }
@@ -66,11 +67,12 @@ font-size: 1.2em;
     max-width: 800px;
     margin: 0 auto 4rem;
     color: #000000;
+    font-size: 1.1rem; /* Augmenté légèrement */
 }
 
 .container {
     display: flex;
-    overflow-x : scroll;
+    overflow-x: scroll;
     padding: 24px;
     width: 70%;
     height: 360px;
@@ -103,12 +105,13 @@ font-size: 1.2em;
 
 .container .item span {
     font-weight: 600;
-    font-size: 24px;
+    font-size: 1.5rem; /* Taille adaptée pour éléments */
     color: white;
 }
 
 .container .item p {
     padding-top: 15px;
+    font-size: 1.1rem; /* Ajusté pour la lisibilité */
 }
 
 .container .item button {
@@ -117,9 +120,76 @@ font-size: 1.2em;
     border-radius: 10px;
     border: none;
     background-color: white;
+    font-size: 1rem; /* Taille du texte du bouton augmentée */
 }
 
-.bloc-text{
-    font-size: 13px;
+.bloc-text {
+    font-size: 1rem;
     color: #000000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #presentation, #parcours {
+        width: 90%;
+    }
+
+    #presentation h1, #parcours h1 {
+        font-size: 2rem; /* Taille réduite pour tablettes */
+    }
+
+    #presentation p, #parcours p {
+        font-size: 1rem; /* Réduction légère pour plus de confort */
+    }
+
+    .container {
+        width: 90%;
+        height: auto;
+        flex-direction: column;
+        overflow: visible;
+    }
+
+    .container .item {
+        flex: 0 0 auto;
+        width: 100%;
+        height: auto;
+        padding: 16px;
+    }
+
+    .container .item span {
+        font-size: 1.3rem; /* Taille ajustée pour tablettes */
+    }
+}
+
+@media (max-width: 480px) {
+    #presentation h1, #parcours h1 {
+        font-size: 1.8rem; /* Ajusté pour petits écrans */
+    }
+
+    #presentation h2, #parcours h2 {
+        font-size: 1rem; /* Adapté pour smartphones */
+    }
+
+    #presentation p, #parcours p {
+        font-size: 0.9rem; /* Réduction pour appareils compacts */
+    }
+
+    .container {
+        padding: 12px;
+        gap: 8px;
+    }
+
+    .container .item {
+        padding: 12px;
+        font-size: 0.8rem;
+    }
+
+    .container .item span {
+        font-size: 1.2rem; /* Taille réduite mais lisible */
+    }
+
+    .container .item button {
+        padding: 5px 15px;
+        font-size: 0.9rem;
+    }
 }

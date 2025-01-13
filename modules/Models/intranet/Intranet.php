@@ -22,7 +22,7 @@ class Intranet
 
         // Vérifier dans chaque table autorisée
         if ($this->existsInTable('ETUDIANTS', 'ID_ETUDIANT', 'EMAIL_ET', $userId, $userEmail)) {
-            return 'eleve';
+            return 'etudiant';
         }
 
         if ($this->existsInTable('PROFESSEURS', 'ID_PROFESSEUR', 'EMAIL_PROF', $userId, $userEmail)) {
@@ -63,81 +63,166 @@ class Intranet
         return $stmt->fetchAll(PDO::FETCH_OBJ); // Récupère les résultats en objets
     }
 
-//    public function insertCoursesByYear($events, $year) {
-//        $insertCoursQuery = "INSERT INTO COUR (NOM_COUR, DEBUT, FIN, SALLE)
-//                         VALUES (:titre, :debut, :fin, :salle)";
-//        $insertGroupQuery = "INSERT INTO GROUPE_COUR (ID_COUR, ID_GROUPE)
-//                         VALUES (:cours_id, :groupe)";
-//
-//        $stmtCours = $this->db->getPDO()->prepare($insertCoursQuery);
-//        $stmtGroup = $this->db->getPDO()->prepare($insertGroupQuery);
-//
-//        foreach ($events as $event) {
-//            $groups = ICS::extractGroupsByYear($event['SUMMARY'], $event['DESCRIPTION'] ?? '', $year);
-//
-//            // Insérer le cours principal
-//            $stmtCours->execute([
-//                ':titre' => $event['SUMMARY'],
-//                ':debut' => date('Y-m-d H:i:s', strtotime($event['DTSTART'])),
-//                ':fin' => date('Y-m-d H:i:s', strtotime($event['DTEND'])),
-//                ':salle' => $event['LOCATION'] ?? null,
-//            ]);
-//            $coursId = $this->db->getPDO()->lastInsertId();
-//
-//            // Insérer les groupes associés
-//            foreach ($groups as $group) {
-//                $stmtGroup->execute([
-//                    ':cours_id' => $coursId,
-//                    ':groupe' => $group,
-//                ]);
-//            }
-//        }
-//    }
 
-    public function insertIntoDatabase($assignments): void
+    public function insertIntoDatabase($assignments, $year): void
     {
         // Récupérer l'objet PDO une seule fois
         $pdo = $this->db->getPDO();
 
         // Préparation des requêtes
-        $getCourseIdStmt = $pdo->prepare('SELECT ID FROM COUR WHERE NOM_COUR = ? AND DEBUT = ? AND FIN = ?');
-        $insertCourseStmt = $pdo->prepare('INSERT INTO COUR (NOM_COUR, SALLE, DEBUT, FIN) VALUES (?, ?, ?, ?)');
-        $getGroupIdStmt = $pdo->prepare('SELECT ID_GROUPE FROM GROUPE WHERE NOM_GROUPE = ?');
-        $insertGroupCourseStmt = $pdo->prepare('INSERT INTO GROUPE_COUR (ID_COUR, ID_GROUPE, ID_SOUSGROUPE) VALUES (?, ?, ?)');
+        $getCourseId = $pdo->prepare('SELECT ID_COUR FROM COUR WHERE NOM_COUR = ? AND DEBUT = ? AND FIN = ?');
+        $insertCourse = $pdo->prepare('INSERT INTO COUR (NOM_COUR, SALLE, DEBUT, FIN) VALUES (?, ?, ?, ?)');
+        $getGroupId = $pdo->prepare('SELECT ID_GROUPE FROM GROUPE WHERE NOM_GROUPE = ?');
+        $insertGroupCourse = $pdo->prepare('INSERT INTO GROUPE_COUR (ID_COUR, ID_GROUPE, ID_SOUSGROUPE, ANNEE) VALUES (?, ?, ?, ?)');
 
         foreach ($assignments as $assignment) {
             try {
                 // Vérifier si le cours existe déjà
-                $getCourseIdStmt->execute([$assignment['course_name'], $assignment['start'], $assignment['end']]);
-                $courseId = $getCourseIdStmt->fetchColumn();
+                $getCourseId->execute([$assignment['course_name'], $assignment['start'], $assignment['end']]);
+                $courseId = $getCourseId->fetchColumn();
 
                 // Si le cours n'existe pas, l'insérer
                 if (!$courseId) {
-                    $insertCourseStmt->execute([$assignment['course_name'], $assignment['salle'], $assignment['start'], $assignment['end']]);
+                    $insertCourse->execute([$assignment['course_name'], $assignment['location'], $assignment['start'], $assignment['end']]);
                     $courseId = $pdo->lastInsertId();
                 }
-
-                // Récupérer l'ID du groupe principal
-                $getGroupIdStmt->execute([$assignment['group']]);
-                $groupId = $getGroupIdStmt->fetchColumn();
 
                 // Récupérer l'ID du sous-groupe (si présent)
                 $subGroupId = null;
                 if (!empty($assignment['subgroup'])) {
-                    $getGroupIdStmt->execute([$assignment['subgroup']]);
-                    $subGroupId = $getGroupIdStmt->fetchColumn();
+                    $getGroupId->execute([$assignment['subgroup']]);
+                    $subGroupId = $getGroupId->fetchColumn();
                 }
 
-                // Si le groupe principal existe, insérer dans GROUPE_COUR
-                if ($groupId) {
-                    $insertGroupCourseStmt->execute([$courseId, $groupId, $subGroupId]);
+                // Gérer les groupes associés
+                $groupIds = []; // Liste des IDs des groupes associés au cours
+                if (!empty($assignment['groups'])) {
+                    // Si des groupes sont spécifiés, récupérer leurs IDs
+                    foreach ($assignment['groups'] as $groupName) {
+                        $getGroupId->execute([trim($groupName)]);
+                        $groupId = $getGroupId->fetchColumn();
+                        if ($groupId) {
+                            $groupIds[] = $groupId;
+                        }
+                    }
+                }
+
+                if (empty($groupIds)) {
+                    // Si aucun groupe spécifique trouvé, associer aux groupes par défaut selon l'année
+                    if ($year == 1) {
+                        $defaultGroups = ['1', '2', '3', '4'];
+                    } elseif (in_array($year, [2, 3])) {
+                        $defaultGroups = ['A1', 'A2', 'B1'];
+                    } else {
+                        throw new Exception("Année invalide : $year");
+                    }
+
+                    foreach ($defaultGroups as $groupName) {
+                        $getGroupId->execute([trim($groupName)]);
+                        $groupId = $getGroupId->fetchColumn();
+                        if ($groupId) {
+                            $groupIds[] = $groupId;
+                        }
+                    }
+                }
+
+                // Associer le cours aux groupes (et sous-groupes s'ils existent) avec l'année
+                foreach ($groupIds as $groupId) {
+                    $insertGroupCourse->execute([$courseId, $groupId, $subGroupId ?? null, $year]);
                 }
             } catch (PDOException $e) {
-                // Gérer les erreurs, par exemple, journaliser le message d'erreur
+                // Gérer les erreurs
                 error_log("Erreur lors de l'insertion : " . $e->getMessage());
+                var_dump($e->getMessage());
+            } catch (Exception $e) {
+                // Gérer les exceptions générales
+                error_log("Erreur générale : " . $e->getMessage());
+                var_dump($e->getMessage());
             }
         }
     }
+    public function getLastAnnonce(): ?array {
+        $query = "SELECT * FROM ANNONCE ORDER BY DATE_PUBLICATION DESC LIMIT 1";
+        return $this->db->getPDO()->query($query)->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getReservationEtudiant(int $idEtudiant): ?array {
+        $query = "
+        SELECT 
+            r.DEBUT, 
+            r.FIN, 
+            s.NUM_SALLE
+        FROM 
+            RESERVATION r
+        JOIN 
+            SALLE s ON r.ID_SALLE = s.ID_SALLE
+        WHERE 
+            r.ID_ETUDIANT = :idEtudiant 
+            AND r.FIN > NOW()
+        LIMIT 1
+    ";
+
+        $stmt = $this->db->getPDO()->prepare($query);
+        $stmt->execute([':idEtudiant' => $idEtudiant]);
+        $reserv = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$reserv) {
+            return null;
+        }
+
+        return $reserv;
+    }
+
+
+    public function getEmploiDuTempsEtudiant(int $idEtudiant): array {
+        $query = "SELECT c.* 
+                  FROM COUR c
+                  JOIN GROUPE_COUR gcp ON c.ID_COUR = gcp.ID_COUR
+                  JOIN ETUDIANTS_GROUPE eg ON gcp.ID_GROUPE = eg.ID_GROUPE
+                  WHERE eg.ID_ETUDIANT = :idEtudiant";
+        $stmt = $this->db->getPDO()->prepare($query);
+        $stmt->execute([':idEtudiant' => $idEtudiant]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getLastQuestionForProfesseur(int $idProfesseur): ?array {
+        $query = "SELECT * FROM QUESTIONS 
+                  WHERE ID_PROFESSEUR = :idProfesseur 
+                  ORDER BY DATE_QUESTION DESC LIMIT 1";
+        $stmt = $this->db->getPDO()->prepare($query);
+        $stmt->execute([':idProfesseur' => $idProfesseur]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getStatistiquesMatiere(int $idProfesseur): array {
+        $query = "SELECT NOM_COUR, COUNT(ID_ETUDIANT) AS NB_ETUDIANTS
+                  FROM GROUPE_COUR_PROFESSEUR gcp
+                  JOIN COUR c ON gcp.ID_COUR = c.ID_COUR
+                  WHERE gcp.ID_PROFESSEUR = :idProfesseur
+                  GROUP BY NOM_COUR";
+        $stmt = $this->db->getPDO()->prepare($query);
+        $stmt->execute([':idProfesseur' => $idProfesseur]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getGlobalStats(): array {
+        return [
+            'nb_etudiants' => $this->db->getPDO()->query("SELECT COUNT(*) FROM ETUDIANT")->fetchColumn(),
+            'nb_profs' => $this->db->getPDO()->query("SELECT COUNT(*) FROM PROFESSEUR")->fetchColumn(),
+            'nb_cours' => $this->db->getPDO()->query("SELECT COUNT(*) FROM COUR")->fetchColumn(),
+        ];
+    }
+
+    public function getRecentAnnonces(): array {
+        $query = "SELECT * FROM ANNONCES ORDER BY DATE_PUBLICATION DESC LIMIT 5";
+        return $this->db->query($query)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getActiveReservations(): array {
+        $query = "SELECT * FROM RESERVATIONS WHERE FIN > NOW()";
+        return $this->db->query($query)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 
 
 
