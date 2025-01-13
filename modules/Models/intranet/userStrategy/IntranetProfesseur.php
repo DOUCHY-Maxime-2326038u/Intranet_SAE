@@ -8,8 +8,16 @@ class IntranetProfesseur implements IntranetStrategy
     public function __construct(Intranet $model) {
         $this->model = $model;
     }
-    public function getDashboard()
-    {
-        return "account/intranet/dashboard/professeur";
+
+    public function getDashboardData(): array {
+        $derniereAnnonce = $this->model->getLastAnnonce();
+        $matiereStatistiques = $this->model->getStatistiquesMatiere($_SESSION['id_user']);
+
+
+        return [
+            'annonce' => $derniereAnnonce,
+            'poster_annonce' => 'nah',
+            'statistiques' => $matiereStatistiques,
+        ];
     }
 }

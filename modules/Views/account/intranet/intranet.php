@@ -3,15 +3,14 @@
     <div id="sidebar">
       <div class="tab" onclick="loadContent('dashboard')">Tableau de bord</div>
       <div class="tab" onclick="loadContent('annonces')">Les Annonces</div>
-      <div class="tab" onclick="loadContent('professeur')">Mon équipe pédagogique</div>
       <div class="tab" onclick="loadContent('reservation')">Réservation de salle</div>
     </div>
 
     <div id="content">
-        <?php if (isset($reservation_success) && $reservation_success): ?>
-            <p class="success">Réservation effectuée avec succès !</p>
-        <?php elseif (isset($reservation_success)): ?>
-            <p class="error">Échec de la réservation. Veuillez réessayer.</p>
+        <?php if (isset($success) && $success): ?>
+            <p class="success">Succès !</p>
+        <?php elseif (isset($success)): ?>
+            <p class="error">Échec. Veuillez réessayer.</p>
         <?php endif; ?>
         <h1>Bienvenue sur l'intranet</h1>
         <p>Sélectionnez un onglet pour voir le contenu correspondant.</p>
