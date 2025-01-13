@@ -18,10 +18,6 @@ body {
 
 }
 
-header {
-    height: 75.11px;
-}
-
 #logoAmu {
     position: absolute;
     z-index: 5;
@@ -402,4 +398,60 @@ form button:hover {
 /* Faites pivoter la flèche lorsque le contenu est visible */
 .toggle-checkbox:checked + .toggle-label .arrow {
     transform: rotate(180deg);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .formations-grid, .infrastructures-grid, .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #presentation {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+    }
+
+    .btn-hero {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .title {
+        font-size: 50pt;
+    }
+
+    .containerprof {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .cardprof {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 1115px){
+    #presentation {
+        display: none;
+    }
 }
