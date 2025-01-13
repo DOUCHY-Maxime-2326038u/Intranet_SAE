@@ -146,6 +146,17 @@ class Intranet
         return $this->db->getPDO()->query($query)->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function posterAnnonce(int $idProfesseur, string $titre, string $contenu): bool {
+        $query = "INSERT INTO ANNONCE (ID_PROFESSEUR, TITRE, CONTENU, DATE_PUBLICATION) 
+              VALUES (:idProfesseur, :titre, :contenu, NOW())";
+        $stmt = $this->db->getPDO()->prepare($query);
+        return $stmt->execute([
+            ':idProfesseur' => $idProfesseur,
+            ':titre' => $titre,
+            ':contenu' => $contenu
+        ]);
+    }
+
     public function getReservationEtudiant(int $idEtudiant): ?array {
         $query = "
         SELECT 
@@ -185,25 +196,20 @@ class Intranet
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getLastQuestionForProfesseur(int $idProfesseur): ?array {
-        $query = "SELECT * FROM QUESTIONS 
-                  WHERE ID_PROFESSEUR = :idProfesseur 
-                  ORDER BY DATE_QUESTION DESC LIMIT 1";
-        $stmt = $this->db->getPDO()->prepare($query);
-        $stmt->execute([':idProfesseur' => $idProfesseur]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
 
     public function getStatistiquesMatiere(int $idProfesseur): array {
-        $query = "SELECT NOM_COUR, COUNT(ID_ETUDIANT) AS NB_ETUDIANTS
-                  FROM GROUPE_COUR_PROFESSEUR gcp
-                  JOIN COUR c ON gcp.ID_COUR = c.ID_COUR
-                  WHERE gcp.ID_PROFESSEUR = :idProfesseur
-                  GROUP BY NOM_COUR";
+        $query = "SELECT m.NOM_MATIERE, COUNT(DISTINCT eg.ID_ETUDIANT) AS NB_ETUDIANTS
+              FROM MATIERE m
+              JOIN COUR c ON m.ID_MATIERE = c.ID_MATIERE
+              JOIN GROUPE_COUR gc ON c.ID_COUR = gc.ID_COUR
+              JOIN ETUDIANTS_GROUPE eg ON gc.ID_GROUPE = eg.ID_GROUPE
+              WHERE m.ID_PROFESSEUR = :idProfesseur
+              GROUP BY m.NOM_MATIERE";
         $stmt = $this->db->getPDO()->prepare($query);
         $stmt->execute([':idProfesseur' => $idProfesseur]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
 
     public function getGlobalStats(): array {
         return [

@@ -79,6 +79,23 @@ final class IntranetController
         ViewHandler::show('intranet/professeur');
     }
 
+    public function posterAction(){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'poster_annonce') {
+            $titre = $_POST['titre'];
+            $contenu = $_POST['contenu'];
+            $idProfesseur = $_SESSION['id_user'];
+
+            // Vérifiez que les champs sont remplis
+            if (!empty($titre) && !empty($contenu)) {
+                $success = $this->intranetModel->posterAnnonce($idProfesseur, $titre, $contenu);
+                $this->params->set('success', $success);
+                $this->defaultAction();
+            } else {
+                echo '<p class="error">Veuillez remplir tous les champs.</p>';
+            }
+        }
+    }
+
     public function reservationAction(){
         $salleModel = new Salle();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -87,7 +104,7 @@ final class IntranetController
             $fin = $_POST['fin'];
             $idUser = $_SESSION['id_user'];
             $success = $salleModel->reserverSalle($idSalle, $idUser, $debut, $fin);
-            $this->params->set('reservation_success', $success);
+            $this->params->set('success', $success);
             $this->defaultAction();
         }
         else{

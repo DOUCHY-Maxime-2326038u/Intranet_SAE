@@ -68,7 +68,6 @@
                                     " . htmlspecialchars($cours['SALLE']) . "<br>
                                     " . date('H:i', $start) . " - " . date('H:i', $end) . "
                                 </td>";
-                                            unset($days[$day][$index]); // Supprimer après affichage
                                             $cellRendered = true;
                                             break;
                                         }
@@ -88,5 +87,46 @@
 
             </div>
 
+        <?php endif; ?>
+        <?php if (isset($dashboardData['poster_annonce'])): ?>
+            <!-- Section pour poster une nouvelle annonce -->
+            <div class="card poster-annonce">
+                <h2>📝 Poster une Annonce</h2>
+                <form method="POST" action="?ctrl=Intranet&action=poster">
+                    <div class="form-group">
+                        <label for="titre">Titre :</label>
+                        <input type="text" id="titre" name="titre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contenu">Contenu :</label>
+                        <textarea id="contenu" name="contenu" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" name="action" value="poster_annonce">Publier</button>
+                </form>
+            </div>
+
+        <?php endif; ?>
+        <?php if (isset($dashboardData['statistiques'])): ?>
+        <div class="card statistiques">
+            <h2>📊 Vos Statistiques</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Matière</th>
+                    <th>Nombre d'Étudiants</th>
+                    <th>Moyenne Générale</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($dashboardData['statistiques'] as $stat): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($stat['MATIERE']) ?></td>
+                        <td><?= htmlspecialchars($stat['NB_ETUDIANTS']) ?></td>
+                        <td><?= htmlspecialchars($stat['MOYENNE_GENERALE']) ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
         <?php endif; ?>
     </div>
