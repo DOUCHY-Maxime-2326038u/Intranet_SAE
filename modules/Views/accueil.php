@@ -50,6 +50,15 @@
         <p>Situé au cœur du campus de l'IUT d'Aix-en-Provence, le bâtiment informatique est un centre moderne d'enseignement, de recherche et de pratique. Il accueille des étudiants des filières informatiques</p>
     </div>
 </section>
+<section id="jpo" class="jpo">
+    <div class="container">
+        <h2>Journée portes ouvertes</h2>
+        <p>Prochaine journée portes ouvertes : <strong>samedi 1er février de 9h à 17h00</strong></p>
+        <a href="https://iut.univ-amu.fr/sites/default/files/media-ressource/Programme%20JPO%2025%20-%20Aix_0.pdf" target="_blank" class="btn btn-primary">
+            Voir le programme (PDF)
+        </a>
+    </div>
+</section>
 
 <section id="formations" class="formations">
     <div class="container">
