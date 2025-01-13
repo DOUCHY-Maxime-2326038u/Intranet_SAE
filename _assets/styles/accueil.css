@@ -41,11 +41,11 @@ body {
 }
 
 .greenBlock{
-    background-color: #68d391;
+    background-color: #1F63DE;
     transition: transform 1s ease-in-out;
 }
 .purpleBlock{
-    background-color: #9f7aea;
+    background-color: #33CCFF;
     transition: transform 1s ease-in-out;
 }
 
@@ -154,7 +154,7 @@ body {
 
 .hero-text {
     max-width: 700px;
-    color: #003865;
+    color: #660099;
 }
 
 .hero h1 {
@@ -169,7 +169,7 @@ body {
 }
 
 .btn-hero {
-    background-color: #f7b733;
+    background-color: #FAAB08;
     color: white;
     padding: 1rem 2rem;
     text-decoration: none;
@@ -178,7 +178,7 @@ body {
 }
 
 .btn-hero:hover {
-    background-color: #f79033;
+    background-color: #ffcb67;
 }
 
 /* About Section */
@@ -189,7 +189,7 @@ body {
 
 .about h2, .formations h2, .infrastructures h2, .services h2, .contact h2 {
     font-size: 2.5rem;
-    color: #003865;
+    color: #660099;
     text-align: center;
     margin-bottom: 2rem;
 }
@@ -254,7 +254,7 @@ body {
 
 .formation-item h3 {
     font-size: 1.8rem;
-    color: #003865;
+    color: #660099;
     margin-bottom: 1rem;
 }
 
@@ -275,7 +275,7 @@ body {
 
 .contact h2 {
     font-size: 2.5rem;
-    color: #003865;
+    color: #660099;
     text-align: center;
     margin-bottom: 2rem;
 }
@@ -303,7 +303,7 @@ form input, form textarea {
 
 form button {
     padding: 1rem;
-    background-color: #003865;
+    background-color: #660099;
     color: white;
     border: none;
     border-radius: 5px;
@@ -313,7 +313,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #00509e;
+    background-color: #FAAB08;
 }
 
 .containerprof {
