@@ -60,9 +60,6 @@ final class IntranetController
 
         // Charger la vue avec les données
         $this->params->set('dashboardData', $dashboardData);
-        $this->params->set('css', '/_assets/styles/dashboard.css');
-        $this->params->set('titre', 'Dashboard');
-
         ViewHandler::show('account/intranet/dashboard', $this->params);
     }
 
@@ -73,6 +70,10 @@ final class IntranetController
 
         ViewHandler::show('account/intranet/annonces', $this->params);
 
+    }
+
+    public function bdeAction(){
+        ViewHandler::show('account/intranet/bde', $this->params);
     }
     public function professeurAction()
     {

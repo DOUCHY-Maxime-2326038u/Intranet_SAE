@@ -4,6 +4,9 @@
       <div class="tab" onclick="loadContent('dashboard')">Tableau de bord</div>
       <div class="tab" onclick="loadContent('annonces')">Les Annonces</div>
       <div class="tab" onclick="loadContent('reservation')">Réservation de salle</div>
+        <?php if ((new Intranet)->getUserRole($_SESSION['id_user'], $_SESSION['email_user']) === 'etudiant'): ?>
+        <div class="tab" onclick="loadContent('bde')">BDE Carte</div>
+        <?php endif; ?>
     </div>
 
     <div id="content">

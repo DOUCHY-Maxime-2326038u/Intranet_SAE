@@ -212,3 +212,21 @@ button:hover {
     color: #333;
     font-size: 0.9em;
 }
+
+.image-card {
+
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s, background-color 0.3s;
+    overflow: hidden;
+}
+
+.image-card img {
+    max-height: 627px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
