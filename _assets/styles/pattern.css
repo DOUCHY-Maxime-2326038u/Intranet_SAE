@@ -96,7 +96,7 @@ footer {
     right: 15px;
     cursor: pointer;
     mix-blend-mode: difference;
-    z-index: 1000;
+    z-index: 1001;
     transition: transform 0.4s ease;
 }
 
