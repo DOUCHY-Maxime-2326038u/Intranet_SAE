@@ -9,20 +9,20 @@ h1 {
     margin: 2em auto;
     width: 80%;
     font-size: 2em;
-    color: #1F63DE;
+    color: #660099;
     font-weight: bold;
 }
 
 #presentation h1 {
     text-align: center;
     font-size: 6em;
-    color: #1F63DE;
+    color: #660099;
     font-weight: bold;
 }
 
 #presentation h2 {
 font-size: 1.2em;
-    color: #1F63DE;
+    color: #660099;
     text-align: center;
     font-weight: bold;
 }
@@ -50,13 +50,13 @@ font-size: 1.2em;
 #parcours h1 {
     text-align: center;
     font-size: 4em;
-    color: #1F63DE;
+    color: #660099;
     font-weight: bold;
 }
 
 #parcours h2 {
     font-size: 1.2em;
-    color: #1F63DE;
+    color: #000000;
     text-align: center;
     font-weight: bold;
 }
@@ -90,7 +90,7 @@ font-size: 1.2em;
 }
 
 .container .item:nth-child(2) {
-    background-color: #33CCFF;
+    background-color: #1F63DE;
 }
 
 .container .item:nth-child(3) {
