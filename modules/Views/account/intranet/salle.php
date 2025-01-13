@@ -1,8 +1,3 @@
-<?php if (isset($reservation_success) && $reservation_success): ?>
-    <p class="success">Réservation effectuée avec succès !</p>
-<?php elseif (isset($reservation_success)): ?>
-    <p class="error">Échec de la réservation. Veuillez réessayer.</p>
-<?php endif; ?>
 
 <table>
     <thead>
@@ -20,9 +15,14 @@
             <td><?= htmlspecialchars($salle['CAPACITE']) ?></td>
             <td><?= $salle['PC_SALLE'] ? 'Oui' : 'Non' ?></td>
             <td>
-                <form method="POST">
+                <form method="POST" action="?ctrl=Intranet&action=reservation">
                     <input type="hidden" name="id_salle" value="<?= $salle['ID_SALLE'] ?>">
-                    <input type="datetime-local" name="date_reservation" required>
+                    <label for="start_date_<?= $salle['ID_SALLE'] ?>">Début :</label>
+                    <input type="datetime-local" id="start_date_<?= $salle['ID_SALLE'] ?>" name="debut" required>
+
+                    <label for="end_date_<?= $salle['ID_SALLE'] ?>">Fin :</label>
+                    <input type="datetime-local" id="end_date_<?= $salle['ID_SALLE'] ?>" name="fin" required>
+
                     <button type="submit">Réserver</button>
                 </form>
             </td>

@@ -36,9 +36,8 @@ final class IntranetController
 
         $role = $this->intranetModel->getUserRole($_SESSION['id_user'], $_SESSION['email_user']);
         $this->intranetStrategy = match ($role) {
-            'eleve' => new IntranetEleve(),
-            'professeur' => new IntranetProfesseur(),
-            'staff' => new IntranetStaff(),
+            'etudiant' => new IntranetEtudiant($this->intranetModel),
+            'professeur' => new IntranetProfesseur($this->intranetModel),
             default => throw new Exception("Rôle utilisateur inconnu : $role"),
         };
     }
@@ -48,8 +47,7 @@ final class IntranetController
         $this->params->set('titre', "Intranet");
         $this->params->set('css', "/_assets/styles/account/intranet.css");
         ViewHandler::show("account/intranet/intranet",  $this->params);
-        var_dump(ICS::extractGroup(ICS::parseICS('modules/Controllers/account/AN2.ics')));
-        $this->intranetModel->insertIntoDatabase(ICS::extractGroup(ICS::parseICS('modules/Controllers/account/AN2.ics')));
+        //$this->intranetModel->insertIntoDatabase(ICS::extractGroup(ICS::parseICS('modules/Controllers/account/AN2.ics')), 2);
 
     }
 
@@ -58,7 +56,14 @@ final class IntranetController
         if (!isset($this->intranetStrategy)) {
             $this->initStrategy();
         }
-        ViewHandler::show($this->intranetStrategy->getDashboard());
+        $dashboardData = $this->intranetStrategy->getDashboardData();
+
+        // Charger la vue avec les données
+        $this->params->set('dashboardData', $dashboardData);
+        $this->params->set('css', '/_assets/styles/dashboard.css');
+        $this->params->set('titre', 'Dashboard');
+
+        ViewHandler::show('account/intranet/dashboard', $this->params);
     }
 
     public function annoncesAction()
@@ -66,7 +71,7 @@ final class IntranetController
         $annonces = $this->intranetModel->getAllAnnonces();
         $this->params->set('annonces', $annonces);
 
-        ViewHandler::show('intranet/annonces', $this->params);
+        ViewHandler::show('account/intranet/annonces', $this->params);
 
     }
     public function professeurAction()
@@ -76,10 +81,25 @@ final class IntranetController
 
     public function reservationAction(){
         $salleModel = new Salle();
-        $salles = $salleModel->getSalles();
-        $this->params->set('salles', $salles);
-        ViewHandler::show('account/intranet/salle', $this->params);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $idSalle = $_POST['id_salle'];
+            $debut = $_POST['debut'];
+            $fin = $_POST['fin'];
+            $idUser = $_SESSION['id_user'];
+            $success = $salleModel->reserverSalle($idSalle, $idUser, $debut, $fin);
+            $this->params->set('reservation_success', $success);
+            $this->defaultAction();
+        }
+        else{
+            $salles = $salleModel->getSalles();
+            $this->params->set('salles', $salles);
+            ViewHandler::show('account/intranet/salle', $this->params);
+        }
+
     }
+
+
+
     public function errorAction()
     {
         ViewHandler::show('views/intranet/404');

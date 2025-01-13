@@ -40,13 +40,14 @@ class Connexion {
         // Si aucun utilisateur trouvé, renvoie false
         return false;
     }
-    public function updatePassword($idUser, $emailUser, $nouveauMotDePasse) {
+    public function updatePassword($idUser, $emailUser, $nouveauMotDePasse): bool
+    {
         // Hacher le nouveau mot de passe
         $motDePasseHache = password_hash($nouveauMotDePasse, PASSWORD_DEFAULT);
 
         // Vérifier le rôle de l'utilisateur dans la session
         $role = (new Intranet)->getUserRole($idUser, $emailUser);
-
+        var_dump($role);
         if ($role === 'etudiant') {
             // Mise à jour dans la table ETUDIANTS
             $query = "UPDATE ETUDIANTS SET MDP_ET = :mdp, CHANGER_MDP = 0 WHERE ID_ETUDIANT = :id";
