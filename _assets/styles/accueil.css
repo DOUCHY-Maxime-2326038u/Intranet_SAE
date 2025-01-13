@@ -109,6 +109,7 @@ body {
     display: none;
     justify-content: center;
     align-items: center;
+    margin-top: 4rem;
     width: 100%;
     height: calc(100vh - 75px);
     overflow: hidden;
@@ -116,7 +117,7 @@ body {
 
 .videoContainer {
     position: relative;
-    width: 100%;
+    width: 90%;
     max-height: fit-content;
     padding-top: 56.25%;
     overflow: hidden;
@@ -126,6 +127,7 @@ body {
 
 .videoContainer iframe {
     position: absolute;
+    align-items: center;
     top: 0;
     left: 0;
     width: 100%;
