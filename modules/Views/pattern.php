@@ -5,7 +5,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/_assets/styles/pattern.css">
-        <link rel="stylesheet" href=<?php echo $css ?? '/_assets/styles/pattern.css' ?>>
+        <?php if (!empty($css)): ?>
+            <?php if (is_array($css)): ?>
+                <?php foreach ($css as $cssFile): ?>
+                    <link rel="stylesheet" href="<?= htmlspecialchars($cssFile) ?>">
+                <?php endforeach; ?>
+            <?php else: ?>
+                <link rel="stylesheet" href="<?= htmlspecialchars($css) ?>">
+            <?php endif; ?>
+        <?php else: ?>
+            <link rel="stylesheet" href="/_assets/styles/pattern.css">
+        <?php endif; ?>
         <title><?php echo $titre ?? 'Titre par défaut'; ?></title>
     </head>
     <?php endif; ?>

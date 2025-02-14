@@ -14,7 +14,7 @@ final class BdeController
     public function defaultAction()
     {
         $this->params->set('titre', "Bde");
-        $this->params->set('css', "/_assets/styles/informational/bde.css");
+        $this->params->set('css', ["/_assets/styles/common.css", "/_assets/styles/informational/bde.css"]);
         ViewHandler::show("informational/bde", $this->params);
     }
 

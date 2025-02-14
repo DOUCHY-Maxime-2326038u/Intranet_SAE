@@ -15,7 +15,7 @@ final class MentionsLegalesController
     public function defaultAction()
     {
         $this->params->set('titre', "Mentions légales");
-        $this->params->set('css', "/_assets/styles/account/mentions_legales.css");
-        ViewHandler::show("informational/mentions_legales");
+        $this->params->set('css', ["/_assets/styles/common.css", "/_assets/styles/account/mentions_legales.css"]);
+        ViewHandler::show("informational/mentions_legales", $this->params);
     }
 }

@@ -1,16 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #FFFFFF;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
+@import url('common.css'); /* Importation des styles communs */
 
 .intro h2 {
     font-size: 2.8rem;
@@ -23,7 +11,6 @@ body {
 .full-width-container {
     width: 100%;
     padding: 2rem;
-    box-sizing: border-box;
 }
 
 .features {
@@ -34,23 +21,12 @@ body {
     margin-top: 2rem;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    max-width: 1200px;
-    width: 100%;
-    padding: 2rem;
-    margin: 0 auto;
-}
-
 .feature-card {
     background-color: white;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     padding: 3rem;
     text-align: center;
     transition: transform 0.3s, background-color 0.3s;
-    animation: fadeInUp 1.5s ease-in-out;
 }
 
 .feature-card:hover {
@@ -64,43 +40,13 @@ body {
     animation: bounce 2s infinite;
 }
 
-h3 {
-    font-size: 2rem;
-    color: #0a0b45;
-    margin-bottom: 1rem;
-}
-
-.feature-card p {
-    font-size: 1.2rem;
-    color: #555;
-}
-
-.bde-info p {
-    font-size: 1.5rem;
-    color: #333;
-    text-align: justify;
-    line-height: 1.6;
-    padding: 0 2rem;
-}
-
-.image-cards .container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    max-width: 1200px;
-    width: 100%;
-    margin: 2rem auto;
-}
-
 .image-card {
-
     background-color: white;
     border-radius: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
     text-align: center;
     transition: transform 0.3s, background-color 0.3s;
-    overflow: hidden;
 }
 
 .image-card img {
@@ -115,123 +61,7 @@ h3 {
     transform: scale(1.1);
 }
 
-.image-card h3 {
-    font-size: 1.8rem;
-    color: #0a0b45;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.image-card p {
-    font-size: 1.2rem;
-    color: #555;
-}
-
 .image-card:hover {
     transform: translateY(-10px);
     background-color: #e8ebf2;
-}
-
-@keyframes fadeInDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-@media (max-width: 1024px) {
-    .intro h2 {
-        font-size: 2.5rem; /* Ajustement pour tablettes */
-    }
-
-    .feature-card, .image-card {
-        padding: 1.5rem; /* Réduction de l'espace interne */
-    }
-
-    h3 {
-        font-size: 1.8rem; /* Ajustement des titres */
-    }
-
-    .feature-card p, .image-card p {
-        font-size: 1.1rem; /* Texte légèrement réduit */
-    }
-}
-
-@media (max-width: 768px) {
-    .intro h2 {
-        font-size: 2rem; /* Plus petit pour tablettes et smartphones */
-    }
-
-    .feature-card, .image-card {
-        padding: 1rem;
-    }
-
-    h3 {
-        font-size: 1.5rem; /* Réduction des titres */
-    }
-
-    .feature-card p, .image-card p {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .intro h2 {
-        font-size: 1.8rem; /* Pour smartphones */
-    }
-
-    .container{
-        display: block;
-        gap: 2rem;
-        max-width: 1200px;
-        width: 100%;
-        padding: 2rem;
-        margin: 0 auto;
-    }
-
-    .feature-card {
-        width: 100%; /* S'assurer que chaque carte occupe toute la largeur */
-        max-width: 600px; /* Limite de largeur pour éviter les débordements */
-    }
-
-    .feature-card, .image-card {
-        padding: 0.8rem;
-    }
-
-    h3 {
-        font-size: 1.2rem; /* Titres plus petits */
-    }
-
-    .feature-card p, .image-card p {
-        font-size: 0.9rem; /* Texte compact mais lisible */
-    }
-
-    .bde-info p {
-        font-size: 1rem; /* Ajustement pour paragraphes informatifs */
-        padding: 0 1rem;
-    }
 }

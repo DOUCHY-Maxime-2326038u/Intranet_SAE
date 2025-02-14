@@ -160,6 +160,7 @@
 
 </header>
 <nav id="menu">
+    <button id="closeMenu" aria-label="Fermer le menu">✖</button>
     <ul>
         <li><a href="?ctrl=Accueil">Accueil</a></li>
         <li><a href="?ctrl=Apropos">A Propos</a></li>

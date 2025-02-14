@@ -1,0 +1,122 @@
+/* --- Variables globales (couleurs et polices) --- */
+:root {
+    --primary-color: #0076A8;
+    --secondary-color: #660099;
+    --text-color: #333;
+    --light-bg: #F0F4F8;
+    --font-family: 'Arial', sans-serif;
+}
+
+/* --- Réinitialisation et styles de base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre le contenu */
+    justify-content: flex-start; /* Garde les éléments en haut */
+    width: 100%;
+}
+
+/* --- Titres globaux --- */
+h1, h2 {
+    text-align: center;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+h1 {
+    font-size: 2.8rem;
+    width: 100%;
+    margin: 1rem auto;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+/* --- Paragraphes globaux --- */
+p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    text-align: justify;
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+}
+
+/* --- Boutons globaux --- */
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #005B80;
+    transform: scale(1.05);
+}
+
+/* --- Conteneurs globaux --- */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Responsive Design global --- */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .container {
+        width: 90%;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .container {
+        width: 95%;
+        padding: 1rem;
+    }
+}
