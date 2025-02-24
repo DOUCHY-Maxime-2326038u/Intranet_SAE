@@ -14,7 +14,7 @@ final class PresentationFiliereController
     public function defaultAction()
     {
         $this->params->set('titre', "Présentation Filière");
-        $this->params->set('css', ["/_assets/styles/common.css", "/_assets/styles/informational/presentation_filiere.css"]);
+        $this->params->set('css', ["/_assets/styles/commun.css", "/_assets/styles/informational/presentation_filiere.css"]);
         ViewHandler::show("informational/presentation_filiere", $this->params);
     }
 }

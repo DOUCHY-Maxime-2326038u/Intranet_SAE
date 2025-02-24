@@ -34,6 +34,16 @@ footer {
     font-size: 14px;
     margin-top: auto; /* modif */
 }
+footer p {
+    max-width: none;
+    width: auto;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-size: 60px;
+    color: #ffffff;
+}
+
 
 .footer-logo {
     font-size: 60px;
@@ -142,16 +152,7 @@ footer {
 #menu ul li a:hover {
     color: #ff6347;
 }
-#closeMenu {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-}
+
 #test {
     background-color: rgb(250, 122, 122);
     height: 100px;

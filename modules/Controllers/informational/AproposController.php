@@ -14,7 +14,7 @@ final class AproposController
     public function defaultAction()
     {
         $this->params->set('titre', "A propos");
-        $this->params->set('css', ["/_assets/styles/common.css", "/_assets/styles/informational/apropos.css"]);
+        $this->params->set('css', ["/_assets/styles/commun.css", "/_assets/styles/informational/apropos.css"]);
         ViewHandler::show("informational/aPropos", $this->params);
     }
 }
