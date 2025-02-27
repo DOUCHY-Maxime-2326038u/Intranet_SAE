@@ -38,7 +38,7 @@ final class ConnexionController
                     echo "oui default";
                     $_SESSION['id_user'] = $utilisateur['ID_USER'];
                     $_SESSION['email_user'] = $utilisateur['EMAIL_USER'];
-                    header("Location: /Intranet_SAE/root.php?ctrl=Connexion&action=changePassword");
+                    header("Location: /root.php?ctrl=Connexion&action=changePassword");
                     exit();
                 }
                 // Initialiser la session
@@ -47,7 +47,7 @@ final class ConnexionController
                 $_SESSION['email_user'] = $utilisateur['EMAIL_USER'];
 
                 // Rediriger vers l'intranet
-                header("Location: /Intranet_SAE/root.php?ctrl=Intranet");
+                header("Location: /root.php?ctrl=Intranet");
                 exit();
             }
             else {
@@ -75,7 +75,7 @@ final class ConnexionController
             if ($this->validatePassword($nouveauMotDePasse)) {
                 // Mettre à jour le mot de passe dans la base de données
                 if ($this->userModel->updatePassword($idUser, $emailUser, $nouveauMotDePasse)) {
-                    header("Location: /Intranet_SAE/root.php?ctrl=Intranet");
+                    header("Location: /root.php?ctrl=Intranet");
                     exit();
                 } else {
                     $this->params->set('erreur', "Erreur lors de la mise à jour du mot de passe.");

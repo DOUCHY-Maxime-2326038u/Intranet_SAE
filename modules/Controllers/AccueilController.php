@@ -19,4 +19,9 @@ final class AccueilController
         $this->params->set('js', "/_assets/scripts/accueil.js");
         ViewHandler::show("accueil", $this->params);
     }
+
+    public function logoutAction(){
+        session_destroy();
+        $this->defaultAction();
+    }
 }

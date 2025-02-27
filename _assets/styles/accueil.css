@@ -837,7 +837,25 @@ form button:hover {
 #jpo .btn:hover {
     background-color: #357fff;
 }
+#formations {
+    padding: 50px 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
 
+#formations .btn-info {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #1F63DE;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+#formations .btn-info:hover {
+    background-color: #357fff;
+}
 
 
 /* Responsive Design */
