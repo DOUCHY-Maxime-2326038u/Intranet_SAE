@@ -26,7 +26,7 @@ final class ConnexionController
 
     public function loginAction() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['connexion'])) {
-            $identifiant = trim($_POST['identifiant']);
+            $identifiant = filter_var(trim($_POST['identifiant']));
             $mot_de_passe = $_POST['mot_de_passe'];
 
             // Authentifie l'utilisateur via le modèle
@@ -38,7 +38,7 @@ final class ConnexionController
                     echo "oui default";
                     $_SESSION['id_user'] = $utilisateur['ID_USER'];
                     $_SESSION['email_user'] = $utilisateur['EMAIL_USER'];
-                    header("Location: /Intranet_SAE/root.php?ctrl=Connexion&action=changePassword");
+                    header("Location: /root.php?ctrl=Connexion&action=changePassword");
                     exit();
                 }
                 // Initialiser la session
@@ -47,13 +47,13 @@ final class ConnexionController
                 $_SESSION['email_user'] = $utilisateur['EMAIL_USER'];
 
                 // Rediriger vers l'intranet
-                header("Location: /Intranet_SAE/root.php?ctrl=Intranet");
+                header("Location: /root.php?ctrl=Intranet");
                 exit();
             }
             else {
                 // Si erreur, renvoyer à la vue avec un message
                 $this->params->set('erreur', "Identifiant ou mot de passe incorrect.");
-                ViewHandler::show("account/connexion", $this->params);
+                $this->defaultAction();
             }
         }
         else{
@@ -63,7 +63,6 @@ final class ConnexionController
     }
 
     private function validatePassword(string $password): bool {
-        return true;
         return preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $password);
     }
     public function changePasswordAction() {
