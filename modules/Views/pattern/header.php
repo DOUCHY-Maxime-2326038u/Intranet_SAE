@@ -161,7 +161,7 @@
 </header>
 <nav id="menu">
     <ul>
-        <li><a href="?ctrl=Accueil">Accueil</a></li>
+        <li><a href="?ctrl=Accueil&action=logout">Accueil</a></li>
         <li><a href="?ctrl=Apropos">A Propos</a></li>
         <li><a href="?ctrl=Bde">BDE</a></li>
         <li><a href="?ctrl=Intranet">Connexion</a></li>

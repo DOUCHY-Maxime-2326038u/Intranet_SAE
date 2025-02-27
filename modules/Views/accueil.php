@@ -51,7 +51,7 @@
         <p>Situé au cœur du campus de l'IUT d'Aix-en-Provence, le bâtiment informatique est un centre moderne d'enseignement, de recherche et de pratique. Il accueille des étudiants des filières informatiques</p>
     </div>
 </section>
-<section id="jpo" class="jpo">
+<section id="jpo">
     <div class="container">
         <h2>Journée portes ouvertes</h2>
         <p>Prochaine journée portes ouvertes : <strong>samedi 1er février de 9h à 17h00</strong></p>
@@ -67,19 +67,24 @@
         <p>Le département informatique de l'IUT propose plusieurs parcours de formation pour répondre aux besoins des étudiants et aux attentes du marché du travail.</p>
         <div class="formations-grid">
             <div class="formation-item">
-                <h3>DUT Informatique</h3>
-                <p>Une formation de deux ans pour acquérir les bases solides en programmation, réseaux, et développement logiciel.</p>
+                <h3>Parcours A</h3>
+                <p>Parcours Réalisation d’applications : conception, développement, validation. Ce parcours est idéal pour ceux qui souhaitent se diriger vers des métiers tels que développeur, ingénieur en logiciel ou architecte de systèmes.</p>
             </div>
             <div class="formation-item">
-                <h3>Licence Professionnelle</h3>
-                <p>Spécialisez-vous avec une troisième année dans des domaines tels que le développement web, la cybersécurité ou l'intelligence artificielle.</p>
+                <h3>Parcours B</h3>
+                <p>Parcours Déploiement d’applications communicantes et sécurisées. Ce parcours convient à ceux qui s'intéressent aux métiers tels qu'administrateur systèmes et réseaux, ingénieur en cybersécurité ou consultant en systèmes d'information.</p>
             </div>
             <div class="formation-item">
                 <h3>Alternance et Stages</h3>
-                <p>Profitez d’un parcours en alternance pour combiner théorie et pratique en entreprise, avec des stages de longue durée.</p>
+                <p>Profitez d’un parcours en alternance dès la deuxième année pour combiner théorie et pratique en entreprise, ou alors avec des stages de longue durée.</p>
             </div>
         </div>
     </div>
+    <a href="?ctrl=Apropos" class="btn btn-primary btn-info">en savoir plus sur la formation</a>
+
+</section>
+
+<section id="formationLink">
 </section>
 <div class="containerprof">
     <div class="cardprof">

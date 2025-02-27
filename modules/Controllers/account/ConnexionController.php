@@ -74,7 +74,7 @@ final class ConnexionController
             if ($this->validatePassword($nouveauMotDePasse)) {
                 // Mettre à jour le mot de passe dans la base de données
                 if ($this->userModel->updatePassword($idUser, $emailUser, $nouveauMotDePasse)) {
-                    header("Location: /Intranet_SAE/root.php?ctrl=Intranet");
+                    header("Location: /root.php?ctrl=Intranet");
                     exit();
                 } else {
                     $this->params->set('erreur', "Erreur lors de la mise à jour du mot de passe.");
