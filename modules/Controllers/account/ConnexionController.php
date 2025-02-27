@@ -26,7 +26,7 @@ final class ConnexionController
 
     public function loginAction() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['connexion'])) {
-            $identifiant = trim($_POST['identifiant']);
+            $identifiant = filter_var(trim($_POST['identifiant']));
             $mot_de_passe = $_POST['mot_de_passe'];
 
             // Authentifie l'utilisateur via le modèle
@@ -53,7 +53,7 @@ final class ConnexionController
             else {
                 // Si erreur, renvoyer à la vue avec un message
                 $this->params->set('erreur', "Identifiant ou mot de passe incorrect.");
-                ViewHandler::show("account/connexion", $this->params);
+                $this->defaultAction();
             }
         }
         else{
@@ -63,7 +63,6 @@ final class ConnexionController
     }
 
     private function validatePassword(string $password): bool {
-        return true;
         return preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $password);
     }
     public function changePasswordAction() {
