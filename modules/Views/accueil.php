@@ -37,18 +37,13 @@
     </div>
 </section>
 
-<section class="hero">
-    <div class="hero-text">
-        <h1>Bienvenue au Département Informatique de l'IUT d'Aix-en-Provence</h1>
-        <p>Découvrez nos infrastructures, notre personnel et notre environnement dédié à l'innovation et à l'apprentissage des nouvelles technologies.</p>
-        <a href="#about" class="btn-hero">Découvrir plus</a>
-    </div>
-</section>
 
 <section id="about" class="about">
     <div class="container">
         <h2>À propos du Bâtiment Informatique</h2>
-        <p>Situé au cœur du campus de l'IUT d'Aix-en-Provence, le bâtiment informatique est un centre moderne d'enseignement, de recherche et de pratique. Il accueille des étudiants des filières informatiques</p>
+        <p>Situé au cœur du campus de l'IUT d'Aix-en-Provence, le bâtiment informatique se trouve à seulement quelques minutes du centre historique d’Aix-en-Provence. Implanté sur le site de Gaston Berger, il bénéficie d’un environnement agréable et dynamique, parfait pour concilier études et qualité de vie.</p>
+        <img id="batimentInfo" src="_assets/img/Batiment info (cafeteria).webp">
+
     </div>
 </section>
 <section id="jpo">

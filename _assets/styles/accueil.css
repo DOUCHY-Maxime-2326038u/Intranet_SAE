@@ -183,26 +183,7 @@ body {
     background-color: #ffcb67;
 }
 
-/* About Section */
-.about, .formations, .infrastructures, .services, .contact {
-    padding: 5rem 0;
-    background-color: #fff;
-}
 
-.about h2, .formations h2, .infrastructures h2, .services h2, .contact h2 {
-    font-size: 2.5rem;
-    color: #660099;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.about p, .formations p, .infrastructures p, .services p, .contact p {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 4rem;
-    color: #555;
-    font-size: 1.2rem;
-}
 
 .formations-grid, .infrastructures-grid, .services-grid {
     display: grid;
@@ -227,9 +208,6 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.about-item p, .formation-item p, .infrastructure-item p, .service-item p {
-    color: #555;
-}
 
 /* Formations Section */
 .formations {
@@ -583,33 +561,9 @@ header {
     font-size: 1.2rem;
 }
 
-.formations-grid, .infrastructures-grid, .services-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-}
-/*      effacer parceque image moche*/
-.formation-item, .infrastructure-item, .service-item {
-    text-align: center;
-}
-
-.formation-item img, .infrastructure-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-}
-
-.formation-item h3, .infrastructure-item h3, .service-item h3 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-}
-
 .about-item p, .formation-item p, .infrastructure-item p, .service-item p {
     color: #555;
 }
-
 /* Formations Section */
 .formations {
     background-color: #f4f4f4;
@@ -620,7 +574,6 @@ header {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
-
 .formation-item {
     background-color: white;
     padding: 2rem;
@@ -644,7 +597,9 @@ header {
 
 /*-----------------------------------------------------*/
 
-
+.about img {
+    border: 5px solid red;
+}
 
 
 
@@ -806,6 +761,8 @@ form button:hover {
 .toggle-checkbox:checked + .toggle-label .arrow {
     transform: rotate(180deg);
 }
+
+
 #jpo {
     padding: 50px 0;
     background-color: #f9f9f9;
