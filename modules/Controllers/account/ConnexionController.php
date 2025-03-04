@@ -1,29 +1,75 @@
 <?php
+/**
+ * Class ConnexionController
+ *
+ * Gère les actions liées à la connexion des utilisateurs (authentification, changement de mot de passe, etc.).
+ */
 final class ConnexionController
 {
+    /**
+     * @var ViewParams Stocke les paramètres à transmettre aux vues.
+     */
     private ViewParams $params;
+
+    /**
+     * @var Connexion Instance du modèle de connexion pour gérer l'authentification.
+     */
     private Connexion $userModel;
 
+    /**
+     * Constructeur.
+     *
+     * Initialise le modèle de connexion.
+     */
     public function __construct()
     {
         $this->userModel = new Connexion();
     }
 
+    /**
+     * Définit les paramètres de la vue.
+     *
+     * @param ViewParams $params Instance contenant les paramètres de la vue.
+     * @return void
+     */
     public function setParams(ViewParams $params): void
     {
         $this->params = $params;
     }
+
+    /**
+     * Retourne les paramètres de la vue.
+     *
+     * @return ViewParams Les paramètres de la vue.
+     */
     public function getParams(): ViewParams
     {
         return $this->params;
     }
 
-    public function defaultAction(){
+    /**
+     * Action par défaut affichant la page de connexion.
+     *
+     * Prépare les paramètres (titre, feuille de style) et affiche la vue correspondante.
+     *
+     * @return void
+     */
+    public function defaultAction()
+    {
         $this->params->set('titre', "connexion");
         $this->params->set('css', "/_assets/styles/account/connexion.css");
         ViewHandler::show("account/connexion", $this->params);
     }
 
+    /**
+     * Action de connexion.
+     *
+     * Vérifie la méthode POST et authentifie l'utilisateur via le modèle.
+     * En cas de succès, initialise la session et redirige vers l'intranet ou la page de changement de mot de passe.
+     * En cas d'échec, renvoie à la vue avec un message d'erreur.
+     *
+     * @return void
+     */
     public function loginAction() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['connexion'])) {
             $identifiant = filter_var(trim($_POST['identifiant']));
@@ -33,7 +79,7 @@ final class ConnexionController
             $utilisateur = $this->userModel->authenticate($identifiant, $mot_de_passe);
 
             if ($utilisateur) {
-                // Si c'est le mdp par défaut : redirige vers la page de changement de mdp
+                // Si le mot de passe est le mdp par défaut : redirige vers la page de changement de mdp
                 if ($utilisateur['CHANGER_MDP'] === 1) {
                     echo "oui default";
                     $_SESSION['id_user'] = $utilisateur['ID_USER'];
@@ -43,28 +89,40 @@ final class ConnexionController
                 }
                 // Initialiser la session
                 $_SESSION['id_user'] = $utilisateur['ID_USER'];
-                //$_SESSION['nom_et'] = $utilisateur['NOM_ET'];
                 $_SESSION['email_user'] = $utilisateur['EMAIL_USER'];
 
                 // Rediriger vers l'intranet
                 header("Location: /root.php?ctrl=Intranet");
                 exit();
-            }
-            else {
+            } else {
                 // Si erreur, renvoyer à la vue avec un message
                 $this->params->set('erreur', "Identifiant ou mot de passe incorrect.");
                 $this->defaultAction();
             }
-        }
-        else{
+        } else {
             var_dump($_POST);
         }
-
     }
 
+    /**
+     * Valide la complexité d'un mot de passe.
+     *
+     * Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.
+     *
+     * @param string $password Le mot de passe à valider.
+     * @return bool True si le mot de passe respecte la complexité, sinon false.
+     */
     private function validatePassword(string $password): bool {
         return preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $password);
     }
+
+    /**
+     * Action de changement de mot de passe.
+     *
+     * Vérifie et met à jour le mot de passe de l'utilisateur. En cas d'erreur, affiche la vue avec un message d'erreur.
+     *
+     * @return void
+     */
     public function changePasswordAction() {
         if (isset($_POST['changer_mot_de_passe'])) {
             $nouveauMotDePasse = $_POST['nouveau_mot_de_passe'];
@@ -79,7 +137,7 @@ final class ConnexionController
                 } else {
                     $this->params->set('erreur', "Erreur lors de la mise à jour du mot de passe.");
                 }
-            }else{
+            } else {
                 $this->params->set('erreur', "Le mdp doit contenir au minimum 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécialà.");
             }
         }
@@ -88,6 +146,4 @@ final class ConnexionController
         $this->params->set('titre', "Changer le mot de passe");
         ViewHandler::show("account/change_password", $this->params);
     }
-
-
 }

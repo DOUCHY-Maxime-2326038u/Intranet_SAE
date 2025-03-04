@@ -23,71 +23,104 @@
 
         <!-- Emploi du Temps Section -->
         <?php if (isset($dashboardData['emploi_du_temps'])): ?>
-            <div class="card emploi-du-temps">
-                <h2>📅 Votre Emploi du Temps</h2>
-                <div class="timetable">
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Heures</th>
-                            <th>Lundi</th>
-                            <th>Mardi</th>
-                            <th>Mercredi</th>
-                            <th>Jeudi</th>
-                            <th>Vendredi</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                        // Regrouper les cours par jour
-                        $days = ['1' => [], '2' => [], '3' => [], '4' => [], '5' => []]; // Lundi à Vendredi
-                        foreach ($dashboardData['emploi_du_temps'] as $cours) {
-                            $dayOfWeek = date('N', strtotime($cours['DEBUT'])); // Jour de la semaine (1 à 7)
-                            if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
-                                $days[$dayOfWeek][] = $cours;
-                            }
+        <div class="card emploi-du-temps">
+            <h2>📅 Votre Emploi du Temps</h2>
+            <div class="timetable">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Heures</th>
+                        <th>Lundi</th>
+                        <th>Mardi</th>
+                        <th>Mercredi</th>
+                        <th>Jeudi</th>
+                        <th>Vendredi</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    // Regrouper les cours par jour (1 = Lundi, 2 = Mardi, etc.)
+                    $days = ['1' => [], '2' => [], '3' => [], '4' => [], '5' => []];
+                    foreach ($dashboardData['emploi_du_temps'] as $cours) {
+                        $dayOfWeek = date('N', strtotime($cours['DEBUT'])); // Jour de la semaine (1 à 7)
+                        if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
+                            $days[$dayOfWeek][] = $cours;
                         }
+                    }
 
-                        // Afficher les horaires (08:00 à 18:00)
-                        for ($hour = 7; $hour <= 18; $hour++): ?>
-                            <tr>
-                                <td class="time"><?= sprintf("%02d:00", $hour) ?></td>
-                                <?php for ($day = 1; $day <= 5; $day++): ?>
-                                    <?php
-                                    $cellRendered = false;
-                                    foreach ($days[$day] as $index => $cours):
-                                        $start = strtotime($cours['DEBUT']);
-                                        $end = strtotime($cours['FIN']);
-                                        $duration = ($end - $start) / 3600;
-                                        $hourStart = date('G', $start);
+                    // Pour éviter de réafficher des cellules « recouvertes » par un rowspan
+                    // on va garder un tableau de booléens pour marquer les heures déjà occupées.
+                    $occupied = [];
+                    for ($d = 1; $d <= 5; $d++) {
+                        for ($h = 7; $h <= 18; $h++) {
+                            $occupied[$d][$h] = false;
+                        }
+                    }
 
-                                        // Vérification stricte : le cours commence à cette heure et correspond au jour
-                                        if ($hourStart == $hour && date('N', $start) == $day) {
-                                            echo "<td rowspan='{$duration}'>
-                                    <strong>" . htmlspecialchars($cours['NOM_COUR']) . "</strong><br>
-                                    " . htmlspecialchars($cours['SALLE']) . "<br>
-                                    " . date('H:i', $start) . " - " . date('H:i', $end) . "
-                                </td>";
-                                            $cellRendered = true;
-                                            break;
-                                        }
-                                    endforeach;
+                    // Parcourir chaque heure de 07:00 à 18:00
+                    for ($hour = 7; $hour <= 18; $hour++): ?>
+                        <tr>
+                            <!-- Affichage de l'heure dans la première colonne -->
+                            <td class="time"><?= sprintf("%02d:00", $hour) ?></td>
 
-                                    // Si aucune cellule n'a été rendue, insérer une cellule vide
-                                    if (!$cellRendered) {
-                                        echo "<td></td>";
+                            <?php
+                            // Parcourir chaque jour (Lundi=1, ..., Vendredi=5)
+                            for ($day = 1; $day <= 5; $day++):
+                                // Si la case est déjà « recouverte » par un rowspan précédent
+                                if ($occupied[$day][$hour]) {
+                                    // On n'affiche pas de <td>, on passe à la colonne suivante
+                                    continue;
+                                }
+
+                                // Par défaut, on considère qu'on n'affiche rien
+                                $cellRendered = false;
+
+                                // Parcourir les cours de ce jour
+                                foreach ($days[$day] as $index => $cours) {
+                                    $start = strtotime($cours['DEBUT']);
+                                    $end = strtotime($cours['FIN']);
+                                    $hourStart = (int) date('G', $start);  // heure de début (0 à 23)
+                                    $duration = ($end - $start) / 3600;     // durée en heures (peut être décimal)
+                                    // Arrondir la durée à l'entier supérieur
+                                    $rowSpan = (int) ceil($duration);
+                                    if ($rowSpan < 1) {
+                                        $rowSpan = 1;
                                     }
-                                    ?>
-                                <?php endfor; ?>
-                            </tr>
-                        <?php endfor; ?>
-                        </tbody>
-                    </table>
-                </div>
 
+                                    // Si le cours commence pendant cette heure-ci (exacte) et que le jour correspond
+                                    if ($hourStart === $hour && date('N', $start) == $day) {
+                                        echo "<td rowspan='{$rowSpan}'>
+                                        <strong>" . htmlspecialchars($cours['NOM_COUR']) . "</strong><br>
+                                        " . htmlspecialchars($cours['SALLE']) . "<br>
+                                        " . date('H:i', $start) . " - " . date('H:i', $end) . "
+                                    </td>";
+
+                                        // Marquer les heures suivantes comme occupées par ce rowspan
+                                        for ($h = $hour + 1; $h < $hour + $rowSpan; $h++) {
+                                            if ($h <= 18) {
+                                                $occupied[$day][$h] = true;
+                                            }
+                                        }
+
+                                        $cellRendered = true;
+                                        break; // Sortir du foreach des cours
+                                    }
+                                }
+
+                                // Si aucun cours n'a été placé pour cette case, on affiche une cellule vide
+                                if (!$cellRendered) {
+                                    echo "<td></td>";
+                                }
+
+                            endfor; // Fin du for sur les jours ?>
+                        </tr>
+                    <?php endfor; // Fin du for sur les heures ?>
+                    </tbody>
+                </table>
             </div>
-
+        </div>
         <?php endif; ?>
+
         <?php if (isset($dashboardData['poster_annonce'])): ?>
             <!-- Section pour poster une nouvelle annonce -->
             <div class="card poster-annonce">

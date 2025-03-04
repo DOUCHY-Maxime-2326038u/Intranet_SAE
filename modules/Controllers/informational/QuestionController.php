@@ -1,26 +1,62 @@
 <?php
 
 
+
+/**
+ * Class QuestionController
+ *
+ * Gère les actions liées aux questions (affichage, ajout, etc.).
+ */
 final class QuestionController
 {
+    /**
+     * @var ViewParams Stocke les paramètres à transmettre aux vues.
+     */
     private ViewParams $params;
+
+    /**
+     * @var Question Instance du modèle de questions.
+     */
     private Question $questionModel;
 
+    /**
+     * Constructeur.
+     *
+     * Initialise le modèle de questions.
+     */
     public function __construct()
     {
         $this->questionModel = new Question();
     }
 
+    /**
+     * Définit les paramètres de la vue.
+     *
+     * @param ViewParams $params Instance contenant les paramètres de la vue.
+     * @return void
+     */
     public function setParams(ViewParams $params): void
     {
         $this->params = $params;
     }
 
+    /**
+     * Retourne les paramètres de la vue.
+     *
+     * @return ViewParams Les paramètres de la vue.
+     */
     public function getParams(): ViewParams
     {
         return $this->params;
     }
 
+    /**
+     * Action par défaut.
+     *
+     * Prépare les paramètres (titre, feuille de style, token CSRF, etc.) et affiche la vue listant les questions publiées.
+     *
+     * @return void
+     */
     public function defaultAction()
     {
         $this->params->set('titre', "Questions");
@@ -33,6 +69,14 @@ final class QuestionController
         ViewHandler::show("informational/question", $this->params);
     }
 
+    /**
+     * Ajoute une nouvelle question.
+     *
+     * Vérifie que la requête est en POST, valide le token CSRF et la saisie utilisateur,
+     * puis ajoute la question via le modèle. En cas d'erreur, renvoie à l'action par défaut avec un message.
+     *
+     * @return void
+     */
     public function ajouterAction()
     {
         // Vérifier que la requête est bien en POST
@@ -71,13 +115,25 @@ final class QuestionController
         }
     }
 
-
+    /**
+     * Vérifie le token CSRF pour sécuriser la requête.
+     *
+     * @return bool True si le token est valide, sinon false.
+     */
     private function verifyCSRFToken(): bool
     {
         return isset($_POST['csrf_token'], $_SESSION['csrf_token']) &&
             hash_equals($_SESSION['csrf_token'], $_POST['csrf_token']);
     }
 
+    /**
+     * Valide la saisie de la question.
+     *
+     * La question doit contenir au moins 5 caractères.
+     *
+     * @param string $question La question à valider.
+     * @return bool True si la question est valide, sinon false.
+     */
     private function validateQuestionInput(string $question): bool
     {
         return (strlen($question) >= 5);
