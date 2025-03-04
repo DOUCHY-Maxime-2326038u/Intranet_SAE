@@ -12,6 +12,33 @@ ini_set('session.use_only_cookies', 1);
 ini_set('session.gc_maxlifetime', 3600);
 
 session_start();
+
+// Code de rate limiting combinant session et IP
+$identifier = session_id() . '_' . $_SERVER['REMOTE_ADDR'];
+
+if (!isset($_SESSION['rate_limit'][$identifier])) {
+    $_SESSION['rate_limit'][$identifier] = ['count' => 0, 'start' => time()];
+}
+
+$currentTime = time();
+$limitPeriod = 60; // 60 secondes
+$maxRequests = 100;
+
+if ($currentTime - $_SESSION['rate_limit'][$identifier]['start'] < $limitPeriod) {
+    $_SESSION['rate_limit'][$identifier]['count']++;
+} else {
+    // Réinitialisation de la période
+    $_SESSION['rate_limit'][$identifier]['start'] = $currentTime;
+    $_SESSION['rate_limit'][$identifier]['count'] = 1;
+}
+
+if ($_SESSION['rate_limit'][$identifier]['count'] > $maxRequests) {
+    http_response_code(429); // Trop de requêtes
+    die("Trop de requêtes, veuillez réessayer plus tard.");
+}
+
+// Ensuite, le reste de votre code...
+
 // Protection CSRF
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));

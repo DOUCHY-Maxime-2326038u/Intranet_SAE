@@ -93,6 +93,7 @@
             <div class="card poster-annonce">
                 <h2>📝 Poster une Annonce</h2>
                 <form method="POST" action="?ctrl=Intranet&action=poster">
+                    <input type="hidden" name="csrf_token" value="<?php echo $csrf_token ?? null; ?>">
                     <div class="form-group">
                         <label for="titre">Titre :</label>
                         <input type="text" id="titre" name="titre" required>

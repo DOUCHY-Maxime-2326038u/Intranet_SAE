@@ -3,7 +3,7 @@
 <!-- Formulaire de soumission de question -->
 <div class="faq-form">
     <form method="post" action="?ctrl=Question&action=ajouter">
-        <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
+        <input type="hidden" name="csrf_token" value="<?php echo $csrf_token ?? null; ?>">
         <textarea name="question" placeholder="Entrez votre question ici" rows="4" required></textarea>
         <br>
         <button type="submit">Envoyer</button>
