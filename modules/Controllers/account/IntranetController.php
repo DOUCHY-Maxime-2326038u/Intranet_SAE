@@ -169,7 +169,7 @@ final class IntranetController
             $questionModel->publierQuestion($id);
         }
 
-        header('Location: root.php?ctrl=Intranet&action=reviewQuestions');
+        header('Location: root.php?ctrl=Intranet');
         exit();
     }
 }
