@@ -42,4 +42,10 @@ class Question
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function supprimerQuestion($id)
+    {
+        $stmt = $this->db->getPDO()->prepare("DELETE FROM QUESTION WHERE id = :id");
+        return $stmt->execute([':id' => $id]);
+    }
 }

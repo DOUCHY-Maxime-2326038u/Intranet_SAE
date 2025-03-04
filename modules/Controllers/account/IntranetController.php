@@ -172,5 +172,24 @@ final class IntranetController
         header('Location: root.php?ctrl=Intranet');
         exit();
     }
+
+    public function supprimerQuestionAction()
+    {
+        // Vérifier que l'utilisateur est bien un professeur
+        $role = $this->intranetModel->getUserRole($_SESSION['id_user'], $_SESSION['email_user']);
+        if ($role !== 'professeur') {
+            header("Location: root.php?ctrl=Intranet");
+            exit();
+        }
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            header('Location: root.php?ctrl=Intranet');
+            exit();
+        }
+        $id = intval($_POST['id'] ?? 0);
+        $questionModel = new Question();
+        $questionModel->supprimerQuestion($id);
+        header('Location: root.php?ctrl=Intranet');
+        exit();
+    }
 }
 

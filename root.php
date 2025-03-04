@@ -18,7 +18,7 @@ if (empty($_SESSION['csrf_token'])) {
 }
 
 $allowedControllers = ['Connexion', 'Intranet', 'Accueil', 'Apropos', 'Bde', 'Test', 'Question'];
-$allowedActions = ['default', 'login', 'changePassword', 'logout', 'dashboard', 'bde', 'poster', 'annonces', 'professeur', 'reservation', 'error', 'reviewQuestions', 'majQuestion', 'ajouter', null];
+$allowedActions = ['default', 'login', 'changePassword', 'logout', 'dashboard', 'bde', 'poster', 'annonces', 'professeur', 'reservation', 'error', 'reviewQuestions', 'majQuestion', 'ajouter', 'supprimerQuestion', null];
 
 $S_controller = $_GET['ctrl'] ?? null;
 $S_action = $_GET['action'] ?? null;
