@@ -165,5 +165,6 @@
         <li><a href="?ctrl=Apropos">A Propos</a></li>
         <li><a href="?ctrl=Bde">BDE</a></li>
         <li><a href="?ctrl=Intranet">Connexion</a></li>
+        <li><a href="?ctrl=Question">Question</a></li>
     </ul>
 </nav>

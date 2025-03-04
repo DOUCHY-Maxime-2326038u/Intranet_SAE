@@ -13,6 +13,10 @@ class Intranet
         $this->db = Database::getInstance('intraiut_1');  // Connexion unique
     }
 
+    public function logout(): void
+    {
+        session_destroy();
+    }
     public function getUserRole(int $userId, string $userEmail): string
     {
         // Validation stricte de l'ID utilisateur

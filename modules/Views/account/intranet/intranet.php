@@ -7,6 +7,9 @@
         <?php if ((new Intranet)->getUserRole($_SESSION['id_user'], $_SESSION['email_user']) === 'etudiant'): ?>
         <div class="tab" onclick="loadContent('bde')">BDE Carte</div>
         <?php endif; ?>
+        <?php if ((new Intranet)->getUserRole($_SESSION['id_user'], $_SESSION['email_user']) === 'professeur'): ?>
+            <div class="tab" onclick="loadContent('reviewQuestions')">FAQ</div>
+        <?php endif; ?>
     </div>
 
     <div id="content">

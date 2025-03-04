@@ -1,5 +1,5 @@
 <?php
-require '_assets/Essentials/Autoloader.php';
+require '_assets/Core/Autoloader.php';
 // Ajout des en-têtes de sécurité
 header("X-Content-Type-Options: nosniff");
 header("X-XSS-Protection: 1; mode=block");
@@ -17,16 +17,13 @@ if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
-$allowedControllers = ['Connexion', 'Intranet', 'Accueil', 'Apropos', 'Bde', 'Test'];
-$allowedActions = ['default', 'login', 'changePassword', 'logout', 'dashboard', 'bde', 'poster', 'annonces', 'professeur', 'reservation', 'error', null];
+$allowedControllers = ['Connexion', 'Intranet', 'Accueil', 'Apropos', 'Bde', 'Test', 'Question'];
+$allowedActions = ['default', 'login', 'changePassword', 'logout', 'dashboard', 'bde', 'poster', 'annonces', 'professeur', 'reservation', 'error', 'reviewQuestions', 'majQuestion', 'ajouter', null];
 
 $S_controller = $_GET['ctrl'] ?? null;
 $S_action = $_GET['action'] ?? null;
 
-if (!in_array($S_controller, $allowedControllers) || !in_array($S_action, $allowedActions)) {
-    http_response_code(403);
-    die("Accès non autorisé");
-}
+
 // Ouvre le tampon d'affichage pour stocker la sortie
 ViewHandler::bufferStart();
 
@@ -41,6 +38,10 @@ $params = $C_controller->getParams();
 $params->set('body', $displayContent);
 ViewHandler::show('pattern', $params);
 
+if (!in_array($S_controller, $allowedControllers) || !in_array($S_action, $allowedActions)) {
+    http_response_code(403);
+    die("Accès non autorisé");
+}
 
 
 

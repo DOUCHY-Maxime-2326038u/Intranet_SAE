@@ -5,8 +5,8 @@ final class ControllerHandlerTest extends TestCase
 {
     protected function setUp(): void
     {
-        require_once __DIR__ . '/../_assets/Essentials/Autoloader.php';
-        require_once __DIR__ . '/../_assets/Essentials/ControllerHandler.php';
+        require_once __DIR__ . '/../_assets/Core/Autoloader.php';
+        require_once __DIR__ . '/../_assets/Core/ControllerHandler.php';
     }
     public function testControllerExecution()
     {

@@ -230,3 +230,72 @@ button:hover {
     border-radius: 15px;
     transition: transform 0.3s ease;
 }
+
+/* Conteneur spécifique pour la revue des questions */
+.questions-review-container {
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+/* Style pour chaque card de question */
+.question-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.question-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Style pour le texte de la question */
+.question-card p {
+    color: #7f8c8d;
+    font-size: 1em;
+    margin: 0 0 15px;
+    line-height: 1.6;
+}
+
+/* Style pour les labels et éléments de formulaire */
+.question-card label {
+    display: block;
+    margin-bottom: 10px;
+    color: #000000;
+    font-weight: 500;
+}
+
+.question-card textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    resize: vertical;
+    margin-bottom: 10px;
+}
+
+.question-card input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Bouton d'enregistrement, en cohérence avec les autres boutons */
+.question-card button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.question-card button:hover {
+    background-color: #0056b3;
+}

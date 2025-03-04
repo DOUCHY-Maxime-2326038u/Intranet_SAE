@@ -5,7 +5,7 @@ final class Constants
     const VIEWS_DIR = '/modules/Views/';
     const MODELS_DIR = '/modules/Models/';
     const CONTROLLERS_DIR = '/modules/Controllers/';
-    const ESSENTIALS_DIR = '/_assets/Essentials/';
+    const ESSENTIALS_DIR = '/_assets/Core/';
 
     const UTILS_DIR = '/_assets/Utils/';
 

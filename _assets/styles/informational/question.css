@@ -1,0 +1,84 @@
+:root {
+    --primary-color: #007bff;
+    --primary-hover: #0056b3;
+    --border-color: #e0e0e0;
+    --bg-hover: #f8f9fa;
+    --font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.faq-form {
+    margin-bottom: 2rem;
+    font-family: var(--font-family);
+}
+
+.faq-form textarea {
+    width: 100%;
+    max-width: 600px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.faq-form textarea:focus {
+    border-color: var(--primary-color);
+}
+
+.faq-form button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.faq-form button:hover {
+    background-color: var(--primary-hover);
+}
+
+.faq-card {
+    position: relative;
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: var(--font-family);
+}
+
+.faq-card:hover {
+    background-color: var(--bg-hover);
+    transform: translateY(-2px);
+}
+
+/* Pseudo-élément pour afficher la flèche vers le bas */
+.faq-card::after {
+    content: "\25BC"; /* Caractère Unicode pour la flèche vers le bas */
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+/* Optionnel : rotation de la flèche si la réponse est affichée */
+.faq-card.active::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.faq-answer {
+    display: none;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
